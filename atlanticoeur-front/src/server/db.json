@@ -1,0 +1,88 @@
+{
+    "doctors": [
+        { 
+          "id": 1, 
+          "firstName": "Paul", 
+          "lastName": "Jaillais",
+          "specialities": [1,2],
+          "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
+          "vitalCard": "Acceptée",
+          "tiersPayant": "Sécurité Sociale",
+          "diplomes": ["Ancien interne","Chef de clinique assistant des hopitaux de Toulouse","DES pathologie cardiovasculaire","DU cardiologie du sport","DU médecines subaquatique"],
+          "RPPS": 10003840369
+        },
+        { 
+            "id": 1, 
+            "firstName": "Michel", 
+            "lastName": "Fesolowicz",
+            "specialities": [1,2],
+            "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
+            "vitalCard": "Acceptée",
+            "tiersPayant": "Sécurité Sociale",
+            "diplomes": ["Ancien interne","Chef de clinique assistant des hopitaux de Toulouse","DES pathologie cardiovasculaire","DU cardiologie du sport","DU médecines subaquatique"],
+            "RPPS": 10003840369
+          }
+    ],
+    "examens": [
+        { 
+            "id": 1, 
+            "body": "some comment", 
+            "postId": 1 
+        }
+    ],
+    "specialities": [
+        { 
+            "id": 1, 
+            "name": "Cardiologie", 
+            "content": "Présentation de la cardiologie" 
+        },
+        { 
+            "id": 2, 
+            "name": "Angiologie", 
+            "content": "Présentation de la Angiologie" 
+        }
+    ],
+    "links": [
+        { 
+            "id": 1, 
+            "name": "Lien 1", 
+            "url": "https://google.fr",
+            "category": 1,
+            "date": "yyyy/mm/dd" 
+        },
+        { 
+            "id": 2, 
+            "name": "Lien 1", 
+            "url": "https://google.fr",
+            "category": 2,
+            "date": "yyyy/mm/dd" 
+        }
+    ],
+    "categories": [
+        { 
+            "id": 1, 
+            "name": "Category 1"
+        },
+        { 
+            "id": 2, 
+            "name": "Category 2"
+        }
+    ],
+    "page": [
+        { 
+            "id": 1, 
+            "name": "home",
+            "meta": "demo metadata"
+        },
+        { 
+            "id": 2, 
+            "name": "praticiens",
+            "meta": "demo metadata"
+        },
+        { 
+            "id": 3, 
+            "name": "praticiens",
+            "meta": "demo metadata"
+        }
+    ]
+  }

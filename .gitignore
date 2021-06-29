@@ -1,0 +1,23 @@
+atlanticoeur-front/.DS_Store
+atlanticoeur-front/node_modules
+atlanticoeur-front/dist
+
+
+# local env files
+atlanticoeur-front/.env.local
+atlanticoeur-front/.env.*.local
+
+# Log files
+atlanticoeur-front/npm-debug.log*
+atlanticoeur-front/yarn-debug.log*
+atlanticoeur-front/yarn-error.log*
+atlanticoeur-front/pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
