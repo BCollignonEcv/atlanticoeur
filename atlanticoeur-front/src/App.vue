@@ -4,8 +4,8 @@
     <div id="app">
       <router-view v-slot="{ Component }">
         <transition 
-          enter-active-class="animate__animated animate__fadeIn" 
-          leave-active-class="animate__animated animate__fadeOut"
+          enter-active-class="animate__animated animate__fadeInRight" 
+          leave-active-class="animate__animated animate__fadeOutLeft"
           mode="out-in">
           <component :is="Component" />
         </transition>

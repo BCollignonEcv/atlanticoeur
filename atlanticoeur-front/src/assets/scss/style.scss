@@ -12,3 +12,8 @@ h1{
     margin-bottom: 4.6rem;
     color: var(--color-grey-1);
 }
+
+.animate__animated
+{
+    --animate-duration: 500ms;
+}
