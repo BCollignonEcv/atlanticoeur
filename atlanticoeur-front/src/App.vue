@@ -4,23 +4,27 @@
     <div id="app">
       <router-view v-slot="{ Component }">
         <transition 
-          enter-active-class="animate__animated animate__fadeInLeft" 
-          leave-active-class="animate__animated animate__fadeOutLeft">
+          enter-active-class="animate__animated animate__fadeIn" 
+          leave-active-class="animate__animated animate__fadeOut"
+          mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </div>
+    <Footer-app />
   </div>
 </template>
 
 <script>
 
 import Header from '@/components/global/Header';
+import Footer from '@/components/global/Footer';
 
 export default {
   name: 'App',
   components: {
-    "Header-app": Header
+    "Header-app": Header,
+    "Footer-app": Footer
   }
 
 }
@@ -37,8 +41,8 @@ export default {
   }
 
   .page{
-    position: absolute;
-    top: 0;
-    margin: 0 10%;
+    width: 88.75%;
+    margin: 0 5.625%;
+    min-height: 100vh;
   }
 </style>

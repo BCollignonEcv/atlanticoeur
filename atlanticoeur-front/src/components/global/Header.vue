@@ -10,22 +10,14 @@
 
 <script>
 export default {
-  data () {
-    return {
-      show: false
-    }
-  },
-  mounted () {
-    this.show = true
-  }
+
 }
 </script>
 
 <style lang="scss">
 
 #nav {
-  margin: auto;
-  margin-top: 1.2rem;
+  margin: 1.2rem auto 9.2rem auto;
   padding: 2.4rem;
   width: 61.25%;  
 
@@ -47,13 +39,13 @@ export default {
       height: 1px;
       top: 0;
       left: 0;
-      background-color: var(--color-secondary);
+      background-color: var(--color-primary);
       transform-origin: top right;
       transition: transform 0.25s ease-out;
     }
 
     &:hover{
-      color: var(--color-secondary);
+      color: var(--color-primary);
     }
 
     &:hover:after{
@@ -62,7 +54,7 @@ export default {
     }
 
     &.router-link-exact-active{
-      color: var(--color-secondary);
+      color: var(--color-primary);
 
       &:after {
         transform: scaleX(1);
