@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-BoldIta.otf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-Light.otf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-LightIta.otf') format('truetype');
+    font-weight: lighter;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-Medium.otf') format('truetype');
+    font-weight: medium;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-MedIta.otf') format('truetype');
+    font-weight: medium;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Atlanticoeur';
+    src: url('~@/assets/fonts/Atlanticoeur-RegIta.otf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+:root {
+    --color-primary: #000;
+    --color-secondary: rgb(46, 104, 230);
+}
