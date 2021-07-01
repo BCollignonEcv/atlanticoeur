@@ -1,13 +1,18 @@
-html{
+html {
     font-size: 62.5%;
 }
 
-body{
+body {
     font-size: 1.6rem;
     margin: 0;
 }
 
-h1, h2, h3, h4, p, ul{
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
     margin: 0;
     list-style: none;
     padding: 0;
@@ -17,12 +22,14 @@ h1, h2, h3, h4, p, ul{
     margin-block: 0;
 }
 
-a, abbr, a:visited{
+a,
+abbr,
+a:visited {
     text-decoration: none;
     color: unset;
 }
 
-figure{
+figure {
     display: block;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -30,10 +37,13 @@ figure{
     margin-inline-end: 0;
 }
 
-input, input:focus, input:checked, textarea{
-    border:none;
-    background-image:none;
-    background-color:transparent;
+input,
+input:focus,
+input:checked,
+textarea {
+    border: none;
+    background-image: none;
+    background-color: transparent;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -45,6 +55,6 @@ input, input:focus, input:checked, textarea{
     display: none;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
