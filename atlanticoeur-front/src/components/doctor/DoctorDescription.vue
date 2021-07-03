@@ -1,6 +1,6 @@
 <template>
     <div class="description-doctor">
-        <div class="description-flex description-collapse--title" @click="selectDescription">
+        <div class="description-flex description-collapse--title" @click="collapseDescription">
             <div class="description-aside">
                 <h2>Docteur {{doctor.firstName + ' ' + doctor.lastName}}</h2>
             </div>
@@ -10,7 +10,7 @@
             </div>
         </div>
         <transition name="collapse">
-            <div v-if="selected" class="description-flex description-collapse--content">
+            <div v-if="selected" :ref="descriptionContent" class="description-flex description-collapse--content">
                 <div class="description-aside"></div>
                 <div class="description-content">
                     <div class="description-text-inline description-item">
@@ -64,15 +64,32 @@ export default {
     data() {
         return {
             doctor: this.doctorData,
-            selected: this.isSelected
+            selected: this.isSelected,
+            computedHeight: 'auto'
         }
     },  
     methods: {
-        selectDescription(){
+        collapseDescription(){
+            console.log('toggle')
             this.selected = !this.selected
             this.$emit('selected', this.doctor.id)
+        },
+        initHeight: function(){
+            this.$refs['descriptionContent'].style.position = 'absolute';
+            this.$refs['descriptionContent'].style.visibility = 'hidden';
+            this.$refs['descriptionContent'].style.display = 'block';
+                    
+            const height = getComputedStyle(this.$refs['descriptionContent']).height;      
+            this.computedHeight= height;  
+            
+            this.$refs['descriptionContent'].style.position = null;
+            this.$refs['descriptionContent'].style.visibility = null;
+            this.$refs['descriptionContent'].style.display = 'none';
         }
-    }  
+    },
+    mounted (){
+        this.initHeight()
+    } 
 }
 </script>
 
@@ -137,15 +154,15 @@ export default {
         .description-collapse--content{
             padding: 48px;
             padding-top: 0;
-            transition: all .3s ease-out;
         }
 
-        .collapse-enter-active, .collapse-leave-active {
-            opacity: 1;
+        .collapse-enter-active, .smooth-leave-active {
+            transition: height .5s;
+            overflow: hidden;
         }
-
-        .collapse-enter, .collapse-leave-to {
-            opacity: 0;
+        .collapse-enter, .smooth-leave-to {
+            height: 0;
+            padding-top: 0;
         }
     }
 

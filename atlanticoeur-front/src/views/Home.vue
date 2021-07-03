@@ -17,7 +17,7 @@
 
 <script>
 
-import Specialities from "@/components/Specialities"
+import Specialities from "@/components/speciality/Specialities"
 
 export default {
   name: 'Home',
