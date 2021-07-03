@@ -1,14 +1,14 @@
 @font-face {
     font-family: 'Atlanticoeur';
     src: url('~@/assets/fonts/Atlanticoeur-Bold.otf') format('truetype');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Atlanticoeur';
     src: url('~@/assets/fonts/Atlanticoeur-BoldIta.otf') format('truetype');
-    font-weight: bold;
+    font-weight: 700;
     font-style: italic;
 }
 
@@ -63,6 +63,12 @@
     --color-grey-4: #353535;
     --color-grey-5: #353535;
     --color-grey-6: #CCCCCC;
+    --color-grey--50: #EFEFEF;
+    --color-neutral: #fff;
+}
+
+.bg-grey--50{
+    background-color: var(--color-grey--50);
 }
 
 // FONT SIZE
@@ -70,14 +76,28 @@
     font-size: 3.906rem;
 }
 
+h1 {
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 5.2rem;
+    margin-bottom: 4.6rem;
+    color: var(--color-grey-1);
+}
+
 .font-size-1,
 h1 {
-    font-size: 3.125rem;
+    font-size: 4.8rem;
+    line-height: 5.2rem;
 }
 
 .font-size-2,
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
 .font-size-3,
@@ -99,4 +119,24 @@ a {
 
 .font-size-caption {
     font-size: 1.024rem;
+}
+
+.btn.btn-rdv{
+    padding: .8rem 1.2rem;
+    @extend .font-size-3;
+    color: var(--color-grey-6);
+    border: 1px solid var(--color-grey--50);
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    transition: 1s ease;
+    
+    &:hover{
+        color: var(--color-grey-1);
+        border: 1px solid var(--color-grey-1);
+    }
+}
+
+.btn.btn-rdv + .btn.btn-rdv{
+    margin-top: .8rem;
 }

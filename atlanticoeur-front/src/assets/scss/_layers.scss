@@ -97,11 +97,22 @@
     }
 }
 
+.l_container_text{
+    display: flex;
+    justify-content: space-between;
+
+    &:last-child{
+        text-align: right;
+    }
+}
+
 /*****************************************/
 /**************** GRID *******************/
 /*****************************************/
 
-.wrapper{
-    width: 88.75%;
-    margin: 0 5.625%;
+.wrapper-content{
+    width: 100%;
+    padding: 0 5.625%;
+    position: relative;
 }
+

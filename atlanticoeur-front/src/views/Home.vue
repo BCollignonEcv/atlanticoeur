@@ -1,5 +1,5 @@
 <template>
-  <div class="home page wrapper">
+  <div class="home page wrapper-content">
     <div class="l_container">
       <div class="l_leftSide">
         <h1>Cabinet de cardiologie <br>SCM Atlanticoeur</h1>
@@ -23,8 +23,7 @@ export default {
   name: 'Home',
   components: {
     "Specialities": Specialities
-  }
-
+  },
 }
 </script>
 

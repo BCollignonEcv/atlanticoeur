@@ -4,6 +4,8 @@
           "id": 1, 
           "firstName": "Paul", 
           "lastName": "Jaillais",
+          "pathImg": "Paul_Jaillais.png",
+          "doctolib": "http://google.fr",
           "specialities": [1,2],
           "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
           "vitalCard": "Acceptée",
@@ -12,16 +14,44 @@
           "RPPS": 10003840369
         },
         { 
-            "id": 1, 
+            "id": 2, 
             "firstName": "Michel", 
             "lastName": "Fesolowicz",
+            "pathImg": "Paul_Jaillais.png",
+            "doctolib": "http://google.fr",
             "specialities": [1,2],
             "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
             "vitalCard": "Acceptée",
             "tiersPayant": "Sécurité Sociale",
             "diplomes": ["Ancien interne","Chef de clinique assistant des hopitaux de Toulouse","DES pathologie cardiovasculaire","DU cardiologie du sport","DU médecines subaquatique"],
             "RPPS": 10003840369
-          }
+        },
+        { 
+            "id": 3, 
+            "firstName": "Cyril", 
+            "lastName": "Huet",
+            "pathImg": "Paul_Jaillais.png",
+            "doctolib": "http://google.fr",
+            "specialities": [1,2],
+            "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
+            "vitalCard": "Acceptée",
+            "tiersPayant": "Sécurité Sociale",
+            "diplomes": ["Ancien interne","Chef de clinique assistant des hopitaux de Toulouse","DES pathologie cardiovasculaire","DU cardiologie du sport","DU médecines subaquatique"],
+            "RPPS": 10003840369
+        },
+        { 
+            "id": 4, 
+            "firstName": "Edouard", 
+            "lastName": "Majou",
+            "pathImg": "Paul_Jaillais.png",
+            "doctolib": "http://google.fr",
+            "specialities": [1,2],
+            "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
+            "vitalCard": "Acceptée",
+            "tiersPayant": "Sécurité Sociale",
+            "diplomes": ["Ancien interne","Chef de clinique assistant des hopitaux de Toulouse","DES pathologie cardiovasculaire","DU cardiologie du sport","DU médecines subaquatique"],
+            "RPPS": 10003840369
+        }
     ],
     "examens": [
         { 
@@ -46,14 +76,14 @@
         { 
             "id": 1, 
             "name": "Lien 1", 
-            "url": "https://google.fr",
+            "url": "http://google.fr",
             "category": 1,
             "date": "yyyy/mm/dd" 
         },
         { 
             "id": 2, 
             "name": "Lien 1", 
-            "url": "https://google.fr",
+            "url": "http://google.fr",
             "category": 2,
             "date": "yyyy/mm/dd" 
         }

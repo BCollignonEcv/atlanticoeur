@@ -1,9 +1,9 @@
 <template>
     <div id="nav">
       <nav class="l_container">
-          <router-link to="/">Accueil</router-link>
-          <router-link to="/praticiens">Les praticiens</router-link>
-          <router-link to="/links">Les liens utiles</router-link>
+        <router-link to="/">Accueil</router-link>
+        <router-link to="/praticiens">Les praticiens</router-link>
+        <router-link to="/links">Les liens utiles</router-link>
       </nav>
     </div>
 </template>
@@ -20,6 +20,10 @@ export default {
   margin: 1.2rem auto 9.2rem auto;
   padding: 2.4rem;
   width: 61.25%;  
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 
   a {
     text-transform: uppercase;
@@ -27,7 +31,7 @@ export default {
     font-size: 1.6rem;
     flex: 1;
     padding: .8rem;
-    font-weight: bold;
+    font-weight: 700;
     display: inline-block;
     position: relative;
 

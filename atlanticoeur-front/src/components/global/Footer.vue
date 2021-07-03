@@ -5,9 +5,9 @@
                 <nav>
                     <ul>
                         <li class="item-title"><h5>Architecture du site</h5></li>
-                        <li><router-link to="/">Accueil</router-link></li>
-                        <li><router-link to="/praticiens">Les praticiens</router-link></li>
-                        <li><router-link to="/links">Les liens utiles</router-link></li>
+                        <li><router-link to="/" @click="scrollToTop">Accueil</router-link></li>
+                        <li><router-link to="/praticiens" @click="scrollToTop">Les praticiens</router-link></li>
+                        <li><router-link to="/links" @click="scrollToTop">Les liens utiles</router-link></li>
                         <li>Mentions legales</li>
                     </ul>
                 </nav>
@@ -48,19 +48,24 @@ export default {
             contact: []
         }
     },
-    methods: function (){
-
-    }
+    methods: {
+        scrollToTop() {
+            window.scrollTo(0,0);
+        }
+  }
 }
 </script>
 
 <style lang="scss">
   @import "@/assets/scss/_variables.scss";
+  @import "@/assets/scss/_layers.scss";
 
     #footer{
         width: 100%;
         background-color: var(--color-grey-3);
-        padding: 7.2rem 0;
+        padding-top: 7.2rem;
+        padding-bottom: 7.2rem;
+        @extend .wrapper-content;
         
         .l_container{
             padding-bottom: 15vh;
@@ -73,11 +78,11 @@ export default {
                 padding: .4rem 0;
                 border-top: 1px solid var(--color-grey-1);
                 p{
-                    font-weight: bold;
+                    font-weight: 700;
                 }
 
                 a{
-                    font-weight: bold;
+                    font-weight: 700;
                     transition: 1s ease;
                 }
 
@@ -95,7 +100,7 @@ export default {
                 margin-bottom: 4.8rem;
                 h5{
                     @extend .font-size-3;
-                    font-weight: bold;
+                    font-weight: 700;
                 }
             }
 

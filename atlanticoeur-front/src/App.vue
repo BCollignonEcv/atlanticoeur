@@ -4,14 +4,14 @@
     <div id="app">
       <router-view v-slot="{ Component }">
         <transition 
-          enter-active-class="animate__animated animate__fadeInRight" 
-          leave-active-class="animate__animated animate__fadeOutLeft"
+          enter-active-class="animate__animated animate__fadeIn" 
+          leave-active-class="animate__animated animate__fadeOutDown"
           mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </div>
-    <Footer-app />
+    <Footer-app/>
   </div>
 </template>
 
@@ -41,8 +41,6 @@ export default {
   }
 
   .page{
-    width: 88.75%;
-    margin: 0 5.625%;
     min-height: 100vh;
   }
 </style>
