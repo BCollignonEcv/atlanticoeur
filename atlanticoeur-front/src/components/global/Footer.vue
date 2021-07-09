@@ -1,5 +1,5 @@
 <template>
-    <div id="footer">
+    <div>
         <div class="l_container wrapper">
             <div class="footer-item">
                 <nav>
@@ -60,7 +60,7 @@ export default {
   @import "@/assets/scss/_variables.scss";
   @import "@/assets/scss/_layers.scss";
 
-    #footer{
+    footer{
         width: 100%;
         background-color: var(--color-grey-3);
         padding-top: 7.2rem;

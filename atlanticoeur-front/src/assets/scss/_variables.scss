@@ -63,6 +63,7 @@
     --color-grey-4: #353535;
     --color-grey-5: #353535;
     --color-grey-6: #CCCCCC;
+    --color-grey-7: #838383;
     --color-grey--50: #EFEFEF;
     --color-neutral: #fff;
 }
@@ -130,7 +131,7 @@ a {
     width: 100%;
     cursor: pointer;
     transition: 1s ease;
-    
+
     &:hover{
         color: var(--color-grey-1);
         border: 1px solid var(--color-grey-1);

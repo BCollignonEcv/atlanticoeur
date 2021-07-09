@@ -1,5 +1,6 @@
 <template>
     <div class="card-doctor">
+        <!-- <script type="application/ld+json"></script> -->
         <div v-if="type === 'big'">
             <div class="card-speciality-title">
                 <p>{{doctor.specialities[0].name}}</p>
@@ -21,7 +22,10 @@
                 </div>
             </div>
             <button v-if="type === 'big'" class="btn btn-rdv">Profil du praticien</button>
-            <button class="btn btn-rdv">Prendre rendez-vous</button>
+            <button class="btn btn-rdv" @click="takeAppointment">Prendre rendez-vous</button>
+            <!-- <div>
+                <iframe scrolling="no" src="{{ doctor.doctolib }}" style="height:304px; min-height: 304px; width: 80%"></iframe>
+            </div> -->
         </div>
     </div>
 </template>
@@ -37,13 +41,17 @@ export default {
     data () {
         return {
             doctor: this.doctorData,
-            alphabet: ['A', 'B', 'C', 'D', 'E', 'F']
+            alphabet: ['A', 'B', 'C', 'D', 'E', 'F'],
+            jsonld: {}
         }
     },
     methods: {
         getImgUrl(pathImg) {
             return require('@/assets/img/'+pathImg)
-        }    
+        },
+        takeAppointment(){
+
+        }
     },
     mounted(){
     }
@@ -51,7 +59,6 @@ export default {
 </script>
 
 <style lang="scss">
-    @import "@/assets/scss/_variables.scss";
 
     .card-doctor{
         

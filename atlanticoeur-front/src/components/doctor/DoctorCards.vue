@@ -53,7 +53,6 @@ export default {
     .flex-doctor{
         display: flex;
         flex-wrap: wrap;
-        flex-basis: 25%;
         margin: 0 -1.2rem;
         padding: 4.8rem 0 17.2rem 0;
 
@@ -61,6 +60,5 @@ export default {
             margin: 0 1.2rem;
             width: calc(25% - 2.4rem);
         }
-
     }
 </style>

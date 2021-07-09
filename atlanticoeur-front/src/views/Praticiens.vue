@@ -3,8 +3,8 @@
     <div class="wrapper-content">
       <h1>Les praticiens du cabinet <br> SCM Atlanticœur</h1>
     </div>
-    <doctors-card-list :type-card="'big'"/>
-    <doctors-description-list />
+    <doctors-card-list :data-doctors="doctors" :type-card="'big'"/>
+    <doctors-description-list :selected-item="selected" :data-doctors="doctors"/>
   </div>
 </template>
 
@@ -23,16 +23,10 @@ export default {
   data() {
         return {
             doctors: [],
-            selected: 0,
+            selected: 1
         }
     },
     methods: {
-        getImgUrl(pathImg) {
-            return require('@/assets/img/'+pathImg)
-        },
-        childSelectDescription(value){
-            this.selected = value
-        },
         async fetchData(){
             axios.get('http://localhost:3000/doctors').then(res => {
                     axios.get('http://localhost:3000/specialities').then(resSpe => {
