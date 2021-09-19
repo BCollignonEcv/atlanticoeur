@@ -8,4 +8,3 @@ import router from './router'
 createApp(Header).use(router).mount('#header')
 createApp(App).use(router).mount('#app')
 createApp(Footer).use(router).mount('#footer')
-

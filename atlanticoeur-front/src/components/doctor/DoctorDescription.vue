@@ -2,7 +2,7 @@
     <div class="description-doctor" :id="'doctorDescription'+doctor.id">
         <div class="description-collapse description-collapse--title" @click="collapse">
             <div class="description-aside">
-                <h2>Docteur {{doctor.firstName + ' ' + doctor.lastName}}</h2>
+                <h3>Docteur {{doctor.firstName + ' ' + doctor.lastName}}</h3>
             </div>
             <div class="description-content description-title-inline">
                 <p>Informations</p>
@@ -112,6 +112,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    $padding: 2.4rem;
 
     .description-doctor{
         width: 100%;
@@ -124,18 +125,18 @@ export default {
             width: 100%;
 
             &.description-collapse--title{
-                padding: 48px;
+                padding: $padding * 2;
                 cursor: pointer;
             }
 
             &.description-collapse--content{
-                padding: 48px;
+                padding: $padding * 2;
                 padding-top: 0;
             }
             
             .description-aside{
                 width: calc(24% - 2.4rem);
-                margin-right: 2.4rem;
+                margin-right: $padding;
             }
 
             .description-content{
@@ -143,21 +144,21 @@ export default {
 
                 .description-item{
                     display: flex;
-                    border-top: 1px solid var(--color-grey-2);
-                    padding: 1.2rem 0;
+                    border-top: 1px solid $color-grey-2;
+                    padding: $padding/2 0;
 
                     p{
-                        @extend .font-size-3;
+                        @extend .font-size-4;
                         font-weight: bold;
                     }
 
                     &:last-child{
-                        border-bottom: 1px solid var(--color-grey-2);
+                        border-bottom: 1px solid $color-grey-2;
                     }
 
                     &--title{
                         width: 20%;
-                        color: var(--color-grey-7);
+                        color: $color-grey-7;
                     }
 
                     &--content{
@@ -167,8 +168,8 @@ export default {
                             padding: 0;
 
                             .description-subitem {
-                                padding: 1.2rem 0;
-                                border-bottom: 1px solid var(--color-grey-2);
+                                padding: $padding/2 0;
+                                border-bottom: 1px solid $color-grey-2;
 
                                 &:first-child{
                                     padding-top: 0;
@@ -185,14 +186,13 @@ export default {
             }
         }
 
-
         .description-title-inline {
             display: flex;
             justify-content: space-between;
             width: 100%;
 
             p{
-                @extend .font-size-2;
+                @extend .font-size-3;
             }
 
             &:last-child{

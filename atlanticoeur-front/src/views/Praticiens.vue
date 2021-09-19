@@ -49,7 +49,7 @@ export default {
 <style lang="scss" scoped>
   .links{
     p{
-        color: var(--color-primary);
+        color: $color-primary;
     }
   } 
 </style>

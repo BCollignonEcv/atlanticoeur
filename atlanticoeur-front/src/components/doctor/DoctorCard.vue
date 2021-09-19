@@ -1,6 +1,5 @@
 <template>
     <div class="card-doctor">
-        <!-- <script type="application/ld+json"></script> -->
         <div v-if="type === 'big'">
             <div class="card-speciality-title">
                 <p>{{doctor.specialities[0].name}}</p>
@@ -10,7 +9,7 @@
         <div class="card-doctor-info">
             <div class="card-element">
                 <div class="card-flex">
-                    <h3>Docteur <span>{{ doctor.firstName + ' ' + doctor.lastName}}</span></h3>
+                    <h4>Docteur <span>{{ doctor.firstName + ' ' + doctor.lastName}}</span></h4>
                     <p class="card-doctor-subtitle">Secteur 1</p>
                 </div>
                 <p class="card-doctor-subtitle">Spécilités</p>
@@ -63,19 +62,20 @@ export default {
     .card-doctor{
         
         .card-speciality-title{
-            border-left: 1px solid var(--color-grey-6);
-            border-right: 1px solid var(--color-grey-6);
+            border-left: 1px solid $color-grey-6;
+            border-right: 1px solid $color-grey-6;
             margin-bottom: 1.6rem;
-            color: var(--color-grey-6);
+            color: $color-grey-6;
             transition: 0.5s ease-in-out;
-            font-weight: 700;
 
             &:hover{
-                color: var(--color-grey-1);
-                border-left: 1px solid var(--color-grey-1);
-                border-right: 1px solid var(--color-grey-1);
+                color: $color-grey-1;
+                border-left: 1px solid $color-grey-1;
+                border-right: 1px solid $color-grey-1;
             }
             p{
+                @extend .font-size-4;
+                font-weight: 700;
                 width: 100%;
                 padding: 3.4rem 0;
                 text-align: center;
@@ -89,7 +89,7 @@ export default {
         }
 
         .card-doctor-info{
-            background-color: var(--color-neutral);
+            background-color: $color-neutral;
             padding: 48px 24px;
             filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
             border-radius: 8px;
@@ -97,15 +97,15 @@ export default {
             .card-element{
                 margin-bottom: 2.4rem;
 
-                h3{
-                    color: var(--color-grey-1);
+                h4{
+                    color: $color-grey-1;
                     span{
                         font-weight: 700;
                     }
                 }
 
                 .card-doctor-subtitle{
-                    @extend .font-size-3;
+                    @extend .font-size-4;
                     font-weight: normal;
                 }
 
@@ -119,7 +119,7 @@ export default {
 
                     &.card-doctor-speciality{
                         padding: .8rem 0;
-                        border-bottom: 1px solid var(--color-grey--50);
+                        border-bottom: 1px solid $color-grey--50;
                         *{
                             font-weight: 700;
                         }

@@ -57,12 +57,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "@/assets/scss/_variables.scss";
-  @import "@/assets/scss/_layers.scss";
-
     footer{
         width: 100%;
-        background-color: var(--color-grey-3);
+        background-color: $color-grey-3;
         padding-top: 7.2rem;
         padding-bottom: 7.2rem;
         @extend .wrapper-content;
@@ -76,7 +73,7 @@ export default {
 
             li{
                 padding: .4rem 0;
-                border-top: 1px solid var(--color-grey-1);
+                border-top: 1px solid $color-grey-1;
                 p{
                     font-weight: 700;
                 }
@@ -87,10 +84,10 @@ export default {
                 }
 
                 &:hover{
-                    border-top: 1px solid var(--color-primary);
+                    border-top: 1px solid $color-primary;
                     a{
                         padding-left: 1rem;
-                        color: var(--color-primary);
+                        color: $color-primary;
                     }
                 }
             }

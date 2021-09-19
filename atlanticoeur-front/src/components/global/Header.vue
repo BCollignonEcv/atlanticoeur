@@ -28,7 +28,6 @@ export default {
   a {
     text-transform: uppercase;
     text-align: center;
-    font-size: 1.6rem;
     flex: 1;
     padding: .8rem;
     font-weight: 700;
@@ -43,13 +42,13 @@ export default {
       height: 1px;
       top: 0;
       left: 0;
-      background-color: var(--color-primary);
+      background-color: $color-primary;
       transform-origin: top right;
       transition: transform 0.25s ease-out;
     }
 
     &:hover{
-      color: var(--color-primary);
+      color: $color-primary;
     }
 
     &:hover:after{
@@ -58,7 +57,7 @@ export default {
     }
 
     &.router-link-exact-active{
-      color: var(--color-primary);
+      color: $color-primary;
 
       &:after {
         transform: scaleX(1);
