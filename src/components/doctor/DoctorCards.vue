@@ -13,7 +13,6 @@
 
 <script>
 
-import axios from 'axios'
 import Doctorcard from '@/components/doctor/DoctorCard'
 
 export default {
@@ -29,23 +28,8 @@ export default {
             type: this.typeCard
         }
     },
-    methods: {
-        async fetchData(){
-            axios.get('http://localhost:3000/doctors').then(res => {
-                    axios.get('http://localhost:3000/specialities').then(resSpe => {
-                            res.data.forEach((item) => {
-                                item['specialities'].forEach( (speciality) => {
-                                    item['specialities'][speciality - 1] = resSpe.data[speciality - 1]
-                                })
-                            })
-                            this.doctors = res.data
-                        })
-                })
-        }
-    },
-    mounted () {
-        this.fetchData()
-    }
+    methods: {},
+    mounted () {}
 }
 </script>
 
