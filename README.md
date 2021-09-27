@@ -1,5 +1,7 @@
 # Atlanticoeur
 
+https://bcollignonecv.github.io/atlanticoeur/
+
 ## Setup 
 
 ### Project setup
