@@ -20,16 +20,19 @@ export default {
         'doctor-card': Doctorcard
     },
     props: {
-        typeCard: String
+        typeCard: String,
+        dataDoctors: Object
     },
     data() {
         return {
-            doctors: [],
+            doctors: this.dataDoctors,
             type: this.typeCard
         }
     },
     methods: {},
-    mounted () {}
+    mounted () {
+        console.log('data : ', this.doctors)
+    }
 }
 </script>
 

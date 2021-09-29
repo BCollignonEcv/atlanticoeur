@@ -5,6 +5,9 @@
     </div>
     <doctors-card-list :data-doctors="doctors" :type-card="'big'"/>
     <doctors-description-list :selected-item="selected" :data-doctors="doctors"/>
+    <div class="wrapper-content">
+      <h2>Les spécialités du cabinet <br> SCM Atlanticœur</h2>
+    </div>
   </div>
 </template>
 

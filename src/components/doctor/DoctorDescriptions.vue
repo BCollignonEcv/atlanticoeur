@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             selected: this.selectedItem,
-            doctors: []
+            doctors: this.dataDoctors
         }
     },
     watch: {
