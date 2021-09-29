@@ -1,6 +1,6 @@
 <template>
   <div class="home page wrapper-content">
-    <div class="l_container">
+    <section class="l_container">
       <div class="l_leftSide">
         <h1>Cabinet de cardiologie <br>SCM Atlanticoeur</h1>
         <div class="l_container">
@@ -11,7 +11,16 @@
       <div class="l_rightSide">
         <Specialities />
       </div>
-    </div>
+    </section>
+    <section>
+      <h2>Les différents praticiens du cabinet</h2>
+    </section>
+    <section>
+      <h2>Les examens réalisés du cabinet</h2>
+    </section>
+    <section>
+      <h2>La clinique atlanticoeur</h2>
+    </section>
   </div>
 </template>
 

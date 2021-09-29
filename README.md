@@ -14,11 +14,6 @@ npm install
 npm run serve
 ```
 
-#### Run API - Json server
-```
-json-server server/db.json --routes server/routes.json
-```
-
 #### Compiles and minifies for production
 ```
 npm run build
