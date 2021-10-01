@@ -5,10 +5,14 @@
     color: $color-grey-6;
 }
 
-/****************************/
-/*          FONTS           */
+
 /****************************/
 
+
+/*          FONTS           */
+
+
+/****************************/
 
 h1 {
     @extend .font-size-1;
@@ -38,8 +42,7 @@ a {
     @extend .font-size-normal;
 }
 
-
-.btn.btn-rdv{
+.btn.btn-rdv {
     padding: .8rem 1.2rem;
     @extend .font-size-4;
     color: $color-grey-6;
@@ -48,17 +51,20 @@ a {
     width: 100%;
     cursor: pointer;
     transition: 1s ease;
-
-    &:hover{
+    &:hover {
         color: $color-grey-1;
         border: 1px solid $color-grey-1;
     }
 }
 
-.btn.btn-rdv + .btn.btn-rdv{
+.btn.btn-rdv+.btn.btn-rdv {
     margin-top: .8rem;
 }
 
 .animate__animated {
     --animate-duration: 500ms;
+}
+
+.align-right {
+    text-align: right;
 }
