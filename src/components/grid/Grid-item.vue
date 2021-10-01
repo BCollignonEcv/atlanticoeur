@@ -29,6 +29,7 @@ export default {
 <style lang="scss">
     .grid {
         padding-top: 4.6rem;
+        
         .grid_header{
             border-top: 1px solid $color-grey-6;
             border-bottom: 1px solid $color-grey-6;
