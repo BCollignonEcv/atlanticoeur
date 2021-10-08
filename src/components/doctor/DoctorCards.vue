@@ -29,10 +29,6 @@ export default {
             type: this.typeCard
         }
     },
-    methods: {},
-    mounted () {
-        console.log('data : ', this.doctors)
-    }
 }
 </script>
 

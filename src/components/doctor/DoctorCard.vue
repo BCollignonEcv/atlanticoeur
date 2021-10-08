@@ -17,7 +17,7 @@
             <div class="card-element">
                 <div class="card-flex card-doctor-speciality" v-for="(speciality, index) in doctor.specialities" :key="index">
                     <p>{{alphabet[index]}}</p>
-                    <p>{{'Description : ' + speciality.name}}</p>
+                    <p>{{speciality.name}}</p>
                 </div>
             </div>
             <button v-if="type === 'big'" class="btn btn-rdv">Profil du praticien</button>
@@ -60,6 +60,14 @@ export default {
 <style lang="scss">
 
     .card-doctor{
+
+        &:hover{
+            .card-speciality-title{
+                color: $color-grey-1;
+                border-left: 1px solid $color-grey-1;
+                border-right: 1px solid $color-grey-1;
+            }
+        }
         
         .card-speciality-title{
             border-left: 1px solid $color-grey-6;
@@ -68,11 +76,6 @@ export default {
             color: $color-grey-6;
             transition: 0.5s ease-in-out;
 
-            &:hover{
-                color: $color-grey-1;
-                border-left: 1px solid $color-grey-1;
-                border-right: 1px solid $color-grey-1;
-            }
             p{
                 @extend .font-size-4;
                 font-weight: 700;

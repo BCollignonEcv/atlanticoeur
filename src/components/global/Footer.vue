@@ -5,10 +5,10 @@
                 <nav>
                     <ul>
                         <li class="item-title"><h5>Architecture du site</h5></li>
-                        <li><router-link to="/" @click="scrollToTop">Accueil</router-link></li>
-                        <li><router-link to="/praticiens" @click="scrollToTop">Les praticiens</router-link></li>
-                        <li><router-link to="/links" @click="scrollToTop">Les liens utiles</router-link></li>
-                        <li>Mentions legales</li>
+                        <li class="link"><router-link to="/" @click="scrollToTop">Accueil</router-link></li>
+                        <li class="link"><router-link to="/praticiens" @click="scrollToTop">Les praticiens</router-link></li>
+                        <li class="link"><router-link to="/links" @click="scrollToTop">Les liens utiles</router-link></li>
+                        <li class="link">Mentions legales</li>
                     </ul>
                 </nav>
             </div>
@@ -23,15 +23,15 @@
             <div class="footer-item">
                 <ul>
                     <li class="item-title"><h5>Nous contacter</h5></li>
-                    <li><a href="tel:+33546410753">Tél : +33 5 46 41 07 53</a></li>
-                    <li><a href="mailto:contact%40atlanticoeur.fr">Mail : contact@atlanticoeur.fr</a></li>
+                    <li class="link"><a href="tel:+33546410753">Tél : +33 5 46 41 07 53</a></li>
+                    <li class="link"><a href="mailto:contact%40atlanticoeur.fr">Mail : contact@atlanticoeur.fr</a></li>
                 </ul>
             </div>
             <div class="footer-item">
                 <ul>
                     <li class="item-title"><h5>Crédits - 2021</h5></li>
-                    <li><a target="_blank" href="https://www.collignonbaptiste.com">Dev : Collignon Baptiste</a></li>
-                    <li><a target="_blank" href="https://www.enzonicolas.eu">Design : Enzo Nicolas</a></li>
+                    <li class="link"><a target="_blank" href="https://www.collignonbaptiste.com">Dev : Collignon Baptiste</a></li>
+                    <li class="link"><a target="_blank" href="https://www.enzonicolas.eu">Design : Enzo Nicolas</a></li>
                     <li><br></li>
                     <li><p>@ 2021, SCM Atlanticoeur</p></li>
                 </ul>
@@ -62,6 +62,7 @@ export default {
         background-color: $color-grey-3;
         padding-top: 7.2rem;
         padding-bottom: 7.2rem;
+        margin-top: 4.6rem;
         @extend .wrapper-content;
         
         .l_container{
@@ -83,8 +84,10 @@ export default {
                     transition: 1s ease;
                 }
 
-                &:hover{
+                &.link:hover{
                     border-top: 1px solid $color-primary;
+                    cursor: pointer;
+
                     a{
                         padding-left: 1rem;
                         color: $color-primary;

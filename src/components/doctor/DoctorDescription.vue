@@ -22,7 +22,7 @@
                         <p class="description-item--title">Spécilités</p>
                         <div class="description-item--content description-subitem-specialities">
                             <div class="description-subitem-specialities--item" v-for="(speciality, index) in doctor.specialities" :key="index">
-                                {{speciality.name}}
+                                <p>{{speciality.name}}</p>
                             </div>
                         </div>
                     </div>
@@ -178,6 +178,24 @@ export default {
                                 &:last-child{
                                     border-bottom: none;
                                     padding-bottom: 0;
+                                }
+                            }
+                        }
+
+                        &.description-subitem-specialities{
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            grid-gap: 10px;
+
+                            .description-subitem-specialities--item{
+                                align-items: center;
+                                padding: 4px 24px;
+
+                                background: #353535;
+                                border-radius: 4px;
+
+                                p{
+                                    text-align: center;
                                 }
                             }
                         }
