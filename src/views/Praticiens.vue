@@ -3,8 +3,8 @@
     <div class="wrapper-content">
       <h1>Les praticiens du cabinet <br> SCM Atlanticœur</h1>
     </div>
-    <doctors-card-list :data-doctors="doctors" :type-card="'big'"/>
-    <doctors-description-list :selected-item="selected" :data-doctors="doctors"/>
+    <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'"/>
+    <doctors-description-list :selected-item="selected" :data-doctors="doctorsSpe"/>
     <div class="wrapper-content">
       <h2>Les spécialités du cabinet <br> SCM Atlanticœur</h2>
     </div>
@@ -31,7 +31,7 @@ export default {
                 "lastName": "Jaillais",
                 "pathImg": "Paul_Jaillais.png",
                 "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/paul-jaillais?locale=fr",
-                "specialities": [1,2],
+                "specialities": [0,1],
                 "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
                 "vitalCard": "Acceptée",
                 "tiersPayant": "Sécurité Sociale",
@@ -44,7 +44,7 @@ export default {
                   "lastName": "Fesolowicz",
                   "pathImg": "Paul_Jaillais.png",
                   "doctolib": "http://google.fr",
-                  "specialities": [1,2],
+                  "specialities": [2,0],
                   "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
                   "vitalCard": "Acceptée",
                   "tiersPayant": "Sécurité Sociale",
@@ -57,7 +57,7 @@ export default {
                   "lastName": "Huet",
                   "pathImg": "Paul_Jaillais.png",
                   "doctolib": "http://google.fr",
-                  "specialities": [1,2],
+                  "specialities": [0,1],
                   "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
                   "vitalCard": "Acceptée",
                   "tiersPayant": "Sécurité Sociale",
@@ -70,7 +70,7 @@ export default {
                   "lastName": "Majou",
                   "pathImg": "Paul_Jaillais.png",
                   "doctolib": "http://google.fr",
-                  "specialities": [1,2],
+                  "specialities": [0,1],
                   "presentation": "Le docteur Paul Jaillais consulte à la Clinique de l'Atlantique à Puilboreau. Il prend en charge l'ensemble de la pathologie cardiaque mais aussi la cardiologie préventive du sportif, réalise les examens non invasifs, électrocardiogrammes, échographies, épreuves d’effort, enregistrements rythmiques et tensionnels nécessaires aux diagnostics, au traitement et au suivi. Pour la consultation, pensez à prendre vos dernières analyses biologiques et vos éventuels documents cardiologiques antérieurs.",
                   "vitalCard": "Acceptée",
                   "tiersPayant": "Sécurité Sociale",
@@ -78,13 +78,46 @@ export default {
                   "RPPS": 10003840369
               }
             ],
+            specialities: [
+              {
+                "name": "Cardiologie adulte",
+                "description": "hello description"
+              },
+              {
+                "name": "Cardiologie du sport",
+                "description": "hello description"
+              },
+              {
+                "name": "Angiologie",
+                "description": "hello description"
+              },
+              {
+                "name": "Cardiologie adulte",
+                "description": "hello description"
+              },
+            ],
+            doctorsSpe: [],
             selected: 1
         }
     },
-    methods: {
-        
+     methods: {
+
+       // Change speciality index by content
+        includeSpecialities(){
+            this.doctors.forEach((doctor, doctorIndex) => {
+                Object.entries(doctor.specialities).forEach(entry => {
+                    const [key, value] = entry;
+                    doctor.specialities[key] = this.specialities[value]
+                });
+                this.doctorsSpe.push(doctor);
+                console.log(doctorIndex, doctor)
+            });
+        }
     },
-    mounted () {
+    created () {
+        this.includeSpecialities();
+    },
+    mounted (){
     }
 }
 </script>
