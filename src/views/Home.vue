@@ -9,7 +9,6 @@
         </div>
       </div>
       <div class="l_rightSide">
-        <Specialities />
       </div>
     </section>
     <section>
@@ -26,12 +25,10 @@
 
 <script>
 
-import Specialities from "@/components/speciality/Specialities"
 
 export default {
   name: 'Home',
   components: {
-    "Specialities": Specialities
   },
 }
 </script>
