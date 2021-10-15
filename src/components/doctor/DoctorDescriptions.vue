@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-content bg-grey--50">
+    <div class="wrapper-content" style="background-color: rgba(239, 239, 239, .5)">
         <div class="description-doctor-list">
             <transition-group 
                 name="descriptionList"
@@ -51,10 +51,11 @@ export default {
 </script>
 
 <style lang="scss">
-
+    
     .description-doctor-list{
         position: relative;
         top: -6.4rem;
+        padding-bottom: 4rem;
     }
 
 </style>

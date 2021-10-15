@@ -20,18 +20,26 @@
                     <p>{{speciality.name}}</p>
                 </div>
             </div>
-            <button v-if="type === 'big'" class="btn btn-rdv">Profil du praticien</button>
-            <button class="btn btn-rdv" @click="takeAppointment">Prendre rendez-vous</button>
-            <!-- <div>
-                <iframe scrolling="no" src="{{ doctor.doctolib }}" style="height:304px; min-height: 304px; width: 80%"></iframe>
-            </div> -->
+            <button v-if="type === 'big'" @click="scrollToDoctor(doctor.id)" class="btn btn-rdv">Profil du praticien</button>
+            <button class="btn btn-rdv" @click="showModal()">Prendre rendez-vous</button>
+            <doctolib-modal 
+                v-show="isModalVisible"
+                @close="closeModal"
+                :data-doctor="doctor"
+            />
         </div>
     </div>
 </template>
 
 <script>
+
+import DoctolibModal from "@/components/modal/doctolib"
+
 export default {
     name: 'Doctor',
+    components: {
+        'doctolib-modal': DoctolibModal
+    },
     props: {
         doctorData: Object, 
         selected: Boolean,
@@ -41,15 +49,21 @@ export default {
         return {
             doctor: this.doctorData,
             alphabet: ['A', 'B', 'C', 'D', 'E', 'F'],
-            jsonld: {}
+            isModalVisible: false
         }
     },
     methods: {
         getImgUrl(pathImg) {
             return require('@/assets/img/'+pathImg)
         },
-        takeAppointment(){
-
+        showModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        },
+        scrollToDoctor(target){
+            alert(target)
         }
     },
     mounted(){
@@ -94,7 +108,8 @@ export default {
         .card-doctor-info{
             background-color: $color-neutral;
             padding: 48px 24px;
-            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            // filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
             border-radius: 8px;
 
             .card-element{

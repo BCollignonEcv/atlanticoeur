@@ -50,7 +50,7 @@ export default {
                   "firstName": "Michel", 
                   "lastName": "Fesolowicz",
                   "pathImg": "Paul_Jaillais.png",
-                  "doctolib": "http://google.fr",
+                  "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/michel-fesolowicz?locale=fr",
                   "specialities": [
                     ["angiologie", 0],
                     ["cardiologie", 1],
@@ -65,7 +65,7 @@ export default {
                   "firstName": "Cyril", 
                   "lastName": "Huet",
                   "pathImg": "Paul_Jaillais.png",
-                  "doctolib": "http://google.fr",
+                  "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/cyril-huet?locale=fr",
                   "specialities": [
                     ["cardiologie", 0],
                     ["cardiologie", 1],
@@ -81,7 +81,7 @@ export default {
                   "firstName": "Edouard", 
                   "lastName": "Majou",
                   "pathImg": "Paul_Jaillais.png",
-                  "doctolib": "http://google.fr",
+                  "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/edouard-majou?locale=fr",
                   "specialities": [
                     ["cardiologie", 0],
                     ["cardiologie", 1],
@@ -127,6 +127,18 @@ export default {
                     }
                   ]
                 },
+                "demo": {
+                  "id": 3,
+                  "name": "Demo",
+                  "pathImg": "/specialities/angiologie.png",
+                  "discover": "Qu'est ce que la demo",
+                  "subcategory": [
+                    {
+                      "name": "Angiologie",
+                      "description": "hello description",
+                    }
+                  ]
+                },
               }
             ],
             doctorsSpe: [],
@@ -134,7 +146,6 @@ export default {
         }
     },
      methods: {
-
        // Change speciality index by content
         includeSpecialities(){
             this.doctors.forEach((doctor) => {

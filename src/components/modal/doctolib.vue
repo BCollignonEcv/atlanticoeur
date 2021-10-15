@@ -1,0 +1,86 @@
+<template>
+    <div class="iframe-container" @click="closeIframe()">
+        <div class="iframe-inner">
+            <div class="iframe-exit" @click="closeIframe()">
+                <span>Fermer</span>
+            </div>
+            <iframe scrolling="no" :src="getDoctolibUrl()" style="height:100%; width: 100%"></iframe>
+            <!-- <script src="https://www.doctolib.fr:443/js/iframeResizer.js" nonce="rDdvt/JlFgaqX9MJ2R58yg=="></script>
+            <script nonce="rDdvt/JlFgaqX9MJ2R58yg==">iFrameResize()</script> -->
+        </div>
+    </div>
+</template>
+
+<script>
+// https://www.digitalocean.com/community/tutorials/vuejs-vue-modal-component
+
+export default {
+    components: {},
+    props: {
+        dataDoctor: Object,
+    },
+    data() {
+        return {
+            doctor: this.dataDoctor,
+        }
+    },
+    methods: {
+        getDoctolibUrl() {
+            return this.doctor.doctolib;
+        },
+        closeIframe(){
+            this.$emit('close');
+        },
+    },
+    mounted() {
+    }
+}
+</script>
+
+<style lang="scss">
+    .modal-fade-enter,
+    .modal-fade-leave-to {
+        opacity: 0;
+    }
+
+    .modal-fade-enter-active,
+    .modal-fade-leave-active {
+        transition: opacity 1s ease;
+    }
+    
+    .iframe-container{
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: $color-grey-1--50;
+        z-index: 100;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        .iframe-inner{
+            width: 80vw;
+            height: 90vh;
+            margin: 5vh 10vw;
+            position: relative;
+            background-color: $color-neutral;
+            z-index: 101;
+            border-radius: 8px; 
+            cursor: default;
+            
+            .iframe-exit{
+                position: absolute;
+                top: 24px;
+                right: 24px;
+                cursor: pointer;
+                color: $color-primary;
+            }
+
+            iframe{
+                border: none;
+                border-radius: 8px;
+            }
+        }
+    }
+</style>
