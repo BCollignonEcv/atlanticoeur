@@ -26,7 +26,8 @@ export default {
     data() {
         return {
             doctors: this.dataDoctors,
-            type: this.typeCard
+            type: this.typeCard,
+            selected: null
         }
     },
 }

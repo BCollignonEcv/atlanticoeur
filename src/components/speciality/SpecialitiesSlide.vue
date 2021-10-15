@@ -1,9 +1,17 @@
 <template>
     <div :id="'slide-'+speciality.id">
-        <figure>
-            <figcaption class="slide-overlay">{{speciality.discover}}</figcaption>
-            <img class="slide-img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
-        </figure>
+        <div class="flip_card">
+            <div class="flip_card-inner">
+                <div class="flip_card-front">
+                    <figure class="flip_card-front">
+                        <figcaption class="slide-overlay">{{speciality.discover}}</figcaption>
+                        <img class="slide-img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
+                    </figure>
+                </div>
+                <div class="flip_card-back">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -32,5 +40,5 @@ export default {
 </script>
 
 <style lang="scss">
-
+    
 </style>

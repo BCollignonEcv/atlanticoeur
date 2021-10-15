@@ -1,5 +1,9 @@
 /****************************/
+
+
 /*          SCREEN          */
+
+
 /****************************/
 
 $breackpoint-desktop: 1920px;
@@ -7,46 +11,49 @@ $breackpoint-tablette: 1440px;
 $breackpoint-mobile: 860px;
 
 /****************************/
+
+
 /*          COLOR           */
+
+
 /****************************/
 
 $color-primary: rgb(46, 104, 230);
 $color-grey-1: #222222;
+$color-grey-1--50: rgba(22, 22, 22, .5);
 $color-grey-2: #353535;
 $color-grey-3: #353535;
 $color-grey-4: #353535;
 $color-grey-5: #353535;
 $color-grey-6: #CCCCCC;
 $color-grey-7: #838383;
-$color-grey--50: #EFEFEF;
+$color-grey--50: rgba(239, 239, 239, .5);
 $color-neutral: #fff;
 
 /****************************/
+
+
 /*          FONTS           */
+
+
 /****************************/
 
 //H1
-$font-extraLarge:  4.8rem;
-$lineHeight-extraLarge:  5.2rem;
-
+$font-extraLarge: 4.8rem;
+$lineHeight-extraLarge: 5.2rem;
 //H2
-$font-large:  3.13rem;
-$lineHeight-large:  3.2rem;
-
+$font-large: 3.13rem;
+$lineHeight-large: 3.2rem;
 //H3
-$font-smallLarge:  2.7rem;
-$lineHeight-smallLarge:  2.8rem;
-
+$font-smallLarge: 2.7rem;
+$lineHeight-smallLarge: 2.8rem;
 //H4
-$font-extraNormal:  2rem;
-$lineHeight-extraNormal:  2.4rem;
-
+$font-extraNormal: 2rem;
+$lineHeight-extraNormal: 2.4rem;
 //P
-$font-normal:  1.6rem;
-$lineHeight-normal:  2rem;
-
-$font-small:  1.28rem;
-$lineHeight-small:  2rem;
-
-$font-extraSmall:  1.024rem;
-$lineHeight-extraSmall:  2rem;
+$font-normal: 1.6rem;
+$lineHeight-normal: 2rem;
+$font-small: 1.28rem;
+$lineHeight-small: 2rem;
+$font-extraSmall: 1.024rem;
+$lineHeight-extraSmall: 2rem;
