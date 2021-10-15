@@ -127,6 +127,18 @@ export default {
                     }
                   ]
                 },
+                "demo": {
+                  "id": 3,
+                  "name": "Demo",
+                  "pathImg": "/specialities/angiologie.png",
+                  "discover": "Qu'est ce que la demo",
+                  "subcategory": [
+                    {
+                      "name": "Angiologie",
+                      "description": "hello description",
+                    }
+                  ]
+                },
               }
             ],
             doctorsSpe: [],
@@ -134,7 +146,6 @@ export default {
         }
     },
      methods: {
-
        // Change speciality index by content
         includeSpecialities(){
             this.doctors.forEach((doctor) => {

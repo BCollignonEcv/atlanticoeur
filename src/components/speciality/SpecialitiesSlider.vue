@@ -8,7 +8,7 @@
                 <span>></span>
             </div>
             <div 
-                v-show="active < Object.keys(specialities).length" 
+                v-show="active < Object.keys(specialities).length -1" 
                 @click="slideNext()"
                 class="slider-nav-item nav-next">
                 <span>></span>
@@ -44,10 +44,19 @@ export default {
     },
     methods: {
         slideTo(){
-            let width = document.querySelector('#slide-1').offsetWidth;
+            let slide = document.querySelector('#slide-1');
             let slider = document.querySelector('.slider-content');
+            let sliderContainer = document.querySelector('.slider-container');
+            // Prepare slide gap
+            let slideGap = this.active * -slide.offsetWidth;
+
+            // Handle last slide
+            if(this.active === Object.keys(this.specialities).length - 1){
+                slideGap += (sliderContainer.offsetWidth - slide.offsetWidth - 24)
+            }
+            
             slider.animate({
-                    marginLeft: this.active * -width + "px"
+                    marginLeft: slideGap + "px"
                 }, 
                 {
                 duration: 500,
@@ -71,7 +80,7 @@ export default {
     },
     watch: {
         'active': function(){
-            if((this.active >= 0) && (this.active <= Object.keys(this.specialities).length)){
+            if((this.active >= 0) && (this.active < Object.keys(this.specialities).length)){
                 this.slideTo();
             }
         }
@@ -105,6 +114,7 @@ export default {
                 box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
                 backdrop-filter: blur(16px);
                 border-radius: 8px;
+                cursor: pointer;
 
                 &.nav-prev{
                     left: 0;
@@ -128,6 +138,7 @@ export default {
             .slide{
                 margin-right: 2.4rem;
                 background-color: $color-grey--50;
+                border-radius: 8px;
 
                 figure{
                     position: relative;
