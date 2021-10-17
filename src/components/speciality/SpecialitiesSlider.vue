@@ -48,7 +48,7 @@ export default {
             let slider = document.querySelector('.slider-content');
             let sliderContainer = document.querySelector('.slider-container');
             // Prepare slide gap
-            let slideGap = this.active * -slide.offsetWidth;
+            let slideGap = this.active * -slide.offsetWidth - 24;
 
             // Handle last slide
             if(this.active === Object.keys(this.specialities).length - 1){
@@ -98,6 +98,7 @@ export default {
         min-width: 100%;
         margin: auto;
         position: relative;
+        overflow-x: scroll;
 
         .slider-nav{
             position: absolute;

@@ -1,5 +1,4 @@
 <template>
-    <div class="wrapper-content" style="background-color: rgba(239, 239, 239, .5)">
         <div class="description-doctor-list">
             <transition-group 
                 name="descriptionList"
@@ -12,7 +11,6 @@
                     />
             </transition-group>
         </div>
-    </div>
 </template>
 <script>
 

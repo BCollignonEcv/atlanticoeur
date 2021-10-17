@@ -16,8 +16,10 @@
                 <ul>
                     <li class="item-title"><h5>Le cabinet</h5></li>
                     <li><p>SCM Atlanticoeur</p></li>
-                    <li><p>Cabinet de l'Atlantique</p></li>
-                    <li><p>26 rue Moulin des justices</p><p>17138 Puilboreau</p></li>
+                    <li>
+                        <p>Cabinet de l'Atlantique</p><br>
+                        <p>26 rue Moulin des justices</p><p>17138 Puilboreau</p>
+                    </li>
                 </ul>
             </div>
             <div class="footer-item">
@@ -66,7 +68,7 @@ export default {
         @extend .wrapper-content;
         
         .l_container{
-            padding-bottom: 15vh;
+            padding-bottom: 7.8vh;
             &>*{
                 flex: 1;
                 padding-right: 2.4rem
@@ -75,6 +77,11 @@ export default {
             li{
                 padding: .4rem 0;
                 border-top: 1px solid $color-grey-1;
+
+                &:last-of-type{
+                    border-bottom: 1px solid $color-grey-1;
+                }
+
                 p{
                     font-weight: 700;
                 }
@@ -87,7 +94,10 @@ export default {
                 &.link:hover{
                     border-top: 1px solid $color-primary;
                     cursor: pointer;
-
+                    
+                    &:last-of-type{
+                        border-bottom: 1px solid $color-primary;
+                    }
                     a{
                         padding-left: 1rem;
                         color: $color-primary;
@@ -101,6 +111,8 @@ export default {
                 h5{
                     @extend .font-size-3;
                     font-weight: 700;
+                    margin-block-start: 0;
+                    margin-block-end: 0;
                 }
             }
 
