@@ -13,11 +13,13 @@
 
 export default {
   name: 'App',
+  mounted(){
+
+  }
 }
 </script>
 <style lang="scss">
   #app{
-    position: relative;
   }
 
   .page{

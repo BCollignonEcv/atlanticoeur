@@ -77,9 +77,9 @@ export default {
 
         &:hover{
             .card-speciality-title{
-                color: $color-grey-1;
-                border-left: 1px solid $color-grey-1;
-                border-right: 1px solid $color-grey-1;
+                color: $color-primary;
+                border-left: 1px solid $color-primary;
+                border-right: 1px solid $color-primary;
             }
         }
         
@@ -108,7 +108,8 @@ export default {
         .card-doctor-info{
             background-color: $color-neutral;
             padding: 48px 24px;
-            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            // filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
             border-radius: 8px;
 
             .card-element{

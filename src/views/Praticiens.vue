@@ -1,14 +1,14 @@
 <template>
   <div class="page">
-    <div class="wrapper-content">
-      <h1>Les praticiens du cabinet <br> SCM Atlanticœur</h1>
-    </div>
-    <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'"/>
-    <doctors-description-list :selected-item="selected" :data-doctors="doctorsSpe"/>
-    <div class="wrapper-content">
-      <h2>Les spécialités du cabinet <br> SCM Atlanticœur</h2>
+    <section-component :title="'Les praticiens du cabinet \nSCM Atlanticœur'" :sectionSetting="['landing']">
+      <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'"/>
+    </section-component>
+    <section-component :sectionSetting="['grey']">
+      <doctors-description-list :selected-item="selected" :data-doctors="doctorsSpe"/>
+    </section-component>
+     <section-component :title="'Les spécialités du cabinet \nSCM Atlanticœur'">
       <specialities-slider :data-specialities="specialities[0]"/>
-    </div>
+    </section-component>
   </div>
 </template>
 
@@ -17,6 +17,7 @@
 import DoctorCards from "@/components/doctor/DoctorCards"
 import DoctorDescriptions from "@/components/doctor/DoctorDescriptions"
 import SpecialitiesSlider from "@/components/speciality/SpecialitiesSlider"
+import Section from "@/components/global/Section"
 
 
 export default {
@@ -24,7 +25,8 @@ export default {
   components: {
     'doctors-card-list': DoctorCards,
     'doctors-description-list': DoctorDescriptions,
-    'specialities-slider': SpecialitiesSlider
+    'specialities-slider': SpecialitiesSlider,
+    'section-component': Section
   },
   data() {
         return {
@@ -50,7 +52,7 @@ export default {
                   "firstName": "Michel", 
                   "lastName": "Fesolowicz",
                   "pathImg": "Paul_Jaillais.png",
-                  "doctolib": "http://google.fr",
+                  "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/michel-fesolowicz?locale=fr",
                   "specialities": [
                     ["angiologie", 0],
                     ["cardiologie", 1],
@@ -65,7 +67,7 @@ export default {
                   "firstName": "Cyril", 
                   "lastName": "Huet",
                   "pathImg": "Paul_Jaillais.png",
-                  "doctolib": "http://google.fr",
+                  "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/cyril-huet?locale=fr",
                   "specialities": [
                     ["cardiologie", 0],
                     ["cardiologie", 1],
@@ -81,7 +83,7 @@ export default {
                   "firstName": "Edouard", 
                   "lastName": "Majou",
                   "pathImg": "Paul_Jaillais.png",
-                  "doctolib": "http://google.fr",
+                  "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/edouard-majou?locale=fr",
                   "specialities": [
                     ["cardiologie", 0],
                     ["cardiologie", 1],

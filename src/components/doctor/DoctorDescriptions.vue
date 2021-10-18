@@ -1,5 +1,4 @@
 <template>
-    <div class="wrapper-content bg-grey--50">
         <div class="description-doctor-list">
             <transition-group 
                 name="descriptionList"
@@ -12,7 +11,6 @@
                     />
             </transition-group>
         </div>
-    </div>
 </template>
 <script>
 
@@ -51,10 +49,11 @@ export default {
 </script>
 
 <style lang="scss">
-
+    
     .description-doctor-list{
         position: relative;
         top: -6.4rem;
+        padding-bottom: 4rem;
     }
 
 </style>
