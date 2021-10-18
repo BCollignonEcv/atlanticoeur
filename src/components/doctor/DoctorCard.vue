@@ -77,9 +77,9 @@ export default {
 
         &:hover{
             .card-speciality-title{
-                color: $color-grey-1;
-                border-left: 1px solid $color-grey-1;
-                border-right: 1px solid $color-grey-1;
+                color: $color-primary;
+                border-left: 1px solid $color-primary;
+                border-right: 1px solid $color-primary;
             }
         }
         

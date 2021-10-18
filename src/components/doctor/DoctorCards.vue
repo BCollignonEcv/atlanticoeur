@@ -1,5 +1,4 @@
 <template>
-    <div class="wrapper-content">
         <div class="flex-doctor">
             <doctor-card 
                 v-for="(doctor, index) in doctors" :key="index" 
@@ -8,7 +7,6 @@
                 :type="type"
             />
         </div>
-    </div>
 </template>
 
 <script>

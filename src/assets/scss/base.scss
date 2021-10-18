@@ -1,28 +1,32 @@
 /****************************/
+
+
 /*          FONTS           */
+
+
 /****************************/
 
-.font-size-1{
+.font-size-1 {
     font-size: $font-extraLarge;
     line-height: $lineHeight-extraLarge;
 }
 
-.font-size-2{
+.font-size-2 {
     font-size: $font-large;
     font-style: $lineHeight-large;
 }
 
-.font-size-3{
+.font-size-3 {
     font-size: $font-smallLarge;
     font-style: $lineHeight-smallLarge;
 }
 
-.font-size-4{
+.font-size-4 {
     font-size: $font-extraNormal;
     font-style: $lineHeight-extraNormal;
 }
 
-.font-size-normal{
+.font-size-normal {
     font-size: $font-normal;
     font-style: $lineHeight-normal;
 }
@@ -37,10 +41,15 @@
     font-style: $lineHeight-small;
 }
 
-/****************************/
-/*          COLOR           */
+
 /****************************/
 
-.bg-grey--50{
+
+/*          COLOR           */
+
+
+/****************************/
+
+.bg-grey--50 {
     background-color: var(--color-grey--50);
 }

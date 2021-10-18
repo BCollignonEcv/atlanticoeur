@@ -1,118 +1,117 @@
 /*****************************************/
+
+
 /**************** GRID *******************/
+
+
 /*****************************************/
 
-.l_container{
+.l_container {
     width: 100%;
     display: flex;
-
-    &.reverse{
+    &.reverse {
         flex-direction: column-reverse;
     }
-
-    .l_col{
+    .l_col {
         width: 100%;
         height: auto;
         position: relative;
-
-        &.s1{
+        &.s1 {
             width: 100% / 12;
         }
-
-        &.s2{
+        &.s2 {
             width: 100% / 6;
         }
-        
-        &.s3{
+        &.s3 {
             width: 25%;
         }
-        
-        &.s4{
+        &.s4 {
             width: 100% / 3;
         }
-        
-        &.s5{
+        &.s5 {
             width: 100% / 12 * 5;
         }
-        
-        &.s6{
+        &.s6 {
             width: 50%;
         }
-        
-        &.s8{
+        &.s8 {
             width: 100% / 3 * 2;
         }
-        
-        &.s9{
+        &.s9 {
             width: 75%;
         }
-        
-        &.s10{
+        &.s10 {
             width: 100% / 6 * 5;
         }
-        
-        &.s12{
+        &.s12 {
             width: 100%;
         }
-
-        &.s1-fixed{
+        &.s1-fixed {
             width: 100vw / 12;
         }
-
-        &.s2-fixed{
+        &.s2-fixed {
             width: 100vw / 6;
         }
-        
-        &.s3-fixed{
+        &.s3-fixed {
             width: 25vw;
         }
-        
-        &.s4-fixed{
+        &.s4-fixed {
             width: 100vw / 3;
         }
-        
-        &.s5-fixed{
+        &.s5-fixed {
             width: 100vw / 12 * 5;
         }
-        
-        &.s6-fixed{
+        &.s6-fixed {
             width: 50vw;
         }
-        
-        &.s8-fixed{
+        &.s8-fixed {
             width: 100vw / 3 * 2;
         }
-        
-        &.s9-fixed{
+        &.s9-fixed {
             width: 75vw;
         }
-        
-        &.s10-fixed{
+        &.s10-fixed {
             width: 100vw / 6 * 5;
         }
-        
-        &.s12-fixed{
+        &.s12-fixed {
             width: 100vw;
+        }
+        &.l_leftSide,
+        &.l_rightSide {
+            width: 50%;
         }
     }
 }
 
-.l_container_text{
+.l_container_text {
     display: flex;
     justify-content: space-between;
-
-    &:last-child{
+    &:last-child {
         text-align: right;
     }
 }
 
-/*****************************************/
-/**************** GRID *******************/
+
 /*****************************************/
 
-.wrapper-content{
+
+/**************** GRID *******************/
+
+
+/*****************************************/
+
+.wrapper-section {
     width: 100%;
-    padding: 0 5.625%;
+    padding-left: $wrapper-global-margin;
+    padding-right: $wrapper-global-margin;
+    padding-top: 14.4rem;
+    padding-bottom: 14.4rem;
     position: relative;
 }
 
+.wrapper-content {
+    width: 100%;
+    padding-left: $wrapper-global-margin;
+    padding-right: $wrapper-global-margin;
+    position: relative;
+}

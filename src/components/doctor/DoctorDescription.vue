@@ -194,6 +194,9 @@ export default {
                                 background: #353535;
                                 border-radius: 4px;
 
+                                border: 1px solid;
+                                border-image-source: linear-gradient(90deg, #232526 0%, #414345 100%);
+
                                 p{
                                     text-align: center;
                                 }
