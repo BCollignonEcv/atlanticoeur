@@ -35,7 +35,6 @@ export default {
     methods: {
     },
     mounted () {
-        console.log(this.datacabinet)
     }
 }
 </script>

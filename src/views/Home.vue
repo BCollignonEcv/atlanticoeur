@@ -16,7 +16,7 @@
     </section-component>
     <section-component 
       :title="'Les examens réalisés du cabinet'"
-      :sectionSetting="['dark','full']"
+      :sectionSetting="['dark','fullHeight']"
     >
         <examen :data-examens="examens"/>
     </section-component>

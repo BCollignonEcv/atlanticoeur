@@ -48,11 +48,7 @@ export default {
             let slider = document.querySelector('.slider-content');
             let sliderContainer = document.querySelector('.slider-container');
             // Prepare slide gap
-<<<<<<< HEAD
-            let slideGap = this.active * -slide.offsetWidth;
-=======
             let slideGap = this.active * -slide.offsetWidth - 24;
->>>>>>> e5d4093dfbdf51fe55015554688252f335f37cda
 
             // Handle last slide
             if(this.active === Object.keys(this.specialities).length - 1){
@@ -139,6 +135,10 @@ export default {
 
         .slider-content{
             display: flex;
+
+            &>div:first-of-type{
+                margin-left: $wrapper-global-margin;
+            }
 
             .slide{
                 margin-right: 2.4rem;

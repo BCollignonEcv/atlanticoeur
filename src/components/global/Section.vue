@@ -1,19 +1,20 @@
 <template>
-    <!-- Splited Section -->
-    <section :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight}">
-        <!-- Splited Section -->
-        <div v-if="splited === 'splited'" class="l_container">
-            <div class="l_col l_leftSide">
-                <h1 v-if="landing">{{title}}</h1>
-                <h2 v-else>{{title}}</h2>
-                <slot name="leftSide"></slot>
+    <section :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}">
+        <template v-if="splited">
+            <!-- Splited Section -->
+            <div  class="l_container">
+                <div class="l_col l_leftSide">
+                    <h1 v-if="landing">{{title}}</h1>
+                    <h2 v-else>{{title}}</h2>
+                    <slot name="leftSide"></slot>
+                </div>
+                <div class="l_col l_rightSide">
+                    <slot name="rightSide"></slot>
+                </div>
             </div>
-            <div class="l_col l_rightSide">
-                <slot name="rightSide"></slot>
-            </div>
-        </div>
-        <!-- Simple Section -->
-        <template v-else>
+        </template>
+        <template v-else>        
+            <!-- Simple Section -->
             <template v-if="title">
                 <h1 v-if="landing">{{title}}</h1>
                 <h2 v-else>{{title}}</h2>
@@ -67,6 +68,16 @@ export default {
     section{
         @extend .wrapper-content;
         display: inline-block;
+
+        &.full-width{
+            padding-left: 0;
+            padding-right: 0;
+
+            h1,
+            h2{
+                @extend .wrapper-content;
+            }
+        }
     }
 
     .dark-gradiant{
@@ -81,7 +92,7 @@ export default {
         background-color: rgba(239, 239, 239, .5);
     }
 
-    .full-page{
+    .full-height{
         min-height: 100vh;
     }
 </style>
