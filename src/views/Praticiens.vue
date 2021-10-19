@@ -102,6 +102,7 @@ export default {
                   "name": "Cardiologie",
                   "pathImg": "/specialities/cardiologie.png",
                   "discover": "Qu'est ce que la cardiologie",
+                  "description": "La cardiologie est la science de",
                   "subcategory": [
                     {
                       "name": "Cardiologie adulte",
@@ -122,6 +123,7 @@ export default {
                   "name": "Angiologie",
                   "pathImg": "/specialities/angiologie.png",
                   "discover": "Qu'est ce que l'angiologie",
+                  "description": "La Angiologie est la science de",
                   "subcategory": [
                     {
                       "name": "Angiologie",
@@ -134,6 +136,7 @@ export default {
                   "name": "Demo",
                   "pathImg": "/specialities/angiologie.png",
                   "discover": "Qu'est ce que la demo",
+                  "description": "La demo est la science de",
                   "subcategory": [
                     {
                       "name": "Angiologie",

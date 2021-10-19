@@ -44,7 +44,7 @@ export default {
         margin-top: 4.2rem;
 
         p{
-            @extend .font-size-3;
+            @include font-size-3;
         }
     }
 </style>

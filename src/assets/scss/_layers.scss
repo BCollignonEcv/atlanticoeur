@@ -101,17 +101,15 @@
 /*****************************************/
 
 .wrapper-section {
+    @include wrapper;
     width: 100%;
-    padding-left: $wrapper-global-margin;
-    padding-right: $wrapper-global-margin;
     padding-top: 14.4rem;
     padding-bottom: 14.4rem;
     position: relative;
 }
 
 .wrapper-content {
+    @include wrapper;
     width: 100%;
-    padding-left: $wrapper-global-margin;
-    padding-right: $wrapper-global-margin;
     position: relative;
 }

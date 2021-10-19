@@ -91,7 +91,7 @@ export default {
             transition: 0.5s ease-in-out;
 
             p{
-                @extend .font-size-4;
+                @include font-size-4;
                 font-weight: 700;
                 width: 100%;
                 padding: 3.4rem 0;
@@ -123,7 +123,7 @@ export default {
                 }
 
                 .card-doctor-subtitle{
-                    @extend .font-size-4;
+                    @include font-size-4;
                     font-weight: normal;
                 }
 

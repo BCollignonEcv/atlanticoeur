@@ -1,20 +1,32 @@
 <template>
-    <div class="slider-container">
+    <div class="slider-container" @mouseenter="hovered = true" @mouseleave="hovered = false">
         <div class="slider-nav">
-            <div 
-                v-show="active > 0" 
-                @click="slidePrev()"
-                class="slider-nav-item nav-prev">
-                <span>></span>
-            </div>
-            <div 
-                v-show="active < Object.keys(specialities).length -1" 
-                @click="slideNext()"
-                class="slider-nav-item nav-next">
-                <span>></span>
-            </div>
+            <transition name="slideInLR">
+                <div 
+                    v-show="active > 0 && hovered" 
+                    @click="slidePrev()"
+                    class="slider-nav-item nav-prev">
+                    <span>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 8L12 16L20 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+            </transition>
+            <transition name="slideInRL">
+                <div 
+                    v-show="active < Object.keys(specialities).length -1 && hovered" 
+                    @click="slideNext()"
+                    class="slider-nav-item nav-next">
+                    <span>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 24L20 16L12 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+            </transition>
         </div>
-        <div class="slider-content">
+        <div class="slider-content" v-on:scroll="handleSlideScroll">
             <SpecialitiesSlide
                 v-for="speciality in specialities" 
                 :key="speciality.id" 
@@ -39,24 +51,36 @@ export default {
     data() {
         return {
             specialities: this.dataSpecialities,
-            active: 0
+            active: 0,
+            hovered: false
         }
+    },
+    mounted() {
     },
     methods: {
         slideTo(){
             let slide = document.querySelector('#slide-1');
             let slider = document.querySelector('.slider-content');
+            let globalMargin = parseFloat(window.getComputedStyle(slider, null).getPropertyValue('padding-left'));            
             let sliderContainer = document.querySelector('.slider-container');
+
             // Prepare slide gap
             let slideGap = this.active * -slide.offsetWidth - 24;
 
             // Handle last slide
             if(this.active === Object.keys(this.specialities).length - 1){
-                slideGap += (sliderContainer.offsetWidth - slide.offsetWidth - 24)
+                console.log(sliderContainer.offsetWidth, slide.offsetWidth, globalMargin*2)
+                slideGap += (sliderContainer.offsetWidth - globalMargin*2 - slide.offsetWidth - 24)
+            }
+
+            // Handle first slide
+            if(this.active === 0){
+                slideGap = 0;
             }
             
+            // Slider animation
             slider.animate({
-                    marginLeft: slideGap + "px"
+                    marginLeft: slideGap + "px",
                 }, 
                 {
                 duration: 500,
@@ -66,24 +90,28 @@ export default {
             );
         },
         slidePrev() {
-            if(this.active >= 0){
+            if(this.active > 0){
                 this.active--;
+                this.slideTo();
             }
         },
         slideNext() {
             if(this.active < Object.keys(this.specialities).length){
                 this.active++;
-            }
-        },
-    },
-    mounted() {
-    },
-    watch: {
-        'active': function(){
-            if((this.active >= 0) && (this.active < Object.keys(this.specialities).length)){
                 this.slideTo();
             }
-        }
+        },
+        // handleSlideScroll (event) {
+        //     let slide = document.querySelector('#slide-1');
+        //     this.active = Math.floor(event.target.scrollLeft/slide.offsetWidth);
+        // }
+    },
+    watch: {
+        // 'active': function(){
+        //     if((this.active >= 0) && (this.active < Object.keys(this.specialities).length)){
+        //         this.slideTo();
+        //     }
+        // }
     }
 }
 </script>
@@ -98,7 +126,7 @@ export default {
         min-width: 100%;
         margin: auto;
         position: relative;
-        overflow-x: scroll;
+        overflow-x: hidden;
 
         .slider-nav{
             position: absolute;
@@ -110,7 +138,7 @@ export default {
                 top: 50%;
                 transform: translate(0, -50%);
                 z-index: 5;
-                padding: 4.8rem 2.4rem;
+                padding: 4.8rem 1.8rem;
                 background: rgba(239, 239, 239, 0.5);
                 box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
                 backdrop-filter: blur(16px);
@@ -135,30 +163,66 @@ export default {
 
         .slider-content{
             display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            scroll-padding-left: $wrapper-global-margin;
+            padding-left: $wrapper-global-margin;
 
             &>div:first-of-type{
-                margin-left: $wrapper-global-margin;
+                
+            }
+
+            &>div:last-of-type{
+                position: relative;
+            
+                &:after{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: -$wrapper-global-margin;
+                    width: $wrapper-global-margin;
+                    height: 100%;
+                }
             }
 
             .slide{
                 margin-right: 2.4rem;
                 background-color: $color-grey--50;
                 border-radius: 8px;
+                cursor: pointer;
+                scroll-snap-align: start;
 
                 figure{
                     position: relative;
                     height: 70vh;
 
-                    .slide-overlay{
+                    .slide_overlay-title{
                         position: absolute;
                         top: 4.8rem;
                         left: 4.8rem;
                         color: $color-grey-6;
                         font-weight: bold;
-                        @extend .font-size-1;
+                        @include font-size-1;
                     }
 
-                    .slide-img{
+                    .slide_overlay-description{
+                        position: absolute;
+                        width: calc(100% - 4.8*2rem);
+                        padding: 2.4rem;
+                        bottom: 4.8rem;
+                        left: 4.8rem;
+                        color: $color-grey-2;
+                        background: rgba(239, 239, 239, 0.5);
+                        box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
+                        backdrop-filter: blur(16px);
+                        border-radius: 8px;
+                        border: 1px solid $color-grey-6;
+                    }
+
+                    .slide_img{
                         margin: 0 auto;
                         height: 100%;
                     }

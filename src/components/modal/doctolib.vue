@@ -1,14 +1,16 @@
 <template>
-    <div class="iframe-container" @click="closeIframe()">
-        <div class="iframe-inner">
-            <div class="iframe-exit" @click="closeIframe()">
-                <span>Fermer</span>
+    <transition appear name="fade">
+        <div class="iframe-container" @click="closeIframe()">
+            <div class="iframe-inner">
+                <div class="iframe-exit" @click="closeIframe()">
+                    <span>Fermer</span>
+                </div>
+                <iframe scrolling="no" :src="getDoctolibUrl()" style="height:100%; width: 100%" allowpaymentrequest></iframe>
+                <!-- <script src="https://www.doctolib.fr:443/js/iframeResizer.js" nonce="rDdvt/JlFgaqX9MJ2R58yg=="></script> -->
+                <!-- <script nonce="rDdvt/JlFgaqX9MJ2R58yg==">iFrameResize()</script> -->
             </div>
-            <iframe scrolling="no" :src="getDoctolibUrl()" style="height:100%; width: 100%" allowpaymentrequest></iframe>
-            <!-- <script src="https://www.doctolib.fr:443/js/iframeResizer.js" nonce="rDdvt/JlFgaqX9MJ2R58yg=="></script>
-            <script nonce="rDdvt/JlFgaqX9MJ2R58yg==">iFrameResize()</script> -->
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -22,6 +24,7 @@ export default {
     data() {
         return {
             doctor: this.dataDoctor,
+            load: true
         }
     },
     methods: {
@@ -33,24 +36,15 @@ export default {
         },
     },
     mounted() {
-        // let doctolibScript1 = document.createElement('script')
-        // doctolibScript1.setAttribute('src', 'https://www.doctolib.fr:443/js/iframeResizer.js')
-        // doctolibScript1.setAttribute('nonce', 'rDdvt/JlFgaqX9MJ2R58yg==')
-        // document.head.appendChild(doctolibScript1)
+        let doctolibScript1 = document.createElement('script')
+        doctolibScript1.setAttribute('src', 'https://www.doctolib.fr:443/js/iframeResizer.js')
+        doctolibScript1.setAttribute('nonce', 'rDdvt/JlFgaqX9MJ2R58yg==')
+        document.head.appendChild(doctolibScript1)
     }
 }
 </script>
 
 <style lang="scss">
-    .modal-fade-enter,
-    .modal-fade-leave-to {
-        opacity: 0;
-    }
-
-    .modal-fade-enter-active,
-    .modal-fade-leave-active {
-        transition: opacity 1s ease;
-    }
     
     .iframe-container{
         position: fixed !important;
@@ -59,6 +53,8 @@ export default {
         width: 100vw;
         height: 100vh;
         background-color: $color-grey-1--50;
+        box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
+        backdrop-filter: blur(16px);
         z-index: 100;
         box-sizing: border-box;
         cursor: pointer;

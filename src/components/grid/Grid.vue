@@ -59,7 +59,7 @@ export default {
 
             &.grid_line {
                 p{
-                    @extend .font-size-3;
+                    @include font-size-3;
                 }
             }
         }
@@ -92,7 +92,7 @@ export default {
             padding: $font-small 0;
 
             p{
-                @extend .font-size-1;
+                @include font-size-1;
                 font-weight: bold;
 
                 &.gl-1{

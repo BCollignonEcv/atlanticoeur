@@ -28,9 +28,9 @@ export default {
                   },
                   "content": [
                     {
-                      "title": "Fédération francaise de Cardiologie",
-                      "link": "Lien 1",
-                      "date": "2020"
+                      "title": "macirculation.com",
+                      "link": "https://www.macirculation.com/",
+                      "date": "2021"
                     },
                     {
                       "title": "Fédération francaise de Cardiologie",

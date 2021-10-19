@@ -21,7 +21,7 @@
         <examen :data-examens="examens"/>
     </section-component>
     <section-component :title="'La clinique atlanticoeur'">
-      <examen :data-examens="examens"/>
+      <cabinet-slider :data-cabinet="cabinet"/>
     </section-component>
   </div>
 </template>
@@ -33,6 +33,7 @@ import DoctorCards from "@/components/doctor/DoctorCards"
 import Examen from "@/components/examen/Examen"
 import SpecialiesDashboard from "@/components/speciality/SpecialitiesDashboard"
 import CabinetDescription from "@/components/cabinet/CabinetDescription"
+import CabinetSlider from "@/components/cabinet/CabinetSlider"
 
 export default {
   name: 'Home',
@@ -41,7 +42,8 @@ export default {
         'doctors-card-list': DoctorCards,
         'examen': Examen,
         'specialities-dashboard': SpecialiesDashboard,
-        'cabinet-description': CabinetDescription
+        'cabinet-description': CabinetDescription,
+        'cabinet-slider': CabinetSlider,
   },
   data() {
     return {
@@ -192,6 +194,27 @@ export default {
             "address": "26 rue Moulin des justices",
             "city": "Puilboreau",
             "postalCode": 17138,
+            "pictures": [
+              {
+                "name": "Salle d'attente",
+                "pathImg": "/specialities/cardiologie.png",
+              },
+              {
+                "name": "Salle d'attente",
+                "pathImg": "/specialities/cardiologie.png",
+              },
+              {
+                "name": "Salle d'attente",
+                "pathImg": "/specialities/cardiologie.png",
+              },
+              {
+                "name": "Salle d'attente",
+                "pathImg": "/specialities/cardiologie.png",
+              },{
+                "name": "Salle d'attente",
+                "pathImg": "/specialities/cardiologie.png",
+              }
+            ]
           }
         ],
         doctorsSpe: [],

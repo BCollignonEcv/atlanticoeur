@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="l_container wrapper">
+        <div class="l_container wrapper-content">
             <div class="footer-item">
                 <nav>
                     <ul>
@@ -32,8 +32,8 @@
             <div class="footer-item">
                 <ul>
                     <li class="item-title"><h5>Crédits - 2021</h5></li>
-                    <li class="link"><a target="_blank" href="https://www.collignonbaptiste.com">Dev : Collignon Baptiste</a></li>
-                    <li class="link"><a target="_blank" href="https://www.enzonicolas.eu">Design : Enzo Nicolas</a></li>
+                    <li class="link"><a target="_blank" rel="noopener" href="https://www.collignonbaptiste.com">Dev : Collignon Baptiste</a></li>
+                    <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Enzo Nicolas</a></li>
                     <li><br></li>
                     <li><p>@ 2021, SCM Atlanticoeur</p></li>
                 </ul>
@@ -65,7 +65,6 @@ export default {
         padding-top: 7.2rem;
         padding-bottom: 7.2rem;
         margin-top: 4.6rem;
-        @extend .wrapper-content;
         
         .l_container{
             padding-bottom: 7.8vh;
@@ -109,7 +108,7 @@ export default {
                 border-top: none;
                 margin-bottom: 4.8rem;
                 h5{
-                    @extend .font-size-3;
+                    @include font-size-3;
                     font-weight: 700;
                     margin-block-start: 0;
                     margin-block-end: 0;

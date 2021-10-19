@@ -1,7 +1,7 @@
 <template>
-    <div class="examen_item">
+    <div class="examen_item" @mouseover="opened = true">
         <h5 class="examen_item-title">{{examen.name}}</h5>
-        <div v-show="opened">{{examen.description}}</div>
+        <div v-show="opened" >{{examen.description}}</div>
     </div>
 </template>
 

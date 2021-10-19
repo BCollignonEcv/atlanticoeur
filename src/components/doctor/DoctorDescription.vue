@@ -148,7 +148,7 @@ export default {
                     padding: $padding/2 0;
 
                     p{
-                        @extend .font-size-4;
+                        @include font-size-4;
                         font-weight: bold;
                     }
 
@@ -213,7 +213,7 @@ export default {
             width: 100%;
 
             p{
-                @extend .font-size-3;
+                @include font-size-3;
             }
 
             &:last-child{

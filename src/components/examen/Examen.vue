@@ -30,10 +30,12 @@ export default {
         getRandomSizeClass() {
             console.log(this.elementSize)
             document.querySelectorAll('.examens-grid .examen_item').forEach(function(item) {
-                let size = Math.random() * 5 + 1;
+                let size = Math.random() * 4 + 1;
 
-                item.style.marginTop = size + 'rem';
-                item.style.marginBottom = size + 'rem';
+                item.style.paddingTop = size + 'rem';
+                item.style.paddingBottom = size + 'rem';
+                item.style.marginTop = -size + 'rem';
+                item.style.marginBottom = -size + 'rem';
             });
             console.log(this.elementSize)
         },
@@ -51,10 +53,10 @@ export default {
 
         .examens-grid{
             display: flex;
-            position: absolute;
-            width: 100% - 2* $wrapper-global-margin;
-            top: 50%;
-            transform: translate(0, -50%);
+            height: 100%;
+            // width: 100% - 2* $wrapper-global-margin;
+            margin-top: 18%;
+            
             &>div{
                 &.examen_item{
                     flex: 1;
@@ -62,12 +64,8 @@ export default {
                     border-top: 1px solid grey;
                     border-bottom: 1px solid grey;
                     position: relative;
-
-                    h5{
-                        position: absolute;
-                        top: 50%;
-                        transform: translate(0, -50%);
-                    }
+                    cursor: pointer;
+                    height: min-content;
 
                     &:nth-of-type(1){
                         padding: 1.6rem 0;

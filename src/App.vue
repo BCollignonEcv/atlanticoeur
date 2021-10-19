@@ -19,9 +19,6 @@ export default {
 }
 </script>
 <style lang="scss">
-  #app{
-  }
-
   .page{
     min-height: 100vh;
   }

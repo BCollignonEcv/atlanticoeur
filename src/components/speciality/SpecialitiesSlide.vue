@@ -1,17 +1,14 @@
 <template>
-    <div :id="'slide-'+speciality.id">
-        <div class="flip_card">
-            <div class="flip_card-inner">
-                <div class="flip_card-front">
-                    <figure class="flip_card-front">
-                        <figcaption class="slide-overlay">{{speciality.discover}}</figcaption>
-                        <img class="slide-img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
-                    </figure>
-                </div>
-                <div class="flip_card-back">
-                </div>
-            </div>
-        </div>
+    <div :id="'slide-'+speciality.id" @click="descriptionShow = !descriptionShow">
+        <figure>
+            <figcaption class="slide_overlay-title">{{speciality.discover}}</figcaption>
+            <transition appear name="fade">
+                <figcaption v-show="descriptionShow" class="slide_overlay-description">
+                    <p>{{speciality.description}}</p>
+                </figcaption>
+            </transition>
+            <img class="slide_img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
+        </figure>
     </div>
 </template>
 
@@ -24,6 +21,7 @@ export default {
     data() {
         return {
             speciality: this.dataSpeciality,
+            descriptionShow: false
         }
     },
     methods: {
@@ -35,7 +33,7 @@ export default {
         },
     },
     mounted() {
-    }
+    },
 }
 </script>
 
