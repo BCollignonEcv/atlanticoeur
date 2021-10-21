@@ -101,17 +101,6 @@ export default {
                 this.slideTo();
             }
         },
-        // handleSlideScroll (event) {
-        //     let slide = document.querySelector('#slide-1');
-        //     this.active = Math.floor(event.target.scrollLeft/slide.offsetWidth);
-        // }
-    },
-    watch: {
-        // 'active': function(){
-        //     if((this.active >= 0) && (this.active < Object.keys(this.specialities).length)){
-        //         this.slideTo();
-        //     }
-        // }
     }
 }
 </script>

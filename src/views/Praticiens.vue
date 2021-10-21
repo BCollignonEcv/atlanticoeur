@@ -130,20 +130,7 @@ export default {
                       "description": "hello description",
                     }
                   ]
-                },
-                "demo": {
-                  "id": 3,
-                  "name": "Demo",
-                  "pathImg": "/specialities/angiologie.png",
-                  "discover": "Qu'est ce que la demo",
-                  "description": "La demo est la science de",
-                  "subcategory": [
-                    {
-                      "name": "Angiologie",
-                      "description": "hello description",
-                    }
-                  ]
-                },
+                }
               }
             ],
             doctorsSpe: [],

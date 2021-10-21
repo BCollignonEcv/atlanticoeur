@@ -1,5 +1,4 @@
 <template>
-    <div ref="target">
         <transition appear name="fade">
             <section v-if="animate" :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}" class="wrapper-content">
                 <template v-if="splited">
@@ -25,11 +24,9 @@
                 </template>
             </section>
         </transition>
-    </div>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
 
 export default {
     props: {
@@ -45,24 +42,8 @@ export default {
             fullHeight: false,
             fullWidth: false,
             splited: false,
-            animate: false,
+            animate: true,
         }
-    },
-    setup() {        const target = ref();
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                this.animate.value = entry.isIntersecting;
-            },
-            {
-                threshold: 0.5
-            }
-        );
-        onMounted(() => {
-            observer.observe(target.value);
-        });
-        return {
-            target
-        };
     },
     created(){
         if(this.settings.includes('splited')){
