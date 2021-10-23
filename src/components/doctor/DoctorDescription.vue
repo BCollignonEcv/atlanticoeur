@@ -117,7 +117,7 @@ export default {
     .description-doctor{
         width: 100%;
         background: linear-gradient(90deg, #232526 0%, #414345 100%);
-        border-radius: 1.2rem;
+        border-radius: $borderRadius-1;
         margin-bottom: .4rem;
 
         .description-collapse{
@@ -192,7 +192,7 @@ export default {
                                 padding: 4px 24px;
 
                                 background: #353535;
-                                border-radius: 4px;
+                                border-radius: $borderRadius-3;
 
                                 border: 1px solid;
                                 border-image-source: linear-gradient(90deg, #232526 0%, #414345 100%);

@@ -102,7 +102,7 @@ export default {
         .card-img{
             width: 100%;
             height: auto;
-            border-radius: .8rem;
+            border-radius: $borderRadius-2;
         }
 
         .card-doctor-info{
@@ -110,7 +110,7 @@ export default {
             padding: 48px 24px;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
             // filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
-            border-radius: 8px;
+            border-radius: $borderRadius-2;
 
             .card-element{
                 margin-bottom: 2.4rem;

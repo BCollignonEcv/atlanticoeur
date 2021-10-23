@@ -1,37 +1,40 @@
 <template>
-        <transition appear name="fade">
-            <section v-if="animate" :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}" class="wrapper-content">
-                <template v-if="splited">
-                    <!-- Splited Section -->
-                    <div  class="l_container">
-                        <div class="l_col l_leftSide">
-                            <h1 v-if="landing">{{title}}</h1>
-                            <h2 v-else>{{title}}</h2>
-                            <slot name="leftSide"></slot>
-                        </div>
-                        <div class="l_col l_rightSide">
-                            <slot name="rightSide"></slot>
-                        </div>
-                    </div>
-                </template>
-                <template v-else>        
-                    <!-- Simple Section -->
-                    <template v-if="title">
+        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}" class="wrapper-content">
+            <template v-if="splited">
+                <!-- Splited Section -->
+                <div  class="l_container">
+                    <div class="l_col l_leftSide">
                         <h1 v-if="landing">{{title}}</h1>
                         <h2 v-else>{{title}}</h2>
-                    </template>
-                    <slot></slot>
+                        <slot name="leftSide"></slot>
+                    </div>
+                    <div class="l_col l_rightSide">
+                        <slot name="rightSide"></slot>
+                    </div>
+                </div>
+            </template>
+            <template v-else>
+                <!-- Simple Section -->
+                <template v-if="title">
+                    <h1 v-if="landing">{{title}}</h1>
+                    <h2 v-else>{{title}}</h2>
                 </template>
-            </section>
-        </transition>
+                <slot></slot>
+            </template>
+        </section>
 </template>
 
 <script>
+
+import ScrollAnimation from '@/directives/scrollAnimation'
 
 export default {
     props: {
         title: String,
         sectionSetting: Array,
+    },
+    directives: {
+        scrollanimation: ScrollAnimation
     },
     data() {
         return {
@@ -42,7 +45,6 @@ export default {
             fullHeight: false,
             fullWidth: false,
             splited: false,
-            animate: true,
         }
     },
     created(){

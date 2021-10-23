@@ -7,7 +7,16 @@
       <doctors-description-list :selected-item="selected" :data-doctors="doctorsSpe"/>
     </section-component>
      <section-component :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth']">
-      <specialities-slider :data-specialities="specialities[0]"/>
+      <Slider :haveNavigation="true" :limit="Object.keys(specialities).length">
+        <template v-slot:slide>
+          <SpecialitiesSlide
+            v-for="speciality in specialities" 
+            :key="speciality.id" 
+            :data-speciality="speciality"
+            class="slide"
+          />
+        </template>
+      </Slider>
     </section-component>
   </div>
 </template>
@@ -16,8 +25,9 @@
 
 import DoctorCards from "@/components/doctor/DoctorCards"
 import DoctorDescriptions from "@/components/doctor/DoctorDescriptions"
-import SpecialitiesSlider from "@/components/speciality/SpecialitiesSlider"
+import Slider from "@/components/global/Slider"
 import Section from "@/components/global/Section"
+import SpecialitiesSlide from "@/components/speciality/SpecialitiesSlide"
 
 
 export default {
@@ -25,8 +35,8 @@ export default {
   components: {
     'doctors-card-list': DoctorCards,
     'doctors-description-list': DoctorDescriptions,
-    'specialities-slider': SpecialitiesSlider,
-    'section-component': Section
+    'section-component': Section,
+    Slider, SpecialitiesSlide
   },
   data() {
         return {
@@ -95,44 +105,56 @@ export default {
                   "RPPS": 10003840369
               }
             ],
-            specialities: [
-              {
-                "cardiologie": {
-                  "id": 1,
-                  "name": "Cardiologie",
-                  "pathImg": "/specialities/cardiologie.png",
-                  "discover": "Qu'est ce que la cardiologie",
-                  "description": "La cardiologie est la science de",
-                  "subcategory": [
-                    {
-                      "name": "Cardiologie adulte",
-                      "description": "hello description",
-                    },
-                    {
-                      "name": "Cardiologie du sport",
-                      "description": "hello description",
-                    },
-                    {
-                      "name": "Cardiologie adulte",
-                      "description": "hello description",
-                    }
-                  ]
-                },
-                "angiologie": {
-                  "id": 2,
-                  "name": "Angiologie",
-                  "pathImg": "/specialities/angiologie.png",
-                  "discover": "Qu'est ce que l'angiologie",
-                  "description": "La Angiologie est la science de",
-                  "subcategory": [
-                    {
-                      "name": "Angiologie",
-                      "description": "hello description",
-                    }
-                  ]
-                }
-              }
-            ],
+            specialities: 
+            {
+              "cardiologie": {
+                "id": 1,
+                "name": "Cardiologie",
+                "pathImg": "/specialities/cardiologie.png",
+                "discover": "Qu'est ce que la cardiologie",
+                "description": "La cardiologie est la science de",
+                "subcategory": [
+                  {
+                    "name": "Cardiologie adulte",
+                    "description": "hello description",
+                  },
+                  {
+                    "name": "Cardiologie du sport",
+                    "description": "hello description",
+                  },
+                  {
+                    "name": "Cardiologie adulte",
+                    "description": "hello description",
+                  }
+                ]
+              },
+              "angiologie": {
+                "id": 2,
+                "name": "Angiologie",
+                "pathImg": "/specialities/angiologie.png",
+                "discover": "Qu'est ce que l'angiologie",
+                "description": "La Angiologie est la science de",
+                "subcategory": [
+                  {
+                    "name": "Angiologie",
+                    "description": "hello description",
+                  }
+                ]
+              },
+              "demo": {
+                "id": 3,
+                "name": "Demo",
+                "pathImg": "/specialities/angiologie.png",
+                "discover": "Qu'est ce que la demo",
+                "description": "La demo est la science de",
+                "subcategory": [
+                  {
+                    "name": "Angiologie",
+                    "description": "hello description",
+                  }
+                ]
+              },
+            },
             doctorsSpe: [],
             selected: 1
         }
@@ -143,7 +165,7 @@ export default {
             this.doctors.forEach((doctor) => {
                 Object.entries(doctor.specialities).forEach(entry => {
                     const [key, value] = entry;
-                    doctor.specialities[key] = this.specialities[0][value[0]].subcategory[value[1]]
+                    doctor.specialities[key] = this.specialities[value[0]].subcategory[value[1]]
                 });
                 this.doctorsSpe.push(doctor);
             });

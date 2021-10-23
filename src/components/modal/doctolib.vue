@@ -52,12 +52,10 @@ export default {
         top: 0;
         width: 100vw;
         height: 100vh;
-        background-color: $color-grey-1--50;
-        box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
-        backdrop-filter: blur(16px);
         z-index: 100;
         box-sizing: border-box;
         cursor: pointer;
+        @include blur;
 
         .iframe-inner{
             width: 80vw;
@@ -66,7 +64,7 @@ export default {
             position: relative;
             background-color: $color-neutral;
             z-index: 101;
-            border-radius: 8px; 
+            border-radius: $borderRadius-2;
             cursor: default;
             
             .iframe-exit{
@@ -79,7 +77,7 @@ export default {
 
             iframe{
                 border: none;
-                border-radius: 8px;
+                border-radius: $borderRadius-2;
             }
         }
     }

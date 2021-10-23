@@ -1,11 +1,11 @@
 <template>
-    <div class="slider-container" @mouseenter="hovered = true" @mouseleave="hovered = false">
-        <div class="slider-nav">
+    <div class="slider-container" @mouseenter="hovered = true" @mouseleave="hovered = false" :class="{'hasDescription': haveOverlayDescription}">
+        <div v-if="haveNavigation" class="slider_nav">
             <transition name="slideInLR">
                 <div 
                     v-show="active > 0 && hovered" 
                     @click="slidePrev()"
-                    class="slider-nav-item nav-prev">
+                    class="slider_nav-item nav-prev">
                     <span>
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 8L12 16L20 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -15,9 +15,9 @@
             </transition>
             <transition name="slideInRL">
                 <div 
-                    v-show="active < Object.keys(specialities).length -1 && hovered" 
+                    v-show="active < limit && hovered" 
                     @click="slideNext()"
-                    class="slider-nav-item nav-next">
+                    class="slider_nav-item nav-next">
                     <span>
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 24L20 16L12 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -26,50 +26,54 @@
                 </div>
             </transition>
         </div>
-        <div class="slider-content" v-on:scroll="handleSlideScroll">
-            <SpecialitiesSlide
-                v-for="speciality in specialities" 
-                :key="speciality.id" 
-                :data-speciality="speciality"
-                class="slide"
-            />
+        <div v-if="haveOverlayDescription" class="slider_overlay_description">
+            <slot name="sliderDescription"></slot>
+        </div>
+        <div class="slider-content">
+            <slot name="slide"></slot>
         </div>
     </div>
 </template>
 
 <script>
 
-import SpecialitiesSlide from "@/components/speciality/SpecialitiesSlide"
-
 export default {
-    components: {
-        SpecialitiesSlide
-    },
+    components: {},
     props: {
-        dataSpecialities: Object,
+        limit: {
+            type: Number,
+            default: 0
+        },
+        haveNavigation: {
+            type: Boolean,
+            default: false
+        },
+        haveOverlayDescription: {
+            type: Boolean,
+            default: false
+        },
     },
     data() {
         return {
-            specialities: this.dataSpecialities,
             active: 0,
             hovered: false
         }
     },
     mounted() {
+        console.log(this.limit)
     },
     methods: {
         slideTo(){
             let slide = document.querySelector('#slide-1');
             let slider = document.querySelector('.slider-content');
-            let globalMargin = parseFloat(window.getComputedStyle(slider, null).getPropertyValue('padding-left'));            
+            let globalMargin = parseFloat(window.getComputedStyle(slider, null).getPropertyValue('padding-left'));
             let sliderContainer = document.querySelector('.slider-container');
 
             // Prepare slide gap
             let slideGap = this.active * -slide.offsetWidth - 24;
 
             // Handle last slide
-            if(this.active === Object.keys(this.specialities).length - 1){
-                console.log(sliderContainer.offsetWidth, slide.offsetWidth, globalMargin*2)
+            if(this.active === this.limit - 1){
                 slideGap += (sliderContainer.offsetWidth - globalMargin*2 - slide.offsetWidth - 24)
             }
 
@@ -96,7 +100,7 @@ export default {
             }
         },
         slideNext() {
-            if(this.active < Object.keys(this.specialities).length){
+            if(this.active < this.limit){
                 this.active++;
                 this.slideTo();
             }
@@ -106,33 +110,28 @@ export default {
 </script>
 
 <style lang="scss">
-    *{
-        box-sizing:border-box
-    }
+    $padding-overlay: 4vh;
 
     .slider-container{
         height: 70vh;
         min-width: 100%;
         margin: auto;
         position: relative;
-        overflow-x: hidden;
+        overflow: hidden;
 
-        .slider-nav{
+        .slider_nav{
             position: absolute;
             height: 100%;
             width: 100%;
 
-            .slider-nav-item{
+            .slider_nav-item{
                 position: absolute;
                 top: 50%;
                 transform: translate(0, -50%);
                 z-index: 5;
                 padding: 4.8rem 1.8rem;
-                background: rgba(239, 239, 239, 0.5);
-                box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
-                backdrop-filter: blur(16px);
-                border-radius: 8px;
                 cursor: pointer;
+                @include blur;
 
                 &.nav-prev{
                     left: 0;
@@ -146,8 +145,27 @@ export default {
                     color: $color-neutral;
                 }
             }
+        }
 
-            
+        &.hasDescription{
+            padding: $padding-overlay 0;
+            height: 78vh;
+        }
+
+        .slider_overlay_description{
+            position: absolute;
+            height: 100%;
+            width: 30vw;
+            left: $wrapper-global-margin;
+            margin: -$padding-overlay 0;
+            padding: $margin-4;
+            z-index: 50;
+            border-radius: $borderRadius-2;
+            @include blur;
+
+            *{
+                color: $color-grey-7;
+            }
         }
 
         .slider-content{
@@ -180,7 +198,7 @@ export default {
             .slide{
                 margin-right: 2.4rem;
                 background-color: $color-grey--50;
-                border-radius: 8px;
+                border-radius: $borderRadius-2;
                 cursor: pointer;
                 scroll-snap-align: start;
 
@@ -203,12 +221,8 @@ export default {
                         padding: 2.4rem;
                         bottom: 4.8rem;
                         left: 4.8rem;
-                        color: $color-grey-2;
-                        background: rgba(239, 239, 239, 0.5);
-                        box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
-                        backdrop-filter: blur(16px);
-                        border-radius: 8px;
                         border: 1px solid $color-grey-6;
+                        @include blur;
                     }
 
                     .slide_img{
@@ -219,5 +233,4 @@ export default {
             }
         }
     }
-
 </style>
