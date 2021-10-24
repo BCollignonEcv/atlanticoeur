@@ -91,16 +91,7 @@ export default {
                 }
 
                 &.link:hover{
-                    border-top: 1px solid $color-primary;
-                    cursor: pointer;
-                    
-                    &:last-of-type{
-                        border-bottom: 1px solid $color-primary;
-                    }
-                    a{
-                        padding-left: 1rem;
-                        color: $color-primary;
-                    }
+                    @include hoverLink;
                 }
             }
 

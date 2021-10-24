@@ -22,23 +22,26 @@
             </div>
             <button v-if="type === 'big'" @click="scrollToDoctor(doctor.id)" class="btn btn-rdv">Profil du praticien</button>
             <button class="btn btn-rdv" @click="showModal()">Prendre rendez-vous</button>
-            <doctolib-modal 
+            <Modal                     
                 v-show="isModalVisible"
-                @close="closeModal"
-                :data-doctor="doctor"
-            />
+                @close="closeModal">
+                <Doctolib 
+                    :data-doctor="doctor"
+                />
+            </Modal>
         </div>
     </div>
 </template>
 
 <script>
 
-import DoctolibModal from "@/components/modal/doctolib"
+import Modal from "@/components/global/Modal"
+import Doctolib from "@/components/modal/doctolib"
 
 export default {
     name: 'Doctor',
     components: {
-        'doctolib-modal': DoctolibModal
+        Modal, Doctolib
     },
     props: {
         doctorData: Object, 
@@ -77,9 +80,7 @@ export default {
 
         &:hover{
             .card-speciality-title{
-                color: $color-primary;
-                border-left: 1px solid $color-primary;
-                border-right: 1px solid $color-primary;
+                @include hover;
             }
         }
         

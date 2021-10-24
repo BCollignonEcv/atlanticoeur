@@ -18,14 +18,24 @@
                         <p class="l_col s4">Du {{description.horaires.days[0]}} <br> De {{description.horaires.hours[0]}}</p>
                         <p class="l_col s4">Au {{description.horaires.days[1]}} <br> A {{description.horaires.hours[1]}}</p>
                     </div>
-                    <div>
-                        <div class="fakeButton">
-                            <p>Nous téléphoner</p>
-                            <span></span>
+                    <div class="l_container-bottom">
+                        <div class="fakeButton l_container" @click="togglePhoneIframe()">
+                            <p class="l_col s9">Nous téléphoner</p>
+                            <p class="l_col s3 align-right">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11 16L7 8L25 16L7 24L11 16ZM11 16L14.5 16" stroke="#838383" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </p>
                         </div>
                         <div class="fakeButton" @click="displayCart = !displayCart">
-                            <p>Carte</p>
-                            <span></span>
+                            <div class="l_container">
+                                <p class="l_col s9">Carte</p>
+                                <p class="l_col s3 align-right">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 15V9C15 8.44772 15.4477 8 16 8C16.5523 8 17 8.44772 17 9V15L23 15C23.5523 15 24 15.4477 24 16C24 16.5523 23.5523 17 23 17L17 17V23C17 23.5523 16.5523 24 16 24C15.4477 24 15 23.5523 15 23V17H9C8.44772 17 8 16.5523 8 16C8 15.4477 8.44772 15 9 15H15Z" fill="#838383"/>
+                                    </svg>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,12 +55,19 @@
                 <p>{{description.content}}</p>
             </div>
         </template>
+        <Modal v-show="isModalVisible" @close="closeModal">
+            <PhoneIframe :data="description"/>
+        </Modal>
     </div>
 </template>
 
 <script>
+import Modal from "@/components/global/Modal"
+import PhoneIframe from "@/components/modal/Phone"
+
 export default {
     components: {
+        Modal, PhoneIframe
     },
     props: {
         data: Object,
@@ -59,12 +76,13 @@ export default {
     data() {
         return {
             description: this.data,
-            displayCart: false
+            displayCart: false,
+            isModalVisible: false
         }
     },
     methods: {
         getPhone(){
-            return 'telto:'+this.description.phone
+            return 'tel:'+this.description.phone
         },
         getEmail(){
             return 'mailto:'+this.description.email
@@ -104,12 +122,20 @@ export default {
                     }
                 }
             }
-
             .fakeButton{
                 background-color: white;
-                padding: $margin-6;
-                margin-bottom: $margin-4;
-                @include font-size-3;
+                padding: $margin-6 $margin-5;
+                border-radius: $borderRadius-2;
+                
+                p{
+                    @include font-size-3;
+                    font-weight: 700;
+                    @include hoverLink;
+                }
+
+                svg{
+                    height: 2.8rem;
+                }
             }
         }
         .cabinet-description-content {
@@ -117,6 +143,12 @@ export default {
 
             p{
                 @include font-size-3;
+            }
+        }
+
+        .l_container-bottom{
+            .fakeButton{
+                margin: $margin-4;
             }
         }
     }

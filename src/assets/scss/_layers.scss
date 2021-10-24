@@ -91,6 +91,17 @@
     }
 }
 
+.l_container-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    .l_container{
+        width: auto;
+    }
+}
+
 
 /*****************************************/
 

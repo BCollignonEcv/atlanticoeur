@@ -33,6 +33,7 @@ export default {
     font-weight: 700;
     display: inline-block;
     position: relative;
+    @include hoverLink;
 
     &:after{
       content: '';
@@ -45,10 +46,6 @@ export default {
       background-color: $color-primary;
       transform-origin: top right;
       transition: transform 0.25s ease-out;
-    }
-
-    &:hover{
-      color: $color-primary;
     }
 
     &:hover:after{

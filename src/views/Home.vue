@@ -56,7 +56,7 @@ export default {
         'examen': Examen,
         'specialities-dashboard': SpecialiesDashboard,
         'cabinet-description': CabinetDescription,
-        CabinetSlide, Slider
+        CabinetSlide, Slider,
   },
   data() {
     return {
@@ -171,8 +171,7 @@ export default {
                 }
               ]
             },
-          }
-        ,
+        },
         examens: [
           {
               "id": 1,
@@ -229,26 +228,26 @@ export default {
               {
                 "id": 1,
                 "name": "Salle d'attente",
-                "pathImg": "/specialities/cardiologie.png",
+                "pathImg": "/cabinets/salle1.png",
               },
               {
                 "id": 2,
                 "name": "Salle d'attente",
-                "pathImg": "/specialities/cardiologie.png",
+                "pathImg": "/cabinets/salle1.png",
               },
               {
                 "id": 3,
                 "name": "Salle d'attente",
-                "pathImg": "/specialities/cardiologie.png",
+                "pathImg": "/cabinets/salle1.png",
               },
               {
                 "id": 4,
                 "name": "Salle d'attente",
-                "pathImg": "/specialities/cardiologie.png",
+                "pathImg": "/cabinets/salle1.png",
               },{
                 "id": 5,
                 "name": "Salle d'attente",
-                "pathImg": "/specialities/cardiologie.png",
+                "pathImg": "/cabinets/salle1.png",
               }
             ]
           },

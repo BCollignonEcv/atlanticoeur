@@ -54,7 +54,6 @@ export default {
 
         .grid_header{
             border-top: 1px solid $color-grey--50;
-            border-bottom: 1px solid $color-grey--50;
 
             &.grid_line {
                 padding: 1rem 0;
@@ -71,25 +70,11 @@ export default {
 
         .grid_content {
             .grid-item {
-                transition: all 5s;
+                transition: all .5s;
             }
 
             .grid_line{
-                
-                &:nth-child(1){
-                    border-top: none;
-                }
-
-                &:hover{
-                    cursor: pointer;
-                    border-bottom: 1px solid $color-primary;
-                    transition: all .5s;
-
-                    p{
-                        color: $color-primary;
-                        transition: all .5s;
-                    }
-                }
+                @include hoverLink;
             }
         }
 

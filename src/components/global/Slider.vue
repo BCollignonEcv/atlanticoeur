@@ -131,6 +131,7 @@ export default {
                 z-index: 5;
                 padding: 4.8rem 1.8rem;
                 cursor: pointer;
+                border-radius: $borderRadius-2;
                 @include blur;
 
                 &.nav-prev{

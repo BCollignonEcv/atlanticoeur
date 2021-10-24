@@ -29,6 +29,13 @@
     border-radius: $radius;
 }
 
+@mixin blur {
+    color: $color-grey-2;
+    background: rgba(239, 239, 239, 0.5);
+    box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
+    backdrop-filter: blur(16px);
+}
+
 
 /*****************************************/
 
@@ -91,9 +98,26 @@
 
 /*****************************************/
 
-@mixin blur {
-    color: $color-grey-2;
-    background: rgba(239, 239, 239, 0.5);
-    box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
-    backdrop-filter: blur(16px);
+@mixin hoverLink {
+    &:hover{
+        color: $color-primary;
+        cursor: pointer;
+        border-color: $color-primary;
+        transition: all .5s;
+
+        p,a{
+            padding-left: 1rem;
+        }
+    }
+
+}
+
+@mixin hover {
+    &:hover{
+        color: $color-primary;
+        cursor: pointer;
+        border-color: $color-primary;
+        transition: all .5s;
+    }
+
 }
