@@ -27,7 +27,7 @@
                                 </svg>
                             </p>
                         </div>
-                        <div class="fakeButton" @click="displayCart = !displayCart">
+                        <div class="fakeButton" @click="isGoogleMapVisible = !isGoogleMapVisible">
                             <div class="l_container">
                                 <p class="l_col s9">Carte</p>
                                 <p class="l_col s3 align-right">
@@ -35,6 +35,9 @@
                                         <path d="M15 15V9C15 8.44772 15.4477 8 16 8C16.5523 8 17 8.44772 17 9V15L23 15C23.5523 15 24 15.4477 24 16C24 16.5523 23.5523 17 23 17L17 17V23C17 23.5523 16.5523 24 16 24C15.4477 24 15 23.5523 15 23V17H9C8.44772 17 8 16.5523 8 16C8 15.4477 8.44772 15 9 15H15Z" fill="#838383"/>
                                     </svg>
                                 </p>
+                            </div>
+                            <div v-show="isGoogleMapVisible">
+                                <GoogleMap />
                             </div>
                         </div>
                     </div>
@@ -64,10 +67,11 @@
 <script>
 import Modal from "@/components/global/Modal"
 import PhoneIframe from "@/components/modal/Phone"
+import GoogleMap from "@/components/modal/GoogleMap"
 
 export default {
     components: {
-        Modal, PhoneIframe
+        Modal, PhoneIframe, GoogleMap
     },
     props: {
         data: Object,
@@ -77,7 +81,8 @@ export default {
         return {
             description: this.data,
             displayCart: false,
-            isModalVisible: false
+            isModalVisible: false,
+            isGoogleMapVisible: false,
         }
     },
     methods: {
@@ -126,6 +131,7 @@ export default {
                 background-color: white;
                 padding: $margin-6 $margin-5;
                 border-radius: $borderRadius-2;
+                transition: height .5s ease;
                 
                 p{
                     @include font-size-3;

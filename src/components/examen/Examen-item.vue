@@ -24,6 +24,7 @@ export default {
     methods: {
     },
     mounted () {
+        console.log(this.animatePadding)
     },
 }
 </script>
