@@ -4,7 +4,7 @@
             <figcaption class="photo_description">
                 <div class="l_container">
                     <p class="l_col s2">{{photo.id}}</p>
-                    <p class="l_col s10 align-right">{{photo.description}}</p>
+                    <p class="l_col s10 align-right">{{photo.name}}</p>
                 </div>
             </figcaption>
             <img class="slide_img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
@@ -47,7 +47,7 @@ export default {
         &>div{
             border-top: 1px solid $color-grey-6;
             border-bottom: 1px solid $color-grey-6;
-            padding: $margin-5 0;
+            padding: $margin-6 0;
         }
     }
 </style>

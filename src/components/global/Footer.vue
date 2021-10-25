@@ -105,12 +105,6 @@ export default {
                     margin-block-end: 0;
                 }
             }
-
-            nav{
-                li{
-
-                }
-            }
         }
     }
 </style>

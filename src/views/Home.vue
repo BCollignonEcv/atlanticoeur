@@ -136,14 +136,17 @@ export default {
                 {
                   "name": "Cardiologie adulte",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-cardiologie.png"
                 },
                 {
                   "name": "Cardiologie du sport",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-cardiologie.png"
                 },
                 {
-                  "name": "Cardiologie adulte",
+                  "name": "Cardiologie pédiatrique",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-cardiologie.png"
                 }
               ]
             },
@@ -156,6 +159,7 @@ export default {
                 {
                   "name": "Angiologie",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-angiologie.png"
                 }
               ]
             },
@@ -222,7 +226,7 @@ export default {
                     1: '19:00'
                 },
               },
-              "content": "hello"
+              "content": "Nous sommes ravis de vous accueillir à notre cabinet, vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."
             },
             "photos": [
               {

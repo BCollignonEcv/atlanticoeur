@@ -1,6 +1,6 @@
 <template>
-    <div class="examen_item" :class="{ 'active': opened }">
-        <div class="examen_item-floating" @mouseover="opened = true">
+    <div class="examen_item">
+        <div class="examen_item-floating" @mouseover="scaleExamen()">
             <h5 class="examen_item-title">{{examen.name}}</h5>
             <!-- <div v-show="opened" class="examen_item-description">{{examen.description}}</div> -->
         </div>
@@ -13,7 +13,7 @@ export default {
     },
     props: {
         dataExamen: Object,
-        animatePadding: Number
+        animationPadding: Number
     },
     data() {
         return {
@@ -22,15 +22,27 @@ export default {
         }
     },
     methods: {
+        scaleExamen(){
+            if(this.opened != true){
+                const element = this.$el.getElementsByClassName('examen_item-floating')[0];
+                const paddingElement = parseFloat(window.getComputedStyle(element, null).getPropertyValue('padding-top'))
+                console.log('2' + paddingElement)
+                element.style.paddingTop = 2* paddingElement + 'px';
+                element.style.paddingBottom = 2* paddingElement + 'px';
+                this.opened = true;
+            }
+        }
+    },
+    created() {
     },
     mounted () {
-        console.log(this.animatePadding)
+        const element = this.$el.getElementsByClassName('examen_item-floating')[0];
+        element.style.paddingTop = this.animationPadding + 'vh';
+        element.style.paddingBottom = this.animationPadding + 'vh';
     },
 }
 </script>
 
 <style lang="scss" scoped>
-    .examen_item.active{
-        padding: random(5) + rem 0;
-    }
+    
 </style>

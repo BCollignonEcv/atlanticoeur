@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import GoogleMapsApiLoader from 'google-maps-api-loader'
 
 export default {
     components: {
@@ -26,23 +25,25 @@ export default {
         }
     },
     methods: {
-        initializeMap() {
-            const mapContainer = this.$refs.googleMap
-            this.map = new this.google.maps.Map(
-                mapContainer, this.mapConfig
-            )
-        }
+        // initializeMap() {
+        //     const mapContainer = this.$refs.googleMap
+        //     this.map = new this.google.maps.Map(
+        //         mapContainer, this.mapConfig
+        //     )
+        // }
     },
     async mounted() {
-        const googleMapApi = await GoogleMapsApiLoader({
-        apiKey: this.apiKey
-        })
-        this.google = googleMapApi
-        this.initializeMap()
+        // const googleMapApi = await GoogleMapsApiLoader({
+        // apiKey: this.apiKey
+        // })
+        // this.google = googleMapApi
+        // this.initializeMap()
     },
 }
 </script>
 
 <style lang="scss">
-    
+    .googleMap_frame{
+        height: 25vh;
+    }
 </style>

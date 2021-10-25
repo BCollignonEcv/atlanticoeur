@@ -60,7 +60,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this.limit)
     },
     methods: {
         slideTo(){
@@ -146,6 +145,10 @@ export default {
                     color: $color-neutral;
                 }
             }
+
+            @media screen and (max-width: 1919px){
+                display: none !important;
+            }
         }
 
         &.hasDescription{
@@ -166,6 +169,10 @@ export default {
 
             *{
                 color: $color-grey-7;
+            }
+
+            @media screen and (max-width: 1919px){
+                width: 50vw;
             }
         }
 

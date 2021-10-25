@@ -42,5 +42,13 @@ export default {
             margin: 0 1.2rem;
             width: calc(25% - 2.4rem);
         }
+
+        @media screen and (max-width: 1919px){
+            flex-wrap: wrap;
+            & > .card-doctor{
+                margin: 0 1.2rem;
+                width: calc(50% - 2.4rem);
+            }
+        }
     }
 </style>

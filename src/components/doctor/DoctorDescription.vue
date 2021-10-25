@@ -36,7 +36,7 @@
                     </div>
                     <div class="description-item">
                         <p class="description-item--title">Conventionné secteur</p>
-                        <p class="description-item--content">{{doctor.firstName}}</p>
+                        <p class="description-item--content">{{doctor.conventionType}}</p>
                     </div>
                     <div class="description-item">
                         <p class="description-item--title">Tiers payant</p>

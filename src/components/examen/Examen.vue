@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         getRandomSizeClass() {
-            return Math.random() * 4 + 1;
+            return Math.random() * 5 + 1;
         },
     },
     mounted () {
@@ -59,8 +59,7 @@ export default {
                         border-bottom: 1px solid grey;
                         transition: all .5s ease-in-out;
                         cursor: pointer;
-
-
+                        
                         .examen_item-title{
                             width: 100%;
                             text-align: center;
@@ -75,6 +74,24 @@ export default {
                             .examen_item-title{
                                 transition: all .5s;
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 1919px){
+            height: auto;
+            
+            .examens-grid{
+                flex-direction: column;
+
+                &>div{
+                    &.examen_item{
+                        .examen_item-floating{
+                            position: relative;
+                            top: unset;
+                            transform: unset;
                         }
                     }
                 }

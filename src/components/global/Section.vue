@@ -83,6 +83,17 @@ export default {
                 @include wrapper;
             }
         }
+
+        @media screen and (max-width: 1919px)
+        {
+            &>div.l_container{
+                flex-direction: column;
+
+                &>div.l_col.l_leftSide, &>div.l_col.l_rightSide{
+                    width: 100%
+                }
+            }
+        }
     }
 
     .dark-gradiant{
