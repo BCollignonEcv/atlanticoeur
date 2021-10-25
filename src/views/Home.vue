@@ -5,7 +5,7 @@
       :sectionSetting="['landing','splited']"
     >
       <template v-slot:leftSide>
-        <cabinet-description :cabinet="cabinet[0]"/>
+        <cabinet-description :data="cabinet.informations"/>
       </template>
       <template v-slot:rightSide>
         <specialities-dashboard :specialities="specialities" />
@@ -20,8 +20,20 @@
     >
         <examen :data-examens="examens"/>
     </section-component>
-    <section-component :title="'La clinique atlanticoeur'">
-      <examen :data-examens="examens"/>
+    <section-component :title="'La clinique atlanticoeur'" :sectionSetting="['fullWidth']">
+      <Slider :haveNavigation="true" :haveOverlayDescription="true" :limit="Object.keys(cabinet.photos).length">
+        <template v-slot:sliderDescription>
+          <cabinet-description :typeDescription="'full'" :data="cabinet.informations"/>
+        </template>
+        <template v-slot:slide>
+          <CabinetSlide
+            v-for="photo in cabinet.photos" 
+            :key="photo.id" 
+            :data="photo"
+            class="slide"
+          />
+        </template>
+      </Slider>
     </section-component>
   </div>
 </template>
@@ -29,10 +41,12 @@
 <script>
 
 import Section from "@/components/global/Section"
+import Slider from "@/components/global/Slider"
 import DoctorCards from "@/components/doctor/DoctorCards"
 import Examen from "@/components/examen/Examen"
 import SpecialiesDashboard from "@/components/speciality/SpecialitiesDashboard"
 import CabinetDescription from "@/components/cabinet/CabinetDescription"
+import CabinetSlide from "@/components/cabinet/CabinetSlide"
 
 export default {
   name: 'Home',
@@ -41,7 +55,8 @@ export default {
         'doctors-card-list': DoctorCards,
         'examen': Examen,
         'specialities-dashboard': SpecialiesDashboard,
-        'cabinet-description': CabinetDescription
+        'cabinet-description': CabinetDescription,
+        CabinetSlide, Slider,
   },
   data() {
     return {
@@ -110,7 +125,7 @@ export default {
               "RPPS": 10003840369
           }
         ],
-        specialities: [
+        specialities: 
           {
             "cardiologie": {
               "id": 1,
@@ -121,14 +136,17 @@ export default {
                 {
                   "name": "Cardiologie adulte",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-cardiologie.png"
                 },
                 {
                   "name": "Cardiologie du sport",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-cardiologie.png"
                 },
                 {
-                  "name": "Cardiologie adulte",
+                  "name": "Cardiologie pédiatrique",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-cardiologie.png"
                 }
               ]
             },
@@ -141,6 +159,7 @@ export default {
                 {
                   "name": "Angiologie",
                   "description": "hello description",
+                  "pathImg": "/specialities/dashboard-angiologie.png"
                 }
               ]
             },
@@ -156,8 +175,7 @@ export default {
                 }
               ]
             },
-          }
-        ],
+        },
         examens: [
           {
               "id": 1,
@@ -185,15 +203,58 @@ export default {
               "description": "Description demo"
           },
         ],
-        cabinet: [
-          {
-            "name": "Clinique de l'Atlanticoeur",
-            "description": "Description cabinet",
-            "address": "26 rue Moulin des justices",
-            "city": "Puilboreau",
-            "postalCode": 17138,
-          }
-        ],
+        cabinet: 
+        {
+            "informations": 
+            {
+              "name": "Clinique de l'Atlanticoeur",
+              "description": "Description cabinet",
+              "number": 26,
+              "address": "rue Moulin des justices",
+              "city": "Puilboreau",
+              "postalCode": 17138,
+              "phone": "0546410753",
+              "email": "contact@atlanticoeur.fr",
+              "horaires": {
+                "days": {
+                  0: "Lundi",
+                  1: "Vendredi"
+                },
+                "hours": 
+                {
+                    0: '8:30', 
+                    1: '19:00'
+                },
+              },
+              "content": "Nous sommes ravis de vous accueillir à notre cabinet, vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."
+            },
+            "photos": [
+              {
+                "id": 1,
+                "name": "Salle d'attente",
+                "pathImg": "/cabinets/salle1.png",
+              },
+              {
+                "id": 2,
+                "name": "Salle d'attente",
+                "pathImg": "/cabinets/salle1.png",
+              },
+              {
+                "id": 3,
+                "name": "Salle d'attente",
+                "pathImg": "/cabinets/salle1.png",
+              },
+              {
+                "id": 4,
+                "name": "Salle d'attente",
+                "pathImg": "/cabinets/salle1.png",
+              },{
+                "id": 5,
+                "name": "Salle d'attente",
+                "pathImg": "/cabinets/salle1.png",
+              }
+            ]
+          },
         doctorsSpe: [],
     }
   },
@@ -203,7 +264,7 @@ export default {
             this.doctors.forEach((doctor) => {
                 Object.entries(doctor.specialities).forEach(entry => {
                     const [key, value] = entry;
-                    doctor.specialities[key] = this.specialities[0][value[0]].subcategory[value[1]]
+                    doctor.specialities[key] = this.specialities[value[0]].subcategory[value[1]]
                 });
                 this.doctorsSpe.push(doctor);
             });
@@ -212,6 +273,8 @@ export default {
     created () {
         this.includeSpecialities();
     },
+    mounted(){
+    }
 }
 </script>
 

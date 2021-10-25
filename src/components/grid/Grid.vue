@@ -53,34 +53,28 @@ export default {
         }
 
         .grid_header{
-            border-top: 1px solid $color-grey-6;
-            border-bottom: 1px solid $color-grey-6;
-            padding: $font-extraSmall 0 $lineHeight-large 0;
+            border-top: 1px solid $color-grey--50;
 
             &.grid_line {
+                padding: 1rem 0;
+
                 p{
-                    @extend .font-size-3;
+                    @include font-size-4;
+
+                    &.align-right{
+                        margin-right: 1.2rem;
+                    }
                 }
             }
         }
 
         .grid_content {
             .grid-item {
-                transition: all 5s;
+                transition: all .5s;
             }
 
             .grid_line{
-                &:nth-child(1){
-                    border-top: none;
-                }
-
-                &:hover{
-                    cursor: pointer;
-
-                    p{
-                        color: $color-grey-2;
-                    }
-                }
+                @include hoverLink;
             }
         }
 
@@ -88,12 +82,14 @@ export default {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-gap: 10px;
-            border-top: 1px solid $color-grey-6;
+            border-top: 1px solid $color-grey--50;
             padding: $font-small 0;
+            transition: all .5s;
 
             p{
-                @extend .font-size-1;
+                @include font-size-1;
                 font-weight: bold;
+                transition: all .5s;
 
                 &.gl-1{
                     grid-column: 12 / 12;

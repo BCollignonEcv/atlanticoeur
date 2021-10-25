@@ -28,50 +28,29 @@ export default {
                   },
                   "content": [
                     {
+                      "title": "macirculation.com",
+                      "link": "https://www.macirculation.com/",
+                      "category": "Cardiologie",
+                      "date": "2021"
+                    },
+                    {
                       "title": "Fédération francaise de Cardiologie",
                       "link": "Lien 1",
+                      "category": "Cardiologie",
                       "date": "2020"
                     },
                     {
                       "title": "Fédération francaise de Cardiologie",
                       "link": "Lien 1",
+                      "category": "Cardiologie",
                       "date": "2020"
                     },
                     {
                       "title": "Fédération francaise de Cardiologie",
                       "link": "Lien 1",
+                      "category": "Cardiologie",
                       "date": "2020"
-                    },
-                    {
-                      "title": "Fédération francaise de Cardiologie",
-                      "link": "Lien 1",
-                      "date": "2020"
-                    },
-                    {
-                      "title": "Fédération francaise de Cardiologie",
-                      "link": "Lien 1",
-                      "date": "2020"
-                    },
-                    {
-                      "title": "Fédération francaise de Cardiologie",
-                      "link": "Lien 1",
-                      "date": "2020"
-                    },
-                    {
-                      "title": "Fédération francaise de Cardiologie",
-                      "link": "Lien 1",
-                      "date": "2020"
-                    },
-                    {
-                      "title": "Fédération francaise de Cardiologie",
-                      "link": "Lien 1",
-                      "date": "2020"
-                    },
-                    {
-                      "title": "Fédération francaise de Cardiologie",
-                      "link": "Lien 1",
-                      "date": "2020"
-                    },
+                    }
                     ]
                   }
             ],

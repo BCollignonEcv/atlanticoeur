@@ -22,23 +22,26 @@
             </div>
             <button v-if="type === 'big'" @click="scrollToDoctor(doctor.id)" class="btn btn-rdv">Profil du praticien</button>
             <button class="btn btn-rdv" @click="showModal()">Prendre rendez-vous</button>
-            <doctolib-modal 
+            <Modal                     
                 v-show="isModalVisible"
-                @close="closeModal"
-                :data-doctor="doctor"
-            />
+                @close="closeModal">
+                <Doctolib 
+                    :data-doctor="doctor"
+                />
+            </Modal>
         </div>
     </div>
 </template>
 
 <script>
 
-import DoctolibModal from "@/components/modal/doctolib"
+import Modal from "@/components/global/Modal"
+import Doctolib from "@/components/modal/doctolib"
 
 export default {
     name: 'Doctor',
     components: {
-        'doctolib-modal': DoctolibModal
+        Modal, Doctolib
     },
     props: {
         doctorData: Object, 
@@ -77,9 +80,7 @@ export default {
 
         &:hover{
             .card-speciality-title{
-                color: $color-primary;
-                border-left: 1px solid $color-primary;
-                border-right: 1px solid $color-primary;
+                @include hover;
             }
         }
         
@@ -91,7 +92,7 @@ export default {
             transition: 0.5s ease-in-out;
 
             p{
-                @extend .font-size-4;
+                @include font-size-4;
                 font-weight: 700;
                 width: 100%;
                 padding: 3.4rem 0;
@@ -102,7 +103,7 @@ export default {
         .card-img{
             width: 100%;
             height: auto;
-            border-radius: .8rem;
+            border-radius: $borderRadius-2;
         }
 
         .card-doctor-info{
@@ -110,7 +111,7 @@ export default {
             padding: 48px 24px;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
             // filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
-            border-radius: 8px;
+            border-radius: $borderRadius-2;
 
             .card-element{
                 margin-bottom: 2.4rem;
@@ -123,7 +124,7 @@ export default {
                 }
 
                 .card-doctor-subtitle{
-                    @extend .font-size-4;
+                    @include font-size-4;
                     font-weight: normal;
                 }
 

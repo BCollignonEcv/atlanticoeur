@@ -36,7 +36,7 @@
                     </div>
                     <div class="description-item">
                         <p class="description-item--title">Conventionné secteur</p>
-                        <p class="description-item--content">{{doctor.firstName}}</p>
+                        <p class="description-item--content">{{doctor.conventionType}}</p>
                     </div>
                     <div class="description-item">
                         <p class="description-item--title">Tiers payant</p>
@@ -117,7 +117,7 @@ export default {
     .description-doctor{
         width: 100%;
         background: linear-gradient(90deg, #232526 0%, #414345 100%);
-        border-radius: 1.2rem;
+        border-radius: $borderRadius-1;
         margin-bottom: .4rem;
 
         .description-collapse{
@@ -148,7 +148,7 @@ export default {
                     padding: $padding/2 0;
 
                     p{
-                        @extend .font-size-4;
+                        @include font-size-4;
                         font-weight: bold;
                     }
 
@@ -192,7 +192,7 @@ export default {
                                 padding: 4px 24px;
 
                                 background: #353535;
-                                border-radius: 4px;
+                                border-radius: $borderRadius-3;
 
                                 border: 1px solid;
                                 border-image-source: linear-gradient(90deg, #232526 0%, #414345 100%);
@@ -213,7 +213,7 @@ export default {
             width: 100%;
 
             p{
-                @extend .font-size-3;
+                @include font-size-3;
             }
 
             &:last-child{

@@ -1,0 +1,75 @@
+/* Scroll */
+
+.scroll-before-enter {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease-out, transform .5s ease-out;
+}
+
+.scroll-enter {
+    opacity: 1;
+    transform: unset;
+}
+
+// .scroll-before-enter {
+//     p,
+//     h1,
+//     h2,
+//     h3,
+//     h4,
+//     h5 {
+//         opacity: 0;
+//         transform: translateY(100px);
+//         transition: opacity 1s ease-out, transform .5s ease-out;
+//     }
+// }
+// .scroll-enter {
+//     p,
+//     h1,
+//     h2,
+//     h3,
+//     h4,
+//     h5 {
+//         opacity: 1;
+//         transform: translateY(0px);
+//     }
+// }
+
+/* Fade */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+
+/* slideIn */
+
+.slideInRL-enter-active,
+.slideInRL-leave-active {
+    margin-right: 0;
+    transition: all .5s ease;
+}
+
+.slideInRL-enter-from,
+.slideInRL-leave-to {
+    opacity: 0;
+    margin-right: -50px;
+}
+
+.slideInLR-enter-active,
+.slideInLR-leave-active {
+    margin-left: 0;
+    transition: all .5s ease;
+}
+
+.slideInLR-enter-from,
+.slideInLR-leave-to {
+    opacity: 0;
+    margin-left: -50px;
+}

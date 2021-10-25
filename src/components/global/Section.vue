@@ -1,34 +1,40 @@
 <template>
-    <section :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}">
-        <template v-if="splited">
-            <!-- Splited Section -->
-            <div  class="l_container">
-                <div class="l_col l_leftSide">
+        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}" class="wrapper-content">
+            <template v-if="splited">
+                <!-- Splited Section -->
+                <div  class="l_container">
+                    <div class="l_col l_leftSide">
+                        <h1 v-if="landing">{{title}}</h1>
+                        <h2 v-else>{{title}}</h2>
+                        <slot name="leftSide"></slot>
+                    </div>
+                    <div class="l_col l_rightSide">
+                        <slot name="rightSide"></slot>
+                    </div>
+                </div>
+            </template>
+            <template v-else>
+                <!-- Simple Section -->
+                <template v-if="title">
                     <h1 v-if="landing">{{title}}</h1>
                     <h2 v-else>{{title}}</h2>
-                    <slot name="leftSide"></slot>
-                </div>
-                <div class="l_col l_rightSide">
-                    <slot name="rightSide"></slot>
-                </div>
-            </div>
-        </template>
-        <template v-else>        
-            <!-- Simple Section -->
-            <template v-if="title">
-                <h1 v-if="landing">{{title}}</h1>
-                <h2 v-else>{{title}}</h2>
+                </template>
+                <slot></slot>
             </template>
-            <slot></slot>
-        </template>
-    </section>
+        </section>
 </template>
 
 <script>
+
+import ScrollAnimation from '@/directives/scrollAnimation'
+
 export default {
     props: {
         title: String,
-        sectionSetting: Array
+        sectionSetting: Array,
+    },
+    directives: {
+        scrollanimation: ScrollAnimation
     },
     data() {
         return {
@@ -66,7 +72,6 @@ export default {
 
 <style lang="scss">
     section{
-        @extend .wrapper-content;
         display: inline-block;
 
         &.full-width{
@@ -75,7 +80,18 @@ export default {
 
             h1,
             h2{
-                @extend .wrapper-content;
+                @include wrapper;
+            }
+        }
+
+        @media screen and (max-width: 1919px)
+        {
+            &>div.l_container{
+                flex-direction: column;
+
+                &>div.l_col.l_leftSide, &>div.l_col.l_rightSide{
+                    width: 100%
+                }
             }
         }
     }

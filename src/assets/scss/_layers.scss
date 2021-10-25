@@ -26,7 +26,7 @@
             width: 25%;
         }
         &.s4 {
-            width: 100% / 3;
+            width: calc(100% / 3);
         }
         &.s5 {
             width: 100% / 12 * 5;
@@ -35,13 +35,13 @@
             width: 50%;
         }
         &.s8 {
-            width: 100% / 3 * 2;
+            width: calc((100% / 3)*2);
         }
         &.s9 {
             width: 75%;
         }
         &.s10 {
-            width: 100% / 6 * 5;
+            width: calc((100% / 6)*5);
         }
         &.s12 {
             width: 100%;
@@ -91,6 +91,17 @@
     }
 }
 
+.l_container-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    .l_container{
+        width: auto;
+    }
+}
+
 
 /*****************************************/
 
@@ -101,17 +112,15 @@
 /*****************************************/
 
 .wrapper-section {
+    @include wrapper;
     width: 100%;
-    padding-left: $wrapper-global-margin;
-    padding-right: $wrapper-global-margin;
     padding-top: 14.4rem;
     padding-bottom: 14.4rem;
     position: relative;
 }
 
 .wrapper-content {
+    @include wrapper;
     width: 100%;
-    padding-left: $wrapper-global-margin;
-    padding-right: $wrapper-global-margin;
     position: relative;
 }

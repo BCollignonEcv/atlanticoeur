@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Hello</p>
+
     </div>
 </template>
 
@@ -9,16 +9,18 @@ export default {
     components: {
     },
     props: {
-        
+
     },
     data() {
         return {
-            
+
         }
     },
     methods: {
     },
     mounted () {
+    },
+    watch: {
     }
 }
 </script>
