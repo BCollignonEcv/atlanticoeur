@@ -67,5 +67,14 @@ export default {
         &_circle {
             border-radius: 100%;
         }
+
+        @media screen and (max-width: $breackpoint-desktop){
+            &{
+                display: none;
+            }
+        }
+
     }
+
+
 </style>

@@ -69,7 +69,7 @@ export default {
     data() {
         return {
             doctor: this.dataDoctor,
-            state: {"close": "+", "open": "-"}
+            state: {"close": "+", "open": "−"}
         }
     },
     methods: {

@@ -3,7 +3,6 @@
             <doctor-card 
                 v-for="(doctor, index) in doctors" :key="index" 
                 :doctor-data="doctor"
-                :selected="false"
                 :type="type"
             />
         </div>
@@ -25,7 +24,6 @@ export default {
         return {
             doctors: this.dataDoctors,
             type: this.typeCard,
-            selected: null
         }
     },
 }

@@ -97,7 +97,7 @@ export default {
             }
         }
 
-        @media screen and (max-width: 1919px)
+        @media screen and (max-width: $breackpoint-desktop)
         {
             &>div.l_container{
                 flex-direction: column;

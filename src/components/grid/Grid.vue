@@ -1,10 +1,18 @@
 <template>
     <div class="wrapper-content">
         <div class="grid">
-            <grid-item :type-line="'header'" :data-link="links[0].header"/>
+            <div class="grid_line grid_header">
+                <p class="gl-8">{{links.header.title}}</p>
+                <p class="gl-3">{{links.header.link}}</p>
+                <p class="align-right gl-1" @click="reverseDateOrder()">
+                    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="none" class="c_icone">
+                        <path d="M1 1L9 9L17 1" stroke="#CCCCCC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </p>
+            </div>
             <transition-group appear class="grid_content" name="grid-animation" tag="div" >
                 <grid-item
-                    v-for="(link, index) in links[0].content" :key="index" 
+                    v-for="(link, index) in links.content" :key="index" 
                     :data-link="link"
                     :selected="false"
                     class="grid-item"
@@ -31,6 +39,10 @@ export default {
         }
     },
     methods: {
+        reverseDateOrder(){
+            this.links.content.reverse();
+            this.$el.getElementsByClassName('c_icone')[0].classList.toggle("reverse");
+        }
     },
     mounted () {
     }
@@ -54,6 +66,8 @@ export default {
 
         .grid_header{
             border-top: 1px solid $color-grey--50;
+            border-bottom: 1px solid $color-grey--50;
+            margin-bottom: $margin-3;
 
             &.grid_line {
                 padding: 1rem 0;
@@ -64,6 +78,13 @@ export default {
                     &.align-right{
                         margin-right: 1.2rem;
                     }
+                }
+            }
+
+            .c_icone{
+                &.reverse{
+                    text-align: left;
+                    transform: rotate(180deg);
                 }
             }
         }
@@ -82,7 +103,7 @@ export default {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-gap: 10px;
-            border-top: 1px solid $color-grey--50;
+            border-bottom: 1px solid $color-grey--50;
             padding: $font-small 0;
             transition: all .5s;
 

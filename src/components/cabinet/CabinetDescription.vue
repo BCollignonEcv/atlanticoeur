@@ -19,8 +19,10 @@
                         <p class="l_col s4">Au {{description.horaires.days[1]}} <br> A {{description.horaires.hours[1]}}</p>
                     </div>
                     <div class="l_container-bottom">
-                        <div class="fakeButton l_container" @click="isModalVisible = !isModalVisible">
-                            <p class="l_col s9">Nous téléphoner</p>
+                        <!-- <div class="fakeButton l_container" @click="isModalVisible = !isModalVisible"> -->
+                        <div class="fakeButton l_container">
+                            <!-- <p class="l_col s9">Nous téléphoner</p> -->
+                            <p class="l_col s9"><a :href="getPhone()">Nous téléphoner</a></p>
                             <p class="l_col s3 align-right">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11 16L7 8L25 16L7 24L11 16ZM11 16L14.5 16" stroke="#838383" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -54,9 +56,9 @@
                     <h3>{{description.number}} {{description.address}}</h3> 
                 </div>
             </div>
-            <div class="cabinet-description-content">
+            <!-- <div class="cabinet-description-content">
                 <p>{{description.content}}</p>
-            </div>
+            </div> -->
         </template>
         <Modal v-show="isModalVisible" @close="closeModal">
             <PhoneIframe :data="description"/>
@@ -144,7 +146,7 @@ export default {
                     margin-bottom: $margin-4;
                 }
                 
-                p{
+                p,a{
                     @include font-size-3;
                     font-weight: 700;
                     @include hoverLink;

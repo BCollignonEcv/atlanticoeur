@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <section-component :title="'Les praticiens du cabinet \nSCM Atlanticœur'" :sectionSetting="['landing']">
-      <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'"/>
+      <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'" :doctor-selected="doctorSelected"/>
     </section-component>
     <section-component :sectionSetting="['grey']">
       <doctors-description-list :doctor-selected="doctorSelected" :data-doctors="doctorsSpe"/>

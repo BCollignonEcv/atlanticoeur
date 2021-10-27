@@ -114,9 +114,9 @@
 
 @mixin hover {
     &:hover{
-        color: $color-primary;
+        color: $color-primary !important;
         cursor: pointer;
-        border-color: $color-primary;
+        border-color: $color-primary !important;
         transition: all .5s;
     }
 }

@@ -45,7 +45,6 @@ export default {
     },
     props: {
         doctorData: Object, 
-        selected: Boolean,
         type: String
     },
     data () {
@@ -80,7 +79,9 @@ export default {
 
         &:hover{
             .card-speciality-title{
-                @include hover;
+                color: $color-primary !important;
+                border-color: $color-primary !important;
+                transition: all .5s;
             }
         }
         

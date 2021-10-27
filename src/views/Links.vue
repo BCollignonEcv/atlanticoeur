@@ -20,7 +20,7 @@ export default {
   },
   data() {
         return {
-            links: [
+            links:
               {
                 "header": {
                     "title": "Source de contenu", 
@@ -52,8 +52,7 @@ export default {
                       "date": "2020"
                     }
                     ]
-                  }
-            ],
+                },
             open: 1
         }
     },

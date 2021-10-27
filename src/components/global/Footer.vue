@@ -31,7 +31,7 @@
             </div>
             <div class="footer-item">
                 <ul>
-                    <li class="item-title"><h5>Crédits - 2021</h5></li>
+                    <li class="item-title"><h5>Crédits <span class="align-right">2021</span></h5></li>
                     <li class="link"><a target="_blank" rel="noopener" href="https://www.collignonbaptiste.com">Dev : Collignon Baptiste</a></li>
                     <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Enzo Nicolas</a></li>
                     <li><br></li>
