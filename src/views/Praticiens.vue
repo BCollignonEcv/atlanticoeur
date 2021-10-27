@@ -4,7 +4,7 @@
       <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'"/>
     </section-component>
     <section-component :sectionSetting="['grey']">
-      <doctors-description-list :selected-item="selected" :data-doctors="doctorsSpe"/>
+      <doctors-description-list :doctor-selected="doctorSelected" :data-doctors="doctorsSpe"/>
     </section-component>
      <section-component :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth']">
       <Slider :haveNavigation="true" :limit="Object.keys(specialities).length">
@@ -146,22 +146,10 @@ export default {
                   }
                 ]
               },
-              "demo": {
-                "id": 3,
-                "name": "Demo",
-                "pathImg": "/specialities/angiologie.png",
-                "discover": "Qu'est ce que la demo",
-                "description": "La demo est la science de",
-                "subcategory": [
-                  {
-                    "name": "Angiologie",
-                    "description": "hello description",
-                  }
-                ]
-              },
             },
             doctorsSpe: [],
-            selected: 1
+            doctorSelected: 1,
+            specialitySelected: null,
         }
     },
      methods: {

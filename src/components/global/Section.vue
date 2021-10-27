@@ -7,6 +7,15 @@
                         <h1 v-if="landing">{{title}}</h1>
                         <h2 v-else>{{title}}</h2>
                         <slot name="leftSide"></slot>
+                        <div v-if="landing" class="l_container-bottom">
+                            <Button :shape="'circle'" :padding="[2.5,2.5]" :display="['desktop']" :targetLink="{url: '', type: 'internal'}">
+                                <template v-slot:icone>
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 12L16 20L24 12" stroke="#CCCCCC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </template>
+                            </Button>
+                        </div>
                     </div>
                     <div class="l_col l_rightSide">
                         <slot name="rightSide"></slot>
@@ -27,8 +36,12 @@
 <script>
 
 import ScrollAnimation from '@/directives/scrollAnimation'
+import Button from '@/components/subcomponents/Button'
 
 export default {
+    components: {
+        Button
+    },
     props: {
         title: String,
         sectionSetting: Array,
@@ -90,7 +103,8 @@ export default {
                 flex-direction: column;
 
                 &>div.l_col.l_leftSide, &>div.l_col.l_rightSide{
-                    width: 100%
+                    width: 100%;
+                    margin-top: $margin-1;
                 }
             }
         }

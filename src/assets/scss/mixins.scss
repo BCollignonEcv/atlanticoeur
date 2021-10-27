@@ -119,5 +119,15 @@
         border-color: $color-primary;
         transition: all .5s;
     }
+}
 
+@mixin hoverFull {
+    &:hover{
+        &, *{
+            color: $color-primary !important;
+            cursor: pointer;
+            border-color: $color-primary !important;
+            transition: all .5s;
+        }
+    }
 }

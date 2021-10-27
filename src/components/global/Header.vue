@@ -15,15 +15,16 @@ export default {
 </script>
 
 <style lang="scss">
-
+header{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 50;
+}
 #nav {
   margin: 1.2rem auto 9.2rem auto;
   padding: 2.4rem;
   width: 61.25%;  
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 50;
 
   a {
     text-transform: uppercase;

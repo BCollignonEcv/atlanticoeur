@@ -1,14 +1,14 @@
 /* Scroll */
 
 .scroll-before-enter {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 1s ease-out, transform .5s ease-out;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 1s ease-out, transform .5s ease-out;
 }
 
 .scroll-enter {
-    opacity: 1;
-    transform: unset;
+        opacity: 1;
+        transform: unset;
 }
 
 // .scroll-before-enter {

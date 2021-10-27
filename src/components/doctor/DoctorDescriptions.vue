@@ -6,7 +6,7 @@
                     <doctor-description 
                         v-for="doctor in doctors" :key="doctor.id" 
                         :data-doctor="doctor"
-                        :is-selected="selected === doctor.id"
+                        :is-selected="doctorSelected === doctor.id"
                         @eventSelected="newSelected"
                     />
             </transition-group>
@@ -23,11 +23,10 @@ export default {
     },
     props: {
         dataDoctors: Object,
-        selectedItem: Number
+        doctorSelected: Number
     },
     data() {
         return {
-            selected: this.selectedItem,
             doctors: this.dataDoctors
         }
     },

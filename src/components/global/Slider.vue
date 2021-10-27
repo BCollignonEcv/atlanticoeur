@@ -163,7 +163,7 @@ export default {
             left: $wrapper-global-margin;
             margin: -$padding-overlay 0;
             padding: $margin-4;
-            z-index: 50;
+            z-index: 25;
             border-radius: $borderRadius-2;
             @include blur;
 
@@ -230,6 +230,7 @@ export default {
                         bottom: 4.8rem;
                         left: 4.8rem;
                         border: 1px solid $color-grey-6;
+                        border-radius: $borderRadius-2;
                         @include blur;
                     }
 

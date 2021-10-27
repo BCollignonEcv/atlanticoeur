@@ -126,6 +126,10 @@ export default {
                     p{
                         font-weight: 700;
                     }
+
+                    a{
+                        @include hoverLink;
+                    }
                 }
             }
             .fakeButton{
@@ -133,6 +137,12 @@ export default {
                 padding: $margin-6 $margin-5;
                 border-radius: $borderRadius-2;
                 transition: height .5s ease;
+                margin: $margin-4 $margin-4 0 $margin-4;
+
+                &~.fakeButton{
+                    margin-top: $margin-5;
+                    margin-bottom: $margin-4;
+                }
                 
                 p{
                     @include font-size-3;
@@ -147,16 +157,12 @@ export default {
         }
         .cabinet-description-content {
             margin-top: $margin-1;
-            padding-right: $margin-1;
+            padding-right: $margin-1*5;
+            text-align: justify;
+            text-justify: inter-word;
 
             p{
                 @include font-size-3;
-            }
-        }
-
-        .l_container-bottom{
-            .fakeButton{
-                margin: $margin-4;
             }
         }
     }

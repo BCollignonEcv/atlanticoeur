@@ -136,17 +136,17 @@ export default {
                 {
                   "name": "Cardiologie adulte",
                   "description": "hello description",
-                  "pathImg": "/specialities/dashboard-cardiologie.png"
+                  "pathImg": "/specialities/dashboard-angiologie.png"
                 },
                 {
                   "name": "Cardiologie du sport",
                   "description": "hello description",
-                  "pathImg": "/specialities/dashboard-cardiologie.png"
+                  "pathImg": "/specialities/dashboard-angiologie.png"
                 },
                 {
                   "name": "Cardiologie pédiatrique",
                   "description": "hello description",
-                  "pathImg": "/specialities/dashboard-cardiologie.png"
+                  "pathImg": "/specialities/dashboard-angiologie.png"
                 }
               ]
             },
