@@ -82,6 +82,8 @@ export default {
             }
 
             .c_icone{
+                cursor: pointer;
+                
                 &.reverse{
                     text-align: left;
                     transform: rotate(180deg);

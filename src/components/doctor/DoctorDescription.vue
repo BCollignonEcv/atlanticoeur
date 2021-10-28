@@ -10,11 +10,6 @@
                 <p v-else>{{state.close}}</p>
             </div>
         </div>
-        <transition 
-            name="collapse"
-            @enter="enter"
-            @after-enter="afterEnter"
-            @leave="leave">
             <div v-if="isSelected" ref="descriptionContent" class="description-collapse description-collapse--content">
                 <div class="description-aside"></div>
                 <div class="description-content">
@@ -54,7 +49,6 @@
                     </div>
                 </div>
             </div>
-        </transition>
     </div>
 </template>
 

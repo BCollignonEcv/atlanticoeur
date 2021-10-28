@@ -1,5 +1,5 @@
 <template>
-        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}" class="wrapper-content">
+        <section v-scrollanimation="landing" :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}" class="wrapper-content">
             <template v-if="splited">
                 <!-- Splited Section -->
                 <div  class="l_container">

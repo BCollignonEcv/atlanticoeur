@@ -80,7 +80,7 @@ export default {
             }
         }
 
-        @media screen and (max-width: 1919px){
+        @media screen and (max-width: $breackpoint-desktop){
             height: auto;
             
             .examens-grid{

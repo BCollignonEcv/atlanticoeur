@@ -146,7 +146,7 @@ export default {
                 }
             }
 
-            @media screen and (max-width: 1919px){
+            @media screen and (max-width: $breackpoint-desktop){
                 display: none !important;
             }
         }
@@ -171,7 +171,7 @@ export default {
                 color: $color-grey-7;
             }
 
-            @media screen and (max-width: 1919px){
+            @media screen and (max-width: $breackpoint-desktop){
                 width: 50vw;
             }
         }

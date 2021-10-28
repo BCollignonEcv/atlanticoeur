@@ -41,7 +41,7 @@ export default {
             width: calc(25% - 2.4rem);
         }
 
-        @media screen and (max-width: 1919px){
+        @media screen and (max-width: $breackpoint-desktop){
             flex-wrap: wrap;
             & > .card-doctor{
                 margin: 0 1.2rem;

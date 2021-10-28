@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="wrapper-content">
-      <h1>Les différents liens utiles <br> recommandés</h1>
+      <h1>Les différents liens utiles <br>recommandés</h1>
     </div>
     <div>
       <grid :data-links="links"/>

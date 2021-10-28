@@ -12,8 +12,11 @@ const animatedScrollObserver = new IntersectionObserver(
 )
 
 export default {
-    mounted(el) {
-        el.classList.add('scroll-before-enter');
-        animatedScrollObserver.observe(el);
+    mounted(el, binding) {
+        if(!binding){
+            console.log('notlanding', el)
+            el.classList.add('scroll-before-enter');
+            animatedScrollObserver.observe(el);
+        }
     },
 }
