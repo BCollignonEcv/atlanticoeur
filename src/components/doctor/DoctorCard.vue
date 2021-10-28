@@ -94,7 +94,7 @@ export default {
 
             p{
                 @include font-size-4;
-                font-weight: 700;
+                @include font-bold;
                 width: 100%;
                 padding: 3.4rem 0;
                 text-align: center;
@@ -110,7 +110,7 @@ export default {
         .card-doctor-info{
             background-color: $color-neutral;
             padding: 48px 24px;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0, 0.04);
             // filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.04));
             border-radius: $borderRadius-2;
 
@@ -120,13 +120,13 @@ export default {
                 h4{
                     color: $color-grey-1;
                     span{
-                        font-weight: 700;
+                        @include font-bold;
                     }
                 }
 
                 .card-doctor-subtitle{
                     @include font-size-4;
-                    font-weight: normal;
+                    @include font-regular;
                 }
 
                 .card-flex{
@@ -141,7 +141,7 @@ export default {
                         padding: .8rem 0;
                         border-bottom: 1px solid $color-grey--50;
                         *{
-                            font-weight: 700;
+                            @include font-bold;
                         }
                     }
                 }

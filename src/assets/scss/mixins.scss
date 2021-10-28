@@ -86,7 +86,19 @@
 
 @mixin font-size-caption {
     font-size: $font-small;
-    font-style: $lineHeight-small;
+    line-height: $lineHeight-small;
+}
+
+@mixin font-bold {
+    font-family: 'Atlanticoeur-bold', Helvetica;
+}
+
+@mixin font-regular {
+    font-family: 'Atlanticoeur-regular', Helvetica;
+}
+
+@mixin font-light {
+    font-family: 'Atlanticoeur-light', Helvetica;
 }
 
 

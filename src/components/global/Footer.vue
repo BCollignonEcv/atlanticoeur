@@ -8,7 +8,7 @@
                         <li class="link"><router-link to="/" @click="scrollToTop">Accueil</router-link></li>
                         <li class="link"><router-link to="/praticiens" @click="scrollToTop">Les praticiens</router-link></li>
                         <li class="link"><router-link to="/links" @click="scrollToTop">Les liens utiles</router-link></li>
-                        <li class="link">Mentions legales</li>
+                        <li class="link"><router-link to="/links" @click="scrollToTop">Mentions legales</router-link></li>
                     </ul>
                 </nav>
             </div>
@@ -31,9 +31,9 @@
             </div>
             <div class="footer-item">
                 <ul>
-                    <li class="item-title"><h5>Crédits <span class="align-right">2021</span></h5></li>
-                    <li class="link"><a target="_blank" rel="noopener" href="https://www.collignonbaptiste.com">Dev : Collignon Baptiste</a></li>
-                    <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Enzo Nicolas</a></li>
+                    <li class="item-title"><h5>Crédits <span style="float: right">2021</span></h5></li>
+                    <li class="link"><a target="_blank" rel="noopener" href="https://www.collignonbaptiste.com">Dev. : Collignon Baptiste</a></li>
+                    <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Nicolas Enzo</a></li>
                     <li><br></li>
                     <li><p>@ 2021, SCM Atlanticoeur</p></li>
                 </ul>
@@ -82,12 +82,12 @@ export default {
                 }
 
                 p{
-                    font-weight: 700;
+                    @include font-bold;
                 }
 
                 a{
-                    font-weight: 700;
-                    transition: 1s ease;
+                    @include font-bold;
+                    transition: .5s ease;
                 }
 
                 &.link:hover{
@@ -99,8 +99,8 @@ export default {
                 border-top: none;
                 margin-bottom: 4.8rem;
                 h5{
-                    @include font-size-3;
-                    font-weight: 700;
+                    @include font-size-4;
+                    @include font-bold;
                     margin-block-start: 0;
                     margin-block-end: 0;
                 }

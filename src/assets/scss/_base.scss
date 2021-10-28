@@ -1,22 +1,20 @@
 :root {
-    font-family: 'Atlanticoeur', Arial;
-    font-weight: normal;
-    font-style: normal;
+    @include font-regular;
     color: $color-grey-6;
 }
 
 h1 {
     @include font-size-1;
-    font-weight: 700;
+    @include font-bold;
     margin-bottom: 4.6rem;
     color: $color-grey-1;
     white-space: pre;
 }
 
 h2 {
-    @include font-size-1;
+    @include font-size-2;
+    @include font-bold;
     color: $color-grey-1;
-    font-weight: 700;
     margin-top: 15rem;
     margin-bottom: 7.2rem;
     white-space: pre;
@@ -24,8 +22,7 @@ h2 {
 
 h3 {
     @include font-size-3;
-    font-style: normal;
-    font-weight: 700;
+    @include font-bold;
     letter-spacing: 0em;
     text-align: left;
 }

@@ -26,9 +26,8 @@ export default {
             if(this.opened != true){
                 const element = this.$el.getElementsByClassName('examen_item-floating')[0];
                 const paddingElement = parseFloat(window.getComputedStyle(element, null).getPropertyValue('padding-top'))
-                console.log('2' + paddingElement)
-                element.style.paddingTop = 2* paddingElement + 'px';
-                element.style.paddingBottom = 2* paddingElement + 'px';
+                element.style.paddingTop = 3* paddingElement + 'px';
+                element.style.paddingBottom = 3* paddingElement + 'px';
                 this.opened = true;
             }
         }

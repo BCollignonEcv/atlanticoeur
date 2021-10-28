@@ -11,7 +11,7 @@
         <specialities-dashboard :specialities="specialities" />
       </template>
     </section-component>
-    <section-component :title="'Les différents praticiens du cabinet'">
+    <section-component :title="'Les différents praticiens du cabinet'" :sectionSetting="['grey', 'sectionPadding']">
       <doctors-card-list :data-doctors="doctorsSpe" :type-card="'small'"/>
     </section-component>
     <section-component 

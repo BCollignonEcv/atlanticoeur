@@ -6,7 +6,7 @@
     <section-component :sectionSetting="['grey']">
       <doctors-description-list :doctor-selected="doctorSelected" :data-doctors="doctorsSpe"/>
     </section-component>
-     <section-component :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth']">
+     <section-component :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth', 'bigTitle']">
       <Slider :haveNavigation="true" :limit="Object.keys(specialities).length">
         <template v-slot:slide>
           <SpecialitiesSlide

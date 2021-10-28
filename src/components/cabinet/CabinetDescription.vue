@@ -2,21 +2,27 @@
     <div class="cabinet-description">
         <template v-if="typeDescription === 'full'">
             <div class="full">
-                <p class="description_item-title"><span>{{description.number}}</span>{{description.address}}</p>
-                <p class="description_item-title"><span>{{description.postalCode}}</span>{{description.city}}</p>
+                <div class="l_container description_item-single">
+                    <p class="l_col s3 description_item-title">{{description.number}}</p>
+                    <p class="l_col s6 description_item-title">{{description.address}}</p>
+                </div>
+                <div class="l_container description_item-single">
+                    <p class="l_col s3 description_item-title">{{description.postalCode}}</p>
+                    <p class="l_col s6 description_item-title">{{description.city}}</p>
+                </div>
                 <div class="description_item-singleList">
                     <div class="l_container description_item-single">
-                        <p class="l_col s6">Numéro de téléphone :</p>
+                        <p class="l_col s6">Numéro de téléphone</p>
                         <p class="l_col s6"><a :href="getPhone()">{{description.phone}}</a></p>
                     </div>
                     <div class="l_container description_item-single">
-                        <p class="l_col s6">Adresse mail :</p>
+                        <p class="l_col s6">Adresse mail</p>
                         <p class="l_col s6"><a :href="getEmail()">{{description.email}}</a></p>
                     </div>
                     <div class="l_container description_item-single">
-                        <p class="l_col s4">Horaires :</p>
-                        <p class="l_col s4">Du {{description.horaires.days[0]}} <br> De {{description.horaires.hours[0]}}</p>
-                        <p class="l_col s4">Au {{description.horaires.days[1]}} <br> A {{description.horaires.hours[1]}}</p>
+                        <p class="l_col s3">Horaire</p>
+                        <p class="l_col s3">Du {{description.horaires.days[0]}} <br> De {{description.horaires.hours[0]}}</p>
+                        <p class="l_col s6">au {{description.horaires.days[1]}} <br> à {{description.horaires.hours[1]}}</p>
                     </div>
                     <div class="l_container-bottom">
                         <!-- <div class="fakeButton l_container" @click="isModalVisible = !isModalVisible"> -->
@@ -38,9 +44,11 @@
                                     </svg>
                                 </p>
                             </div>
-                            <div v-show="isGoogleMapVisible">
-                                <GoogleMap />
-                            </div>
+                            <transition appear name="scaleY">
+                                <div v-show="isGoogleMapVisible">
+                                    <GoogleMap />
+                                </div>
+                            </transition>
                         </div>
                     </div>
                 </div>
@@ -106,13 +114,7 @@ export default {
         & .full{
             .description_item-title{
                 @include font-size-3;
-                font-weight: 700;
-                width: 100%;
-
-                span{
-                    width: 30%;
-                    display: inline-block;
-                }
+                @include font-bold;
             }
             .description_item-singleList{
                 margin-top: $margin-1*2;
@@ -126,7 +128,7 @@ export default {
                     }
 
                     p{
-                        font-weight: 700;
+                        @include font-bold;
                     }
 
                     a{
@@ -142,13 +144,13 @@ export default {
                 margin: $margin-4 $margin-4 0 $margin-4;
 
                 &~.fakeButton{
-                    margin-top: $margin-5;
+                    margin-top: $margin-6;
                     margin-bottom: $margin-4;
                 }
                 
                 p,a{
                     @include font-size-3;
-                    font-weight: 700;
+                    @include font-bold;
                     @include hoverLink;
                 }
 

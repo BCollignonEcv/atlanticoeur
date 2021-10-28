@@ -10,45 +10,45 @@
                 <p v-else>{{state.close}}</p>
             </div>
         </div>
-            <div v-if="isSelected" ref="descriptionContent" class="description-collapse description-collapse--content">
-                <div class="description-aside"></div>
-                <div class="description-content">
-                    <div class="description-item">
-                        <p class="description-item--title">Spécilités</p>
-                        <div class="description-item--content description-subitem-specialities">
-                            <div class="description-subitem-specialities--item" v-for="(speciality, index) in doctor.specialities" :key="index">
-                                <p>{{speciality.name}}</p>
-                            </div>
+        <div v-if="isSelected" ref="descriptionContent" class="description-collapse description-collapse--content">
+            <div class="description-aside"></div>
+            <div class="description-content">
+                <div class="description-item">
+                    <p class="description-item--title">Spécilités</p>
+                    <div class="description-item--content description-subitem-specialities">
+                        <div class="description-subitem-specialities--item" v-for="(speciality, index) in doctor.specialities" :key="index">
+                            <p>{{speciality.name}}</p>
                         </div>
-                    </div>
-                    <div class="description-item">
-                        <p class="description-item--title">Présentation</p>
-                        <p class="description-item--content">{{doctor.presentation}}</p>
-                    </div>
-                    <div class="description-item">
-                        <p class="description-item--title">Carte vitale</p>
-                        <p class="description-item--content">{{doctor.vitalCard}}</p>
-                    </div>
-                    <div class="description-item">
-                        <p class="description-item--title">Conventionné secteur</p>
-                        <p class="description-item--content">{{doctor.conventionType}}</p>
-                    </div>
-                    <div class="description-item">
-                        <p class="description-item--title">Tiers payant</p>
-                        <p class="description-item--content">{{doctor.tiersPayant}}</p>
-                    </div>
-                    <div class="description-item">
-                        <p class="description-item--title">Diplômes nationaux et universitaires</p>
-                        <div class="description-item--content description-subitem-list">
-                            <p class="description-subitem" v-for="(diplome, index) in doctor.diplomes" :key="index">{{diplome}}</p>
-                        </div>
-                    </div>
-                    <div class="description-item">
-                        <p class="description-item--title">Numéro RPPS</p>
-                        <p class="description-item--content">{{doctor.RPPS}}</p>
                     </div>
                 </div>
+                <div class="description-item">
+                    <p class="description-item--title">Présentation</p>
+                    <p class="description-item--content">{{doctor.presentation}}</p>
+                </div>
+                <div class="description-item">
+                    <p class="description-item--title">Carte vitale</p>
+                    <p class="description-item--content">{{doctor.vitalCard}}</p>
+                </div>
+                <div class="description-item">
+                    <p class="description-item--title">Conventionné secteur</p>
+                    <p class="description-item--content">{{doctor.conventionType}}</p>
+                </div>
+                <div class="description-item">
+                    <p class="description-item--title">Tiers payant</p>
+                    <p class="description-item--content">{{doctor.tiersPayant}}</p>
+                </div>
+                <div class="description-item">
+                    <p class="description-item--title">Diplômes nationaux et universitaires</p>
+                    <div class="description-item--content description-subitem-list">
+                        <p class="description-subitem" v-for="(diplome, index) in doctor.diplomes" :key="index">{{diplome}}</p>
+                    </div>
+                </div>
+                <div class="description-item">
+                    <p class="description-item--title">Numéro RPPS</p>
+                    <p class="description-item--content">{{doctor.RPPS}}</p>
+                </div>
             </div>
+        </div>
     </div>
 </template>
 
@@ -70,26 +70,6 @@ export default {
         collapse(){
             this.$emit('event-selected', this.doctor.id)
         },
-        enter(el){
-            el.style.height = 'auto'
-            const height = getComputedStyle(el).height
-            el.style.height = 0
-
-            getComputedStyle(el)
-            setTimeout(() => {
-                el.style.height = height
-            })
-        },
-        afterEnter(el){
-            el.style.height = 'auto'
-        },
-        leave(el){
-            el.style.height = getComputedStyle(el).height
-            getComputedStyle(el)
-            setTimeout(() => {
-                el.style.height = 0
-            })
-        }
     },
     mounted() {
         let ldJSONScript = document.createElement('script')
@@ -143,7 +123,7 @@ export default {
 
                     p{
                         @include font-size-4;
-                        font-weight: bold;
+                        @include font-bold;
                     }
 
                     &:last-child{
@@ -190,9 +170,12 @@ export default {
 
                                 border: 1px solid;
                                 border-image-source: linear-gradient(90deg, #232526 0%, #414345 100%);
-
+                                
                                 p{
                                     text-align: center;
+                                    text-transform: uppercase;
+                                    @include font-bold;
+                                    @include font-size-normal;
                                 }
                             }
                         }

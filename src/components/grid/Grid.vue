@@ -111,7 +111,7 @@ export default {
 
             p{
                 @include font-size-1;
-                font-weight: bold;
+                @include font-bold;
                 transition: all .5s;
 
                 &.gl-1{

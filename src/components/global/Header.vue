@@ -31,7 +31,7 @@ header{
     text-align: center;
     flex: 1;
     padding: .8rem;
-    font-weight: 700;
+    @include font-bold;
     display: inline-block;
     position: relative;
     @include hoverLink;

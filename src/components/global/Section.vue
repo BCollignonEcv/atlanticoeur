@@ -1,5 +1,5 @@
 <template>
-        <section v-scrollanimation="landing" :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth}" class="wrapper-content">
+        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth, 'landing': landing, 'sectionPadding': sectionPadding, 'bigTitle': bigTitle}" class="wrapper-content">
             <template v-if="splited">
                 <!-- Splited Section -->
                 <div  class="l_container">
@@ -53,11 +53,13 @@ export default {
         return {
             settings: this.sectionSetting ? this.sectionSetting : [],
             landing: false,
+            sectionPadding: false,
             dark: false,
             grey: false,
             fullHeight: false,
             fullWidth: false,
             splited: false,
+            bigTitle: false
         }
     },
     created(){
@@ -73,11 +75,18 @@ export default {
         if(this.settings.includes('landing')){
             this.landing = true;
         }
+        if(this.settings.includes('sectionPadding')){
+            this.sectionPadding = true;
+            console.log('toto')
+        }
         if(this.settings.includes('dark')){
             this.dark = true;
         }
         if(this.settings.includes('grey')){
             this.grey = true;
+        }
+        if(this.settings.includes('bigTitle')){
+            this.bigTitle = true;
         }
     }
 }
@@ -124,5 +133,28 @@ export default {
 
     .full-height{
         min-height: 100vh;
+    }
+
+    .landing{
+        margin-bottom: 15rem;
+
+        h2{
+            color: $color-neutral;
+            @include font-bold;
+            margin-top: 15rem;
+            margin-bottom: 7.2rem;
+            white-space: pre;
+            @include font-size-1;
+        }
+    }
+
+    .sectionPadding{
+        padding-bottom: 8rem;
+    }
+
+    .bigTitle{
+        h2{
+            @include font-size-1;
+        }
     }
 </style>

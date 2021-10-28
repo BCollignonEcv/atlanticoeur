@@ -219,7 +219,7 @@ export default {
                         top: 4.8rem;
                         left: 4.8rem;
                         color: $color-grey-6;
-                        font-weight: bold;
+                        @include font-bold;
                         @include font-size-1;
                     }
 
