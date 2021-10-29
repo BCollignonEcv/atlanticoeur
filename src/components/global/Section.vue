@@ -77,7 +77,6 @@ export default {
         }
         if(this.settings.includes('sectionPadding')){
             this.sectionPadding = true;
-            console.log('toto')
         }
         if(this.settings.includes('dark')){
             this.dark = true;

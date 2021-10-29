@@ -21,29 +21,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="description-item">
+                <div v-if="doctor.presentation" class="description-item">
                     <p class="description-item--title">Présentation</p>
                     <p class="description-item--content">{{doctor.presentation}}</p>
                 </div>
-                <div class="description-item">
+                <div v-if="doctor.vitalCard" class="description-item">
                     <p class="description-item--title">Carte vitale</p>
                     <p class="description-item--content">{{doctor.vitalCard}}</p>
                 </div>
-                <div class="description-item">
+                <div v-if="doctor.conventionType" class="description-item">
                     <p class="description-item--title">Conventionné secteur</p>
                     <p class="description-item--content">{{doctor.conventionType}}</p>
                 </div>
-                <div class="description-item">
+                <div v-if="doctor.tiersPayant" class="description-item">
                     <p class="description-item--title">Tiers payant</p>
                     <p class="description-item--content">{{doctor.tiersPayant}}</p>
                 </div>
-                <div class="description-item">
+                <div v-if="doctor.diplomes" class="description-item">
                     <p class="description-item--title">Diplômes nationaux et universitaires</p>
                     <div class="description-item--content description-subitem-list">
                         <p class="description-subitem" v-for="(diplome, index) in doctor.diplomes" :key="index">{{diplome}}</p>
                     </div>
                 </div>
-                <div class="description-item">
+                <div v-if="doctor.RPPS" class="description-item">
                     <p class="description-item--title">Numéro RPPS</p>
                     <p class="description-item--content">{{doctor.RPPS}}</p>
                 </div>

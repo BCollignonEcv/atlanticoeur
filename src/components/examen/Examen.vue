@@ -28,7 +28,11 @@ export default {
     },
     methods: {
         getRandomSizeClass() {
-            return Math.random() * 5 + 1;
+            if(window.innerWidth < 1440){
+                return 2.5
+            }else{
+                return Math.random() * 5 + 1;
+            }
         },
     },
     mounted () {

@@ -63,10 +63,10 @@ export default {
     },
     methods: {
         slideTo(){
-            let slide = document.querySelector('#slide-1');
-            let slider = document.querySelector('.slider-content');
+            let slide = this.$el.querySelector('#slide-1');
+            let slider = this.$el.querySelector('.slider-content');
             let globalMargin = parseFloat(window.getComputedStyle(slider, null).getPropertyValue('padding-left'));
-            let sliderContainer = document.querySelector('.slider-container');
+            let sliderContainer = this.$el.querySelector('.slider-container');
 
             // Prepare slide gap
             let slideGap = this.active * -slide.offsetWidth - 24;
@@ -231,6 +231,7 @@ export default {
                         left: 4.8rem;
                         border: 1px solid $color-grey-6;
                         border-radius: $borderRadius-2;
+                        white-space: pre-wrap;
                         @include blur;
                     }
 
