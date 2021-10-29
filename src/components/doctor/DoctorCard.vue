@@ -20,7 +20,7 @@
                     <p>{{speciality.name}}</p>
                 </div>
             </div>
-            <button v-if="type === 'big'" @click="scrollToDoctor(doctor.id)" class="btn btn-rdv">Profil du praticien</button>
+            <button v-if="type === 'big'" @click="scrollToDoctor()" class="btn btn-rdv">Profil du praticien</button>
             <button class="btn btn-rdv" @click="showModal()">Prendre rendez-vous</button>
             <Modal                     
                 v-show="isModalVisible"
@@ -64,8 +64,8 @@ export default {
         closeModal() {
             this.isModalVisible = false;
         },
-        scrollToDoctor(target){
-            alert(target)
+        scrollToDoctor(){
+            this.$emit('event-selected', this.doctor.id)
         }
     },
     mounted(){

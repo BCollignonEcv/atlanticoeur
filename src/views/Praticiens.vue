@@ -1,10 +1,10 @@
 <template>
   <div class="page">
     <section-component :title="'Les praticiens du cabinet \nSCM Atlanticœur'" :sectionSetting="['landing']">
-      <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'" :doctor-selected="doctorSelected"/>
+      <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'" @eventSelected="newSelected"/>
     </section-component>
     <section-component :sectionSetting="['grey']">
-      <doctors-description-list :doctor-selected="doctorSelected" :data-doctors="doctorsSpe"/>
+      <doctors-description-list :doctor-selected="doctorSelected" :data-doctors="doctorsSpe" @eventSelected="newSelected"/>
     </section-component>
      <section-component :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth', 'bigTitle']">
       <Slider :haveNavigation="true" :limit="Object.keys(specialities).length">
@@ -162,12 +162,24 @@ export default {
                 });
                 this.doctorsSpe.push(doctor);
             });
+        },
+        newSelected (value) {
+            this.doctorSelected = value;
         }
     },
     created () {
         this.includeSpecialities();
     },
     mounted (){
+    },
+    watch: {
+      doctorSelected: function(id){
+        if(id != null){
+          setTimeout(function(){ 
+            document.getElementById('doctorDescription'+id).scrollIntoView({behavior: "smooth", block: "center"})
+          }, 200);
+        }
+      }
     }
 }
 </script>

@@ -20,6 +20,7 @@ header{
     position: -webkit-sticky;
     top: 0;
     z-index: 50;
+    pointer-events: none;
 }
 #nav {
   margin: 1.2rem auto 9.2rem auto;
@@ -35,6 +36,7 @@ header{
     display: inline-block;
     position: relative;
     @include hoverLink;
+    pointer-events: auto;
 
     &:after{
       content: '';

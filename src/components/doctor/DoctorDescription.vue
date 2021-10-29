@@ -57,18 +57,26 @@
 export default {
     name: 'DoctorDescription',
     props: {
-        dataDoctor: Object,
-        isSelected: Boolean
+        doctor: Object,
+        doctorSelected: Number
     },
     data() {
         return {
-            doctor: this.dataDoctor,
-            state: {"close": "+", "open": "−"}
+            state: {"close": "+", "open": "−"},
+        }
+    },
+    computed: {
+        isSelected: function(){
+            return this.doctor.id === this.doctorSelected
         }
     },
     methods: {
         collapse(){
-            this.$emit('event-selected', this.doctor.id)
+            if (this.doctor.id != this.doctorSelected) {
+                this.$emit('event-selected', this.doctor.id)
+            } else {
+                this.$emit('event-selected', null)
+            }
         },
     },
     mounted() {
@@ -81,7 +89,7 @@ export default {
     unmounted() {
         const ldJSONScript = document.getElementById('schema-' + this.doctor.id);
         document.head.removeChild(ldJSONScript);
-    }
+    },
 }
 </script>
 

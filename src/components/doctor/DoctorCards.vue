@@ -4,6 +4,7 @@
                 v-for="(doctor, index) in doctors" :key="index" 
                 :doctor-data="doctor"
                 :type="type"
+                @eventSelected="newSelected"
             />
         </div>
 </template>
@@ -26,6 +27,11 @@ export default {
             type: this.typeCard,
         }
     },
+    methods: {
+        newSelected (value) {
+            this.$emit('event-selected', value)
+        }
+    }
 }
 </script>
 

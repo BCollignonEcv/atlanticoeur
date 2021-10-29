@@ -1,7 +1,7 @@
 const animatedScrollObserver = new IntersectionObserver(
     (entries, animatedScrollObserver) => {
         entries.forEach((entry) => {
-            if (entry.intersectionRatio > 0.4) {
+            if (entry.intersectionRatio > 0.4 || entry.target.classList.contains('landing')) {
                 entry.target.classList.add('scroll-enter');
                 animatedScrollObserver.unobserve(entry.target);
             }

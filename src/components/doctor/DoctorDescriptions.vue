@@ -5,8 +5,8 @@
                 tag="div" >
                     <doctor-description 
                         v-for="doctor in doctors" :key="doctor.id" 
-                        :data-doctor="doctor"
-                        :is-selected="selected === doctor.id"
+                        :doctor="doctor"
+                        :doctorSelected="doctorSelected"
                         @eventSelected="newSelected"
                     />
             </transition-group>
@@ -28,21 +28,11 @@ export default {
     data() {
         return {
             doctors: this.dataDoctors,
-            selected: this.doctorSelected
-        }
-    },
-    watch: {
-        dataDoctors: function() {
-            this.doctors = this.dataDoctors
         }
     },
     methods: {
         newSelected (value) {
-            if (value != this.selected) {
-                this.selected = value
-            } else {
-                this.selected = null
-            }
+            this.$emit('event-selected', value)
         }
     }
 }
