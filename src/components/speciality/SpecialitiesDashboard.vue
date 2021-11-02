@@ -4,8 +4,9 @@
             <div class="l_col l_leftSide">
                 <h3>Spécialités exercées</h3>
                 <div class="specialities_dashboard-container">
-                    <SpecialitiesDashboardItem 
-                        :data="specialitiesCategory[1]" 
+                    <SpecialitiesDashboardItem
+                        v-for="(subcategory, index) in splitedSpecialities('vertical')" :key="index" 
+                        :data="subcategory"
                         :settings="{vertical: true}"
                     />
                 </div>
@@ -13,7 +14,7 @@
             <div class="l_col l_rightSide">
                 <div class="l_container-horizontal specialities_dashboard-container">
                     <SpecialitiesDashboardItem
-                        v-for="(subcategory, index) in specialitiesCategory[0]" :key="index" 
+                        v-for="(subcategory, index) in splitedSpecialities('horizontal')" :key="index" 
                         :data="subcategory"
                         :settings="{horizontal: true}"
                     />
@@ -35,23 +36,28 @@ export default {
     },
     data() {
         return {
-            specialitiesCategory: [],
         }
+    },
+    computed: {
     },
     methods: {
-        organiseSpecialities(){
-            Object.entries(this.specialities).forEach((element) => {
-                if(this.specialitiesCategory[element[1].category] != null){
-                    this.specialitiesCategory[element[1].category].push(element[1])
-                }else{
-                    this.specialitiesCategory.push([element[1]])
-                }
-            });
+        splitedSpecialities: function(type){
+            let tmp = [];
+            if(type === 'vertical'){
+                Object.entries(this.specialities).forEach((element) => {
+                    if(element[1].category === 1){
+                        tmp.push(element[1])
+                    }
+                });
+            }else if(type === 'horizontal'){
+                Object.entries(this.specialities).forEach((element) => {
+                    if(element[1].category === 0){
+                        tmp.push(element[1])
+                    }
+                });
+            }
+            return tmp;
         }
-    },
-    created() {
-        this.specialitiesCategory = this.organiseSpecialities();
-        console.log(this.specialitiesCategory)
     },
     mounted () {
     }

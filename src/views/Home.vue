@@ -83,8 +83,8 @@ export default {
               "pathImg": "doctors/cardiologue_michel_fesolowicz-cabinet_de_cardiologie-atlanticoeur.jpg",
               "doctorName": "Angiologue",
               "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/michel-fesolowicz?locale=fr",
-              "specialities": [4],
-              "conventionType": 1,                  
+              "specialities": [3],
+              "conventionType": 1,
               "presentation": "Le docteur Michel Fesolowicz vous reçoit dans son cabinet à Puilboreau - La Rochelle. Le domaine du médecin vasculaire, ou angiologue, est celui des vaisseaux : artères (artérite, anévrismes, accidents vasculaires..), veines (insuffisance, varices, phlébites), capillaires, lymphatiques. Son diagnostic notamment l'écho-Doppler est déterminant pour la prise en charge de ces maladies.",
               "vitalCard": "Acceptée",
               "tiersPayant": "Sécurité Sociale",
@@ -188,6 +188,7 @@ export default {
               "address": "rue Moulin des justices",
               "city": "Puilboreau",
               "postalCode": 17138,
+              "googleMap": "https://maps.google.com/maps?q=26%20%20rue%20Moulin%20des%20justices%20%2017138%20%20Puilboreau&t=&z=13&ie=UTF8&iwloc=&output=embed",
               "phone": "0546410753",
               "email": "contact@atlanticoeur.fr",
               "horaires": {
@@ -205,6 +206,10 @@ export default {
             },
             "photos": [
               {
+                "id": 0,
+                "name": "Acceuil",
+                "pathImg": "cabinets/acceuil_cabinet_de_cardiologie_atlanticoeur.jpg",
+              },{
                 "id": 1,
                 "name": "Acceuil",
                 "pathImg": "cabinets/acceuil_cabinet_de_cardiologie_atlanticoeur.jpg",
@@ -229,8 +234,8 @@ export default {
         includeSpecialities(){
             this.doctors.forEach((doctor) => {
                 Object.entries(doctor.specialities).forEach(entry => {
-                    const [key] = entry;
-                    doctor.specialities[key] = this.specialities[key];
+                    const [key, value] = entry;
+                    doctor.specialities[key] = this.specialities[value];
                 });
                 this.doctorsSpe.push(doctor);
             });

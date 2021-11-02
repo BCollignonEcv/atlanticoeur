@@ -21,6 +21,9 @@
                     <p>{{alphabet[index]}}</p>
                     <p>{{speciality.name}}</p>
                 </div>
+                <div v-if="Object.keys(doctor.specialities).length === 1" class="card-flex card-doctor-speciality">
+                    <p>_</p>
+                </div>
             </div>
             <button v-if="type === 'big'" @click="scrollToDoctor()" class="btn btn-rdv">Profil du praticien</button>
             <button class="btn btn-rdv" @click="showModal()">Prendre rendez-vous</button>
@@ -71,6 +74,7 @@ export default {
         }
     },
     mounted(){
+        console.log(this.doctor.specialities)
     }
 }
 </script>
@@ -78,7 +82,6 @@ export default {
 <style lang="scss">
 
     .card-doctor{
-
         &:hover{
             .card-speciality-title{
                 color: $color-primary !important;

@@ -49,11 +49,11 @@ export default {
     },
     methods: {
         getImgUrl() {
-            return 'tot'
-            // return require('@/assets/img/'+ this.data[0].pathImg)
+            return require('@/assets/img/'+ this.data.pathImg)
         },
         getImgAlt() {
-            return this.data.name
+            // return this.data.name
+            return 'toto'
         }, 
     },
     mounted () {

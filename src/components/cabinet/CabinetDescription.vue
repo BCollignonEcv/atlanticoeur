@@ -24,16 +24,17 @@
                         <p class="l_col s3">Du {{description.horaires.days[0]}} <br> De {{description.horaires.hours[0]}}</p>
                         <p class="l_col s6">au {{description.horaires.days[1]}} <br> à {{description.horaires.hours[1]}}</p>
                     </div>
-                    <div class="l_container-bottom">
+                </div>
+                                    <div class="l_container-bottom">
                         <!-- <div class="fakeButton l_container" @click="isModalVisible = !isModalVisible"> -->
                         <div class="fakeButton l_container">
                             <!-- <p class="l_col s9">Nous téléphoner</p> -->
-                            <p class="l_col s9"><a :href="getPhone()">Nous téléphoner</a></p>
-                            <p class="l_col s3 align-right">
+                            <div class="l_col s9"><a :href="getPhone()">Nous téléphoner</a></div>
+                            <div class="l_col s3 align-right">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11 16L7 8L25 16L7 24L11 16ZM11 16L14.5 16" stroke="#838383" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                            </p>
+                            </div>
                         </div>
                         <div class="fakeButton" @click="isGoogleMapVisible = !isGoogleMapVisible">
                             <div class="l_container">
@@ -46,12 +47,11 @@
                             </div>
                             <transition appear name="scaleY">
                                 <div v-show="isGoogleMapVisible">
-                                    <GoogleMap />
+                                    <GoogleMap :data="data.googleMap"/>
                                 </div>
                             </transition>
                         </div>
                     </div>
-                </div>
             </div>
         </template>
         <template v-else>
@@ -68,20 +68,15 @@
                 <p>{{description.content}}</p>
             </div> -->
         </template>
-        <Modal v-show="isModalVisible" @close="closeModal">
-            <PhoneIframe :data="description"/>
-        </Modal>
     </div>
 </template>
 
 <script>
-import Modal from "@/components/global/Modal"
-import PhoneIframe from "@/components/modal/Phone"
 import GoogleMap from "@/components/modal/GoogleMap"
 
 export default {
     components: {
-        Modal, PhoneIframe, GoogleMap
+        GoogleMap
     },
     props: {
         data: Object,
