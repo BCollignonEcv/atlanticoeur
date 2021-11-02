@@ -5,7 +5,7 @@
                 <h3>Spécialités exercées</h3>
                 <div class="specialities_dashboard-container">
                     <SpecialitiesDashboardItem 
-                        :data="specialities.angiologie.subcategory[0]" 
+                        :data="specialitiesCategory[1]" 
                         :settings="{vertical: true}"
                     />
                 </div>
@@ -13,7 +13,7 @@
             <div class="l_col l_rightSide">
                 <div class="l_container-horizontal specialities_dashboard-container">
                     <SpecialitiesDashboardItem
-                        v-for="(subcategory, index) in specialities.cardiologie.subcategory" :key="index" 
+                        v-for="(subcategory, index) in specialitiesCategory[0]" :key="index" 
                         :data="subcategory"
                         :settings="{horizontal: true}"
                     />
@@ -35,11 +35,23 @@ export default {
     },
     data() {
         return {
-            
+            specialitiesCategory: [],
         }
     },
     methods: {
-        
+        organiseSpecialities(){
+            Object.entries(this.specialities).forEach((element) => {
+                if(this.specialitiesCategory[element[1].category] != null){
+                    this.specialitiesCategory[element[1].category].push(element[1])
+                }else{
+                    this.specialitiesCategory.push([element[1]])
+                }
+            });
+        }
+    },
+    created() {
+        this.specialitiesCategory = this.organiseSpecialities();
+        console.log(this.specialitiesCategory)
     },
     mounted () {
     }
@@ -56,7 +68,7 @@ export default {
         margin-right: -$wrapper-global-margin;
 
         h3{
-            color: $color-grey-1--50;
+            color: $color-grey-1;
         }
 
         .specialities_dashboard-container{

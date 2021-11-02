@@ -4,11 +4,11 @@
             <div class="full">
                 <div class="l_container description_item-single">
                     <p class="l_col s3 description_item-title">{{description.number}}</p>
-                    <p class="l_col s6 description_item-title">{{description.address}}</p>
+                    <p class="l_col s9 description_item-title">{{description.address}}</p>
                 </div>
                 <div class="l_container description_item-single">
                     <p class="l_col s3 description_item-title">{{description.postalCode}}</p>
-                    <p class="l_col s6 description_item-title">{{description.city}}</p>
+                    <p class="l_col s9 description_item-title">{{description.city}}</p>
                 </div>
                 <div class="description_item-singleList">
                     <div class="l_container description_item-single">

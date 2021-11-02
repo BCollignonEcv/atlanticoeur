@@ -6,6 +6,7 @@
 .btn.btn-rdv {
     padding: .8rem 1.2rem;
     @include font-size-4;
+    @include font-bold;
     color: $color-grey-6;
     border: 1px solid $color-grey--50;
     border-radius: $borderRadius-3;

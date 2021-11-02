@@ -10,7 +10,7 @@
         <template v-if="settings.horizontal">
             <div class="specialities_dashboard-item horizontal">
                 <div class="l_container">
-                    <div class="l_col s10 fakeImg" :style="style">
+                    <div class="l_col s10 fakeImg" :style="customStyle">
                         <p class="fakeImg-overlay">{{data.name}}</p>
                     </div>
                     <div class="l_col s2 graduation"></div>
@@ -37,19 +37,20 @@ export default {
     },
     data() {
         return {
-            style: {
-                backgroundImage: `url("${require('@/assets/img'+this.data.pathImg)}")`,
+            customStyle: {
+                backgroundImage: `url("${this.getImgUrl()}")`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }
         }
     },
-    computed: {
+    created() {
     },
     methods: {
         getImgUrl() {
-            return require('@/assets/img'+ this.data.pathImg)
+            return 'tot'
+            // return require('@/assets/img/'+ this.data[0].pathImg)
         },
         getImgAlt() {
             return this.data.name

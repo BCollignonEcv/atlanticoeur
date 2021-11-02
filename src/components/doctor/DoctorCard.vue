@@ -4,7 +4,9 @@
             <div class="card-speciality-title">
                 <p>{{doctor.specialities[0].name}}</p>
             </div>
-            <img class="card-img" :src="getImgUrl(doctor.pathImg)" alt="" srcset="">
+            <figure class="card-figure">
+                <img class="card-img" :src="getImgUrl(doctor.pathImg)" alt="" srcset="">
+            </figure>
         </div>
         <div class="card-doctor-info">
             <div class="card-element">
@@ -101,10 +103,27 @@ export default {
             }
         }
 
-        .card-img{
-            width: 100%;
-            height: auto;
-            border-radius: $borderRadius-2;
+        .card-figure{
+            position: relative;
+            overflow: hidden;
+
+            &:before{
+                content: "";
+                display: block;
+                padding-top: 100%;
+            }
+
+            .card-img{
+                width: 100%;
+                position:  absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                color: white;
+                text-align: center;
+                border-radius: $borderRadius-2;
+            }
         }
 
         .card-doctor-info{

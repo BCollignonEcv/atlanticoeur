@@ -1,7 +1,7 @@
 <template>
     <div :id="'slide-'+speciality.id" @click="descriptionShow = !descriptionShow">
         <figure>
-            <figcaption class="slide_overlay-title">{{speciality.discover}}</figcaption>
+            <figcaption class="slide_overlay-title">{{discover}}</figcaption>
             <transition appear name="fade">
                 <figcaption v-show="descriptionShow" class="slide_overlay-description">
                     <p>{{speciality.description}}</p>
@@ -24,13 +24,25 @@ export default {
             descriptionShow: false
         }
     },
+    computed: {
+        discover: function () {
+            if(this.isVowel((this.dataSpeciality.name).charAt(0))){
+                return `Qu'est ce que \nl'${this.dataSpeciality.name} ?`
+            }else{
+                return `Qu'est ce que la \n${this.dataSpeciality.name} ?`
+            }
+        }
+    },
     methods: {
         getImgUrl() {
-            return require('@/assets/img'+ this.speciality.pathImg)
+            return require('@/assets/img/'+ this.speciality.pathImg)
         },
         getImgAlt() {
             return this.speciality.name
         },
+        isVowel(letter){
+            return letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u" || letter == "A" || letter == "E" || letter == "I" || letter == "O" || letter == "U"; 
+        }
     },
     mounted() {
     },

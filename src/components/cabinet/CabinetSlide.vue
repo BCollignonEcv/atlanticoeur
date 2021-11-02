@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         getImgUrl() {
-            return require('@/assets/img'+ this.photo.pathImg)
+            return require('@/assets/img/'+ this.photo.pathImg)
         },
         getImgAlt() {
             return this.photo.name
