@@ -168,7 +168,7 @@ export default {
             @include blur;
 
             *{
-                color: $color-grey-7;
+                color: $color-grey-4;
             }
 
             @media screen and (max-width: $breackpoint-desktop){
@@ -218,7 +218,7 @@ export default {
                         position: absolute;
                         top: 4.8rem;
                         left: 4.8rem;
-                        color: $color-grey-6;
+                        color: $color-grey-5;
                         white-space: pre-line;
                         @include font-bold;
                         @include font-size-1;

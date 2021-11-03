@@ -93,7 +93,7 @@ export default {
             border-left: 1px solid $color-grey-6;
             border-right: 1px solid $color-grey-6;
             margin-bottom: 1.6rem;
-            color: $color-grey-6;
+            color: $color-grey-5;
             transition: 0.5s ease-in-out;
 
             p{
@@ -160,7 +160,7 @@ export default {
 
                     &.card-doctor-speciality{
                         padding: .8rem 0;
-                        border-bottom: 1px solid $color-grey--50;
+                        border-bottom: 1px solid $color-grey-6;
                         *{
                             @include font-bold;
                         }

@@ -13,7 +13,7 @@
                 <div class="description_item-singleList">
                     <div class="l_container description_item-single">
                         <p class="l_col s6">Numéro de téléphone</p>
-                        <p class="l_col s6"><a :href="getPhone()">{{description.phone}}</a></p>
+                        <p class="l_col s6"><a :href="getPhone()">{{description.phoneDisplay}}</a></p>
                     </div>
                     <div class="l_container description_item-single">
                         <p class="l_col s6">Adresse mail</p>
@@ -29,7 +29,7 @@
                         <!-- <div class="fakeButton l_container" @click="isModalVisible = !isModalVisible"> -->
                         <div class="fakeButton l_container">
                             <!-- <p class="l_col s9">Nous téléphoner</p> -->
-                            <div class="l_col s9"><a :href="getPhone()">Nous téléphoner</a></div>
+                            <div class="l_col s9" @click="$emit('show')"><p>Nous téléphoner</p></div>
                             <div class="l_col s3 align-right">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11 16L7 8L25 16L7 24L11 16ZM11 16L14.5 16" stroke="#838383" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

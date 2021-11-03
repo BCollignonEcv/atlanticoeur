@@ -38,12 +38,12 @@ export default {
         
 
         button{
-            @include hoverLink;
+            @include hover;
             @include font-bold;
             @include font-size-3;
             padding: 3.2rem 23rem; 
             cursor: pointer;
-            border: 1px solid $color-grey-7;
+            border: 1px solid $color-grey-5;
             border-radius: $borderRadius-3;
         }
     }

@@ -1,14 +1,14 @@
 /* Scroll */
 
 .scroll-before-enter {
-        opacity: 0;
-        transform: translateY(100px);
-        transition: opacity 1s ease-out, transform .5s ease-out;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease-out, transform .5s ease-out;
 }
 
 .scroll-enter {
-        opacity: 1;
-        transform: unset;
+    opacity: 1;
+    transform: unset;
 }
 
 // .scroll-before-enter {
@@ -47,6 +47,7 @@
     opacity: 0;
 }
 
+
 /* Fade Height*/
 
 .collapse-enter-active,
@@ -58,7 +59,7 @@
 .collapse-enter-from,
 .collapse-leave-to {
     max-height: 0;
-	overflow: hidden;
+    overflow: hidden;
     transition: max-height 0.8s;
 }
 
@@ -87,4 +88,21 @@
 .slideInLR-leave-to {
     opacity: 0;
     margin-left: -50px;
+}
+
+
+/* Flip */
+
+.flip-enter-active,
+.flip-leave-active {
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+    transform: unset;
+}
+
+.flip-enter-from,
+.flip-leave-to {
+    transform: rotateX(90deg);
+    opacity: 0;
+    transition: all 0s ease;
 }

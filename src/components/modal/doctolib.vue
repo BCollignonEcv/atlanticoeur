@@ -25,10 +25,10 @@ export default {
         },
     },
     mounted() {
-        let doctolibScript1 = document.createElement('script')
-        doctolibScript1.setAttribute('src', 'https://www.doctolib.fr:443/js/iframeResizer.js')
-        doctolibScript1.setAttribute('nonce', 'rDdvt/JlFgaqX9MJ2R58yg==')
-        document.head.appendChild(doctolibScript1)
+        // let doctolibScript1 = document.createElement('script')
+        // doctolibScript1.setAttribute('src', 'https://www.doctolib.fr:443/js/iframeResizer.js')
+        // doctolibScript1.setAttribute('nonce', 'rDdvt/JlFgaqX9MJ2R58yg==')
+        // document.head.appendChild(doctolibScript1)
     }
 }
 </script>
@@ -36,8 +36,8 @@ export default {
 <style lang="scss">
     
     .doctolib_iframe{
-        height: 90vh;
+        height: 85vh;
         width: 80vw;
-        margin: 5vh 10vw;
+        margin: 0vh 10vw 5vh 10vw;
     }
 </style>

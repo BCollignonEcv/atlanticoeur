@@ -23,7 +23,7 @@
     <section-component :title="'La clinique atlanticoeur'" :sectionSetting="['fullWidth']">
       <Slider :haveNavigation="true" :haveOverlayDescription="true" :limit="Object.keys(cabinet.photos).length">
         <template v-slot:sliderDescription>
-          <cabinet-description :typeDescription="'full'" :data="cabinet.informations"/>
+          <cabinet-description :typeDescription="'full'" :data="cabinet.informations" @show="toggleModalContacts"/>
         </template>
         <template v-slot:slide>
           <CabinetSlide
@@ -39,11 +39,11 @@
         <Cta @open="openAppointment"/>
     </section-component>
     <FooterOverlay :data="cabinet.informations"/>
-    <Modal v-if="takeAppointment" @close="closeAppointment">
+    <Modal v-if="takeAppointment" @close="toggleModalAppointment">
       hello
     </Modal>
-    <Modal v-if="showContacts" @close="closeContacts">
-      hello
+    <Modal v-if="showContacts" @close="toggleModalContacts">
+      <Contact :data="cabinet.informations" />
     </Modal>
   </div>
 </template>
@@ -60,6 +60,7 @@ import Examen from "@/components/examen/Examen"
 import SpecialiesDashboard from "@/components/speciality/SpecialitiesDashboard"
 import CabinetDescription from "@/components/cabinet/CabinetDescription"
 import CabinetSlide from "@/components/cabinet/CabinetSlide"
+import Contact from "@/components/modal/contact"
 
 export default {
   name: 'Home',
@@ -69,7 +70,7 @@ export default {
         'examen': Examen,
         'specialities-dashboard': SpecialiesDashboard,
         'cabinet-description': CabinetDescription,
-        CabinetSlide, Slider, Cta, Modal, FooterOverlay
+        CabinetSlide, Slider, Cta, Modal, FooterOverlay,Contact
   },
   data() {
     return {
@@ -203,6 +204,7 @@ export default {
               "postalCode": 17138,
               "googleMap": "https://maps.google.com/maps?q=26%20rue%20Moulin%20des%20justices%2017138%20Puilboreau+(Atlanticoeur)&t=&z=11&ie=UTF8&iwloc=&output=embed",
               "phone": "0546410753",
+              "phoneDisplay": "05 46 41 07 53",
               "email": "contact@atlanticoeur.fr",
               "horaires": {
                 "days": {
@@ -255,11 +257,11 @@ export default {
                 this.doctorsSpe.push(doctor);
             });
         },
-        closeAppointment(){
+        toggleModalAppointment(){
           this.takeAppointment = false
         },
-        closeContacts(){
-          this.showContacts = false
+        toggleModalContacts(){
+          this.showContacts = !this.showContacts
         }
     },
     created () {
@@ -267,11 +269,6 @@ export default {
     },
     mounted(){
     },
-    watch:{
-      takeAppointment: function(value){
-        console.log(value)
-      }
-    }
 }
 </script>
 

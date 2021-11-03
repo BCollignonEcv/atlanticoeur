@@ -81,6 +81,11 @@
     line-height: $lineHeight-extraNormal;
 }
 
+@mixin font-size-xlarge {
+    font-size: $font-xlarge;
+    line-height: $lineHeight-xlarge;
+}
+
 @mixin font-size-normal {
     font-size: $font-normal;
     line-height: $lineHeight-normal;
@@ -123,6 +128,7 @@
         cursor: pointer;
         border-color: $color-primary;
         transition: all .5s;
+        &,
         p,
         a {
             padding-left: 1rem;
@@ -147,6 +153,19 @@
             cursor: pointer;
             border-color: $color-primary !important;
             transition: all .5s;
+        }
+    }
+}
+
+@mixin hoverSvg {
+    &:hover {
+        &,
+        * {
+            color: $color-primary !important;
+            cursor: pointer;
+            border-color: $color-primary !important;
+            transition: all .5s;
+            fill: $color-primary;
         }
     }
 }

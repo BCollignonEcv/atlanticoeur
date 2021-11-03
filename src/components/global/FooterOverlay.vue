@@ -4,11 +4,13 @@
             <div class="item_container">
                 <p class="item-title">Le cabinet</p>
                 <div class="contact-container">
-                    <a :href="getPhone()">
-                        Tel : {{data.phone}}
+                    <a :href="getPhone()" class="contact">
+                        <p>Tel.</p> 
+                        <p class="link">{{data.phoneDisplay}}</p> 
                     </a>
-                    <a :href="getEmail()">
-                        Email : {{data.email}}
+                    <a :href="getEmail()" class="contact">
+                        <p>Mail</p> 
+                        <p class="link">{{data.email}}</p> 
                     </a>
                 </div>
             </div>
@@ -16,7 +18,7 @@
         <div class="footer_overlay-item">
             <router-link to="/Praticiens">
                 <div class="item_container">
-                    <p class="item-title">Rendez-vous via Doctolib</p>
+                    <p class="item-title link" >Rendez-vous via Doctolib</p>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 16L26 16M26 16L19 23M26 16L19 9" stroke="#CCCCCC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -47,10 +49,7 @@ export default {
         },
     },
     mounted () {
-        console.log(this.data)
     },
-    watch: {
-    }
 }
 </script>
 
@@ -81,19 +80,34 @@ export default {
                     @include font-bold;
                     @include font-size-3;
                 }
+
                 .contact-container{
                     border-top: 1px solid $color-neutral;
                     border-bottom: 1px solid $color-neutral;
                     width: 50%;
                     padding: $margin-5 0;
 
-                    a{
+                    .contact{
                         display: inline-block;
-                        &~a{
+                        @include font-bold;
+                        @include flexContainer($justify: space-between);
+
+                        &~.contact{
                             margin-top: .4rem;
                         }
                     }
                 }
+
+                .link{
+                    @include hover;
+                }
+            }
+        }
+
+        @media screen and (max-width: $breackpoint-desktop)
+        {
+            &{
+                width: 90vw;
             }
         }
     }

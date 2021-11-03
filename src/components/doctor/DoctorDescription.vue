@@ -140,7 +140,7 @@ export default {
 
                     &--title{
                         width: 20%;
-                        color: $color-grey-7;
+                        color: $color-grey-5;
                     }
 
                     &--content{
