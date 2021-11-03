@@ -18,6 +18,9 @@
         </template>
       </Slider>
     </section-component>
+    <section-component :sectionSetting="['dark', 'sectionMarginTop']">
+        <Cta />
+    </section-component>
   </div>
 </template>
 
@@ -27,6 +30,7 @@ import DoctorCards from "@/components/doctor/DoctorCards"
 import DoctorDescriptions from "@/components/doctor/DoctorDescriptions"
 import Slider from "@/components/global/Slider"
 import Section from "@/components/global/Section"
+import Cta from "@/components/global/Cta"
 import SpecialitiesSlide from "@/components/speciality/SpecialitiesSlide"
 
 
@@ -36,7 +40,7 @@ export default {
     'doctors-card-list': DoctorCards,
     'doctors-description-list': DoctorDescriptions,
     'section-component': Section,
-    Slider, SpecialitiesSlide
+    Slider, SpecialitiesSlide, Cta
   },
   data() {
         return {

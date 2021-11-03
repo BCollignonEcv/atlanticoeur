@@ -25,7 +25,7 @@
                         <p class="l_col s6">au {{description.horaires.days[1]}} <br> à {{description.horaires.hours[1]}}</p>
                     </div>
                 </div>
-                                    <div class="l_container-bottom">
+                <div class="l_container-bottom">
                         <!-- <div class="fakeButton l_container" @click="isModalVisible = !isModalVisible"> -->
                         <div class="fakeButton l_container">
                             <!-- <p class="l_col s9">Nous téléphoner</p> -->

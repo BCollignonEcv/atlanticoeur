@@ -13,10 +13,11 @@
     padding-right: $wrapper-global-margin;
 }
 
-@mixin flexContainer($orientation: 'row', $justify: 'flex-start', ) {
+@mixin flexContainer($orientation: row, $justify: flex-start, $align: flex-start) {
     display: flex;
     flex-direction: $orientation;
     justify-content: $justify;
+    align-items: $align;
 }
 
 

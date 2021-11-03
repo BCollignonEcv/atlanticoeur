@@ -74,7 +74,6 @@ export default {
         }
     },
     mounted(){
-        console.log(this.doctor.specialities)
     }
 }
 </script>

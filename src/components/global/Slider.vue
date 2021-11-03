@@ -1,6 +1,6 @@
 <template>
     <div class="slider-container" @mouseenter="hovered = true" @mouseleave="hovered = false" :class="{'hasDescription': haveOverlayDescription}">
-        <div v-if="haveNavigation" class="slider_nav">
+        <!-- <div v-if="haveNavigation" class="slider_nav">
             <transition name="slideInLR">
                 <div 
                     v-show="active > 0 && hovered" 
@@ -25,7 +25,7 @@
                     </span>
                 </div>
             </transition>
-        </div>
+        </div> -->
         <div v-if="haveOverlayDescription" class="slider_overlay_description">
             <slot name="sliderDescription"></slot>
         </div>
@@ -69,11 +69,11 @@ export default {
             let sliderContainer = this.$el.querySelector('.slider-container');
 
             // Prepare slide gap
-            let slideGap = this.active * -slide.offsetWidth - 24;
+            let slideGap = this.active * -slide.offsetWidth - 16;
 
             // Handle last slide
             if(this.active === this.limit - 1){
-                slideGap += (sliderContainer.offsetWidth - globalMargin*2 - slide.offsetWidth - 24)
+                slideGap += (sliderContainer.offsetWidth - globalMargin*2 - slide.offsetWidth - 16)
             }
 
             // Handle first slide
@@ -204,7 +204,7 @@ export default {
             }
 
             .slide{
-                margin-right: 2.4rem;
+                margin-right: 16px;
                 background-color: $color-grey--50;
                 border-radius: $borderRadius-2;
                 cursor: pointer;

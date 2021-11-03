@@ -1,17 +1,20 @@
 <template>
         <template v-if="settings.vertical">
             <div class="specialities_dashboard-item vertical">
-                <figure>
-                    <img class="img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
-                    <figcaption>{{data.name}}</figcaption>
-                </figure>
+                <div class="fakeImg_container">
+                    <div class="fakeImg" :style="customStyle">
+                        <p class="fakeImg-overlay">{{data.name}}</p>
+                    </div>
+                </div>
             </div>
         </template>
         <template v-if="settings.horizontal">
             <div class="specialities_dashboard-item horizontal">
                 <div class="l_container">
-                    <div class="l_col s10 fakeImg" :style="customStyle">
-                        <p class="fakeImg-overlay">{{data.name}}</p>
+                    <div class="fakeImg_container l_col s10">
+                        <div class="fakeImg" :style="customStyle">
+                            <p class="fakeImg-overlay">{{data.name}}</p>
+                        </div>
                     </div>
                     <div class="l_col s2 graduation"></div>
                 </div>

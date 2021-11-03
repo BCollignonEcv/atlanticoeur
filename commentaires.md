@@ -25,16 +25,7 @@ _____________________________
 
 Correction atlanticœur
 
-- Ajouter grosse section prendre rdv avant footer
-- Corriger marge des slider + Dashboard en 16 px cf. Maquette
+- Section CTA -> Modal
 - Ajouter trier par spécialité + icon dans la section « les diff. Praticiens » 
 - Ajouter footer + overlay mail tel. 
 - Anim. Collaps 
-
-Correc typo Page 1
-
-- Spécialité exercé en noir dans le Dashboard (il faut que ce soit aligné avec le SCM atlanticoeur si possible.
-- Passer prendre rdv en bold dans section différents praticiens 
-- Laisser « description » comme sur la maquette sous les noms des praticiens. (Idem p.2)
-- Corriger retour à la ligne de la phrase « Rue Moulin des justices » dans la section « la clinique.
-- Ajouter des espaces entre numéro de tel. (Card Section clinique) cf. Maquette

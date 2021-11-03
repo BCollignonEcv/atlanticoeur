@@ -6,17 +6,25 @@
     <div>
       <grid :data-links="links"/>
     </div>
+    <section-component :sectionSetting="['dark', 'sectionMarginTop']">
+        <Cta />
+    </section-component>
   </div>
 </template>
 
 <script>
 
+import Section from "@/components/global/Section"
+import Cta from "@/components/global/Cta"
 import Grid from "@/components/grid/Grid"
+
 
 export default {
   name: 'links',
   components: {
+    'section-component': Section,
     'grid': Grid,
+    Cta
   },
   data() {
         return {
@@ -50,8 +58,14 @@ export default {
                       "link": "Lien 1",
                       "category": "Cardiologie",
                       "date": "2020"
+                    },
+                    {
+                      "title": "Fédération francaise de Cardiologie",
+                      "link": "Lien 1",
+                      "category": "Cardiologie",
+                      "date": "2020"
                     }
-                    ]
+                  ]
                 },
             open: 1
         }

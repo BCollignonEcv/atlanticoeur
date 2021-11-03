@@ -64,7 +64,6 @@ export default {
         background-color: $color-grey-3;
         padding-top: 7.2rem;
         padding-bottom: 7.2rem;
-        margin-top: 4.6rem;
         
         .l_container{
             padding-bottom: 7.8vh;

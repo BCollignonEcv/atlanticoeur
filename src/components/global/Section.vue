@@ -1,5 +1,5 @@
 <template>
-        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth, 'landing': landing, 'sectionPadding': sectionPadding, 'bigTitle': bigTitle}" class="wrapper-content">
+        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth, 'landing': landing, 'sectionPadding': sectionPadding, 'sectionMarginTop': sectionMarginTop, 'bigTitle': bigTitle}" class="wrapper-content">
             <template v-if="splited">
                 <!-- Splited Section -->
                 <div  class="l_container">
@@ -54,6 +54,7 @@ export default {
             settings: this.sectionSetting ? this.sectionSetting : [],
             landing: false,
             sectionPadding: false,
+            sectionMarginTop: false,
             dark: false,
             grey: false,
             fullHeight: false,
@@ -77,6 +78,9 @@ export default {
         }
         if(this.settings.includes('sectionPadding')){
             this.sectionPadding = true;
+        }
+        if(this.settings.includes('sectionMarginTop')){
+            this.sectionMarginTop = true;
         }
         if(this.settings.includes('dark')){
             this.dark = true;
@@ -145,6 +149,10 @@ export default {
             white-space: pre;
             @include font-size-1;
         }
+    }
+
+    .sectionMarginTop{
+        margin-top: 8rem;
     }
 
     .sectionPadding{

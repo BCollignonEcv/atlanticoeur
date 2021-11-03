@@ -31,6 +31,9 @@ export default {
         height: 300px;
         .gmap_canvas{
             height: 100%;
+            iframe{
+                border-radius: $borderRadius-2;
+            }
         }
     }
 </style>

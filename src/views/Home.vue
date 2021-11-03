@@ -35,6 +35,16 @@
         </template>
       </Slider>
     </section-component>
+    <section-component :sectionSetting="['dark', 'sectionMarginTop']">
+        <Cta @open="openAppointment"/>
+    </section-component>
+    <FooterOverlay :data="cabinet.informations"/>
+    <Modal v-if="takeAppointment" @close="closeAppointment">
+      hello
+    </Modal>
+    <Modal v-if="showContacts" @close="closeContacts">
+      hello
+    </Modal>
   </div>
 </template>
 
@@ -42,6 +52,9 @@
 
 import Section from "@/components/global/Section"
 import Slider from "@/components/global/Slider"
+import Cta from "@/components/global/Cta"
+import Modal from "@/components/global/Modal"
+import FooterOverlay from "@/components/global/FooterOverlay"
 import DoctorCards from "@/components/doctor/DoctorCards"
 import Examen from "@/components/examen/Examen"
 import SpecialiesDashboard from "@/components/speciality/SpecialitiesDashboard"
@@ -56,7 +69,7 @@ export default {
         'examen': Examen,
         'specialities-dashboard': SpecialiesDashboard,
         'cabinet-description': CabinetDescription,
-        CabinetSlide, Slider,
+        CabinetSlide, Slider, Cta, Modal, FooterOverlay
   },
   data() {
     return {
@@ -188,7 +201,7 @@ export default {
               "address": "rue Moulin des justices",
               "city": "Puilboreau",
               "postalCode": 17138,
-              "googleMap": "https://maps.google.com/maps?q=26%20%20rue%20Moulin%20des%20justices%20%2017138%20%20Puilboreau&t=&z=13&ie=UTF8&iwloc=&output=embed",
+              "googleMap": "https://maps.google.com/maps?q=26%20rue%20Moulin%20des%20justices%2017138%20Puilboreau+(Atlanticoeur)&t=&z=11&ie=UTF8&iwloc=&output=embed",
               "phone": "0546410753",
               "email": "contact@atlanticoeur.fr",
               "horaires": {
@@ -227,6 +240,8 @@ export default {
             ]
         },
         doctorsSpe: [],
+        takeAppointment: false,
+        showContacts: false
     }
   },
   methods: {
@@ -239,12 +254,23 @@ export default {
                 });
                 this.doctorsSpe.push(doctor);
             });
+        },
+        closeAppointment(){
+          this.takeAppointment = false
+        },
+        closeContacts(){
+          this.showContacts = false
         }
     },
     created () {
         this.includeSpecialities();
     },
     mounted(){
+    },
+    watch:{
+      takeAppointment: function(value){
+        console.log(value)
+      }
     }
 }
 </script>

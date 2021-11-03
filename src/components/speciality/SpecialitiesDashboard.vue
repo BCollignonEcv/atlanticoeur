@@ -82,23 +82,19 @@ export default {
 
             div.specialities_dashboard-item{
                 @include hoverFull;
+                transition: all .5s ease;
 
-                &.vertical{
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 0;
-                    margin-right: $margin-6;
-
-                    figure{
-                        position: relative;
-                        border-radius: $borderRadius-2;
-
-                        img{
-                            width: $specialitiesDashboardHeight / 2.2;
-                        }
-
-                        figcaption{
+                .fakeImg_container{
+                    overflow: hidden;
+                    background-color: $color-grey-6;
+                    border-radius: $borderRadius-2;
+                    
+                    .fakeImg{
+                        padding: $margin-6;
+                        width: 100%;
+                        height: 100%;
+                        
+                        .fakeImg-overlay{
                             color: $color-neutral;
                             text-shadow: 0px 2px 35px rgba(34, 34, 34, 0.75);
                             position: absolute;
@@ -110,48 +106,53 @@ export default {
                         }
                     }
                 }
+                
+                &.vertical{
+                    @include flexContainer($orientation: column, $justify: center);
+                    height: 100%;
+                    margin-right: $margin-6*2;
+                    margin-top: -$font-large;
+
+                    .fakeImg_container{
+                        width: 60%;
+                        height: 60%;
+                        align-self: flex-end;
+
+                        .fakeImg{
+                            &:hover{
+                                transform: scale(1.2);
+                            }
+                        }
+                    }
+                }
 
                 &.horizontal{
                     flex: 1;
-                    margin-bottom: $margin-6;
-                    transition: all .5s ease;
-                    margin-bottom: $margin-6;
+                    margin-bottom: $margin-6*2;
+
+                    &:nth-of-type(2n){
+                        .l_container{
+                            .graduation{
+                                border-color: $color-grey-1;
+                            }
+                        }
+                    }
 
                     &:hover{
                         flex-grow: 2;
 
-                    }
-
-                    &:last-of-type{
                         .graduation{
-                            border-bottom: 1px solid $color-grey-1;
+                            border-color: $color-primary;
                         }
                     }
 
                     &>.l_container{
                         height: 100%;
 
-                        .fakeImg{
-                            width: 100%;
-                            height: 100%;
-                            border-radius: $borderRadius-2;
-                            
-                            .fakeImg-overlay{
-                                color: $color-neutral;
-                                text-shadow: 0px 2px 35px rgba(34, 34, 34, 0.75);
-                                position: absolute;
-                                top: 50%;
-                                transform: translateY(-50%);
-                                padding: $margin-3;
-                                @include font-size-3;
-                                @include hoverLink;
-                            }
-                        }
-
                         .graduation{
                             height: 100%;
-                            border-top: 1px solid $color-grey-1;
-                            margin-top: -$margin-6/2;
+                            border-top: 1px solid $color-neutral;
+                            border-bottom: 1px solid $color-neutral;
                             margin-left: $margin-3;
                             margin-right: $margin-3;
                         }
