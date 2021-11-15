@@ -28,10 +28,10 @@ export default {
     },
     methods: {
         getRandomSizeClass() {
-            if(window.innerWidth < 1440){
-                return 2.5
-            }else{
+            if(this.responsiveDisplay.tablette){
                 return Math.random() * 5 + 1;
+            }else{
+                return null;
             }
         },
     },
@@ -42,28 +42,79 @@ export default {
 
 <style lang="scss">
     .examens-container{
-        height: 50vh;
+        min-height: 50vh;
 
         .examens-grid{
-            display: flex;
+            @include flexContainer($orientation: column, $align: center);
             height: 100%;
             
-            &>div{
-                &.examen_item{
-                    flex: 1;
-                    position: relative;
+            .examen_item{
+                width: 100%;
+                position: relative;
+                padding: $margin-4 0;
+                border-top: 1px solid grey;
+                border-bottom: 1px solid grey;
+                transition: all .5s ease-in-out;
+                cursor: pointer;
 
-                    .examen_item-floating{
-                        position: absolute;
-                        top: 50%;
-                        transform: translate(0, -50%);
-                        width: 100%;
+                .examen_item-title{
+                    width: 100%;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin: 0;
+                    transition: all .5s;
+                    @include font-size-4;
+                }
+
+                &.active{
+                    .examen_item-title{
+                        transition: all .5s;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: $breackpoint-tablette) {
+        .examens-container{
+
+            .examens-grid{
+                
+                .examen_item{
+                    margin-bottom: $margin-6;
+                    border-top: 10px solid;
+                    border-image-slice: 1;
+                    border-width: 1px;
+                    border-image-source: linear-gradient(to left, #232526, #414345);
+
+                    .examen_item-title{
+                       
+                    }
+
+                    &.active{
+                        .examen_item-title{}
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $breackpoint-tablette) {
+        .examens-container{
+                height: 50vh;
+
+                .examens-grid{
+                    @include flexContainer($align: center);
+                    height: 100%;
+                    
+                    .examen_item{
+                        flex: 1;
+                        position: relative;
                         padding: 2.4rem 0;
                         border-top: 1px solid grey;
                         border-bottom: 1px solid grey;
                         transition: all .5s ease-in-out;
                         cursor: pointer;
-                        
+
                         .examen_item-title{
                             width: 100%;
                             text-align: center;
@@ -72,9 +123,8 @@ export default {
                             transition: all .5s;
                             @include font-size-4;
                         }
-                    }
-                    &.active{
-                        .examen_item-floating{
+
+                        &.active{
                             .examen_item-title{
                                 transition: all .5s;
                             }
@@ -82,24 +132,5 @@ export default {
                     }
                 }
             }
-        }
-
-        @media screen and (max-width: $breackpoint-desktop){
-            height: auto;
-            
-            .examens-grid{
-                flex-direction: column;
-
-                &>div{
-                    &.examen_item{
-                        .examen_item-floating{
-                            position: relative;
-                            top: unset;
-                            transform: unset;
-                        }
-                    }
-                }
-            }
-        }
     }
 </style>

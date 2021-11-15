@@ -48,19 +48,37 @@
 }
 
 
-/* Fade Height*/
+/* Collapse Height*/
 
-.collapse-enter-active,
-.collapse-leave-active {
-    max-height: auto;
-    transition: max-height 0.8s;
+.collapse-enter-active {
+    animation: bottomToTop .5s forwards;
 }
 
-.collapse-enter-from,
-.collapse-leave-to {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.8s;
+.collapse-leave-active {
+    animation: bottomToTop .5s reverse
+}
+
+@keyframes bottomToTop {
+    0% {
+        opacity: 0;
+        transform: translateY(100%)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
+
+
+/* Collapse Height*/
+
+.slideDown-enter-active,
+.slideDown-leave-active {
+    transition: height 0.5s ease;
+}
+
+.slideDown-enter-from,
+.slideDown-leave-to {
+    height: 0;
 }
 
 

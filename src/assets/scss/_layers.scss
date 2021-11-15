@@ -17,7 +17,7 @@
         height: auto;
         position: relative;
         &.s1 {
-            width: 100% / 12;
+            width: calc(100% / 12);
         }
         &.s2 {
             width: calc(100% / 6);
@@ -42,6 +42,9 @@
         }
         &.s10 {
             width: calc((100% / 6)*5);
+        }
+        &.s11 {
+            width: calc((100% / 12)*11);
         }
         &.s12 {
             width: 100%;
@@ -91,19 +94,18 @@
     }
 }
 
-.l_container-horizontal{
+.l_container-horizontal {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.l_container-bottom{
+.l_container-bottom {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-
-    .l_container{
+    .l_container {
         width: auto;
     }
 }

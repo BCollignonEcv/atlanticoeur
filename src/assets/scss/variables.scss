@@ -6,10 +6,10 @@
 
 /****************************/
 
+// Change breakpoint in app.vue if you have to do some change
 $breackpoint-desktop: 1440px;
 $breackpoint-tablette: 992px;
 $breackpoint-mobile: 768px;
-$wrapper-global-margin: 5.625vw;
 
 /****************************/
 
@@ -19,19 +19,19 @@ $wrapper-global-margin: 5.625vw;
 
 /****************************/
 
-$color-primary: #0057FF;
-$color-grey--25: rgba(239, 239, 239, 0.25);
-$color-grey--50: rgba(239, 239, 239, 0.5);
-$color-grey--75: rgba(239, 239, 239, 0.75);
-$color-grey-1--50: rgba(22, 22, 22, .50);
-$color-grey-1--85: rgba(22, 22, 22, .85);
-$color-grey-1: #222222;
-$color-grey-2: #353535;
-$color-grey-3: #545454;
-$color-grey-4: #838383;
-$color-grey-5: #CCCCCC;
-$color-grey-6: #EFEFEF;
-$color-neutral: #fff;
+$color-primary: var(--color-primary);
+$color-grey--25: var(--color-grey--25);
+$color-grey--50: var(--color-grey--50);
+$color-grey--75: var(--color-grey--75);
+$color-grey-1--50: var(--color-grey-1--50);
+$color-grey-1--85: var(--color-grey-1--85);
+$color-grey-1: var(--color-grey-1);
+$color-grey-2: var(--color-grey-2);
+$color-grey-3: var(--color-grey-3);
+$color-grey-4: var(--color-grey-4);
+$color-grey-5: var(--color-grey-5);
+$color-grey-6: var(--color-grey-6);
+$color-neutral: var(--color-neutral);
 
 /****************************/
 
@@ -41,27 +41,54 @@ $color-neutral: #fff;
 
 /****************************/
 
+
+/*********** MOBILE *********/
+
 //H1
-$font-extraLarge: 4.8rem;
-$lineHeight-extraLarge: 5.2rem;
+$m-font-extraLarge: 2rem;
+$m-lineHeight-extraLarge: 2.4rem;
 //H2
-$font-large: 3.13rem;
-$lineHeight-large: 3.2rem;
+$m-font-large: 2rem;
+$m-lineHeight-large: 2.4rem;
 //H3
-$font-smallLarge: 2.6rem;
-$lineHeight-smallLarge: 2.8rem;
+$m-font-smallLarge: 2rem;
+$m-lineHeight-smallLarge: 2.4rem;
 //H4
-$font-extraNormal: 2rem;
-$lineHeight-extraNormal: 2.4rem;
+$m-font-extraNormal: 1.8rem;
+$m-lineHeight-extraNormal: 2rem;
 //P
-$font-normal: 1.6rem;
-$lineHeight-normal: 2rem;
-$font-small: 1.28rem;
-$lineHeight-small: 2rem;
-$font-extraSmall: 1.024rem;
-$lineHeight-extraSmall: 2rem;
-$font-xlarge: 15rem;
-$lineHeight-xlarge: 15rem;
+$m-font-normal: 1.6rem;
+$m-lineHeight-normal: 2rem;
+$m-font-small: 1.28rem;
+$m-lineHeight-small: 2rem;
+$m-font-extraSmall: 1.024rem;
+$m-lineHeight-extraSmall: 2rem;
+$m-font-xlarge: 15rem;
+$m-lineHeight-xlarge: 15rem;
+
+/*********** DESKTOP *********/
+
+//H1
+$d-font-extraLarge: 4.8rem;
+$d-lineHeight-extraLarge: 5.2rem;
+//H2
+$d-font-large: 3.13rem;
+$d-lineHeight-large: 3.2rem;
+//H3
+$d-font-smallLarge: 2.6rem;
+$d-lineHeight-smallLarge: 2.8rem;
+//H4
+$d-font-extraNormal: 2rem;
+$d-lineHeight-extraNormal: 2.4rem;
+//P
+$d-font-normal: 1.6rem;
+$d-lineHeight-normal: 2rem;
+$d-font-small: 1.28rem;
+$d-lineHeight-small: 2rem;
+$d-font-extraSmall: 1.024rem;
+$d-lineHeight-extraSmall: 2rem;
+$d-font-xlarge: 15rem;
+$d-lineHeight-xlarge: 15rem;
 
 /****************************/
 
@@ -71,6 +98,7 @@ $lineHeight-xlarge: 15rem;
 
 /****************************/
 
+$borderRadius-0: 1.6rem;
 $borderRadius-1: 1.2rem;
 $borderRadius-2: .8rem;
 $borderRadius-3: .4rem;
@@ -80,3 +108,5 @@ $margin-3: 2.8rem;
 $margin-4: 2.4rem;
 $margin-5: 1.2rem;
 $margin-6: .8rem;
+$wrapper-global-margin: 5.625vw;
+$wrapper-global-margin-mobile: $margin-4+$margin-5;

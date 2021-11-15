@@ -76,6 +76,15 @@ export default {
         h3{
             color: $color-grey-1;
         }
+        .l_container{
+            .l_col.l_leftSide{
+                width: 40%;
+            }
+
+            .l_col.l_rightSide{
+                width: 60%;
+            }
+        }
 
         .specialities_dashboard-container{
             height: $specialitiesDashboardHeight;
@@ -111,7 +120,7 @@ export default {
                     @include flexContainer($orientation: column, $justify: center);
                     height: 100%;
                     margin-right: $margin-6*2;
-                    margin-top: -$font-large;
+                    margin-top: -$d-font-large;
 
                     .fakeImg_container{
                         width: 60%;
@@ -153,8 +162,8 @@ export default {
                             height: 100%;
                             border-top: 1px solid $color-neutral;
                             border-bottom: 1px solid $color-neutral;
-                            margin-left: $margin-3;
-                            margin-right: $margin-3;
+                            margin-left: $margin-5;
+                            margin-right: $margin-4;
                         }
                     }
                 }

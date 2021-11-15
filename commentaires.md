@@ -11,8 +11,6 @@
 
 ### Doctor cards
 
-1. Ajouter trier par specialité
-
 ## Page praticiens
 
 ### Doctor description

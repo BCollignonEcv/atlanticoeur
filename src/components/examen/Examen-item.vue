@@ -1,9 +1,7 @@
 <template>
-    <div class="examen_item">
-        <div class="examen_item-floating" @mouseover="scaleExamen()">
-            <h5 class="examen_item-title">{{examen.name}}</h5>
-            <!-- <div v-show="opened" class="examen_item-description">{{examen.description}}</div> -->
-        </div>
+    <div class="examen_item" @mouseover="scaleExamen()">
+        <h5 class="examen_item-title">{{examen.name}}</h5>
+        <!-- <div v-show="opened" class="examen_item-description">{{examen.description}}</div> -->
     </div>
 </template>
 
@@ -24,10 +22,9 @@ export default {
     methods: {
         scaleExamen(){
             if(this.opened != true){
-                const element = this.$el.getElementsByClassName('examen_item-floating')[0];
-                const paddingElement = parseFloat(window.getComputedStyle(element, null).getPropertyValue('padding-top'))
-                element.style.paddingTop = 3* paddingElement + 'px';
-                element.style.paddingBottom = 3* paddingElement + 'px';
+                const paddingElement = parseFloat(window.getComputedStyle(this.$el, null).getPropertyValue('padding-top'))
+                this.$el.style.paddingTop = 3* paddingElement + 'px';
+                this.$el.style.paddingBottom = 3* paddingElement + 'px';
                 this.opened = true;
             }
         }
@@ -35,9 +32,10 @@ export default {
     created() {
     },
     mounted () {
-        const element = this.$el.getElementsByClassName('examen_item-floating')[0];
-        element.style.paddingTop = this.animationPadding + 'vh';
-        element.style.paddingBottom = this.animationPadding + 'vh';
+        if(this.animationPadding){
+            this.$el.style.paddingTop = this.animationPadding + 'vh';
+            this.$el.style.paddingBottom = this.animationPadding + 'vh';
+        }
     },
 }
 </script>

@@ -3,15 +3,15 @@
         <div class="footer_overlay-item">
             <div class="item_container">
                 <p class="item-title">Le cabinet</p>
-                <div class="contact-container">
-                    <a :href="getPhone()" class="contact">
+                <div class="contact-container" @click="$emit('showContactModal')">
+                    <div class="contact">
                         <p>Tel.</p> 
                         <p class="link">{{data.phoneDisplay}}</p> 
-                    </a>
-                    <a :href="getEmail()" class="contact">
+                    </div>
+                    <div class="contact">
                         <p>Mail</p> 
                         <p class="link">{{data.email}}</p> 
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,12 +41,7 @@ export default {
         }
     },
     methods: {
-        getPhone(){
-            return 'tel:' + this.data.phone
-        },
-        getEmail(){
-            return 'mailto:' + this.data.email
-        },
+
     },
     mounted () {
     },
@@ -68,11 +63,11 @@ export default {
             border-radius: $borderRadius-2;
             background-color: $color-grey-1--50;
             backdrop-filter: blur(16px);
-            padding: $margin-4 0;
+            padding: $margin-5 0;
 
             .item_container{
                 border-left: 1px solid $color-neutral;
-                padding: 0 $margin-5;
+                padding: $margin-5 $margin-5;
                 height: 100%;
                 @include flexContainer($justify: space-between, $align: center);
 
@@ -91,10 +86,6 @@ export default {
                         display: inline-block;
                         @include font-bold;
                         @include flexContainer($justify: space-between);
-
-                        &~.contact{
-                            margin-top: .4rem;
-                        }
                     }
                 }
 

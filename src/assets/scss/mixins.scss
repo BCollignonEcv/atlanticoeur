@@ -9,8 +9,25 @@
 /*****************************************/
 
 @mixin wrapper {
-    padding-left: $wrapper-global-margin;
-    padding-right: $wrapper-global-margin;
+    padding-left: $wrapper-global-margin-mobile;
+    padding-right: $wrapper-global-margin-mobile;
+    @media screen and (min-width: $breackpoint-tablette) {
+        padding-left: $wrapper-global-margin;
+        padding-right: $wrapper-global-margin;
+    }
+}
+
+@mixin wrapper-oversize($padding: false, $margin: false) {
+    @media screen and (max-width: $breackpoint-tablette) {
+        @if($margin) {
+            margin-left: -$margin-5;
+            margin-right: -$margin-5;
+        }
+        @if($padding) {
+            padding-left: $margin-5;
+            padding-right: $margin-5;
+        }
+    }
 }
 
 @mixin flexContainer($orientation: row, $justify: flex-start, $align: flex-start) {
@@ -36,11 +53,17 @@
     border-radius: $radius;
 }
 
-@mixin blur {
+@mixin blur($white: false) {
     color: $color-grey-2;
-    background: rgba(239, 239, 239, 0.5);
-    box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
     backdrop-filter: blur(16px);
+    @if($white) {
+        background: rgba(256, 256, 256, 0.5);
+        box-shadow: -4px 0px 4px rgba(256, 256, 256, 0.2);
+    }
+    @else {
+        background: rgba(239, 239, 239, 0.5);
+        box-shadow: -4px 0px 4px rgba(239, 239, 239, 0.2);
+    }
 }
 
 
@@ -62,43 +85,75 @@
 /*****************************************/
 
 @mixin font-size-1 {
-    font-size: $font-extraLarge;
-    line-height: $lineHeight-extraLarge;
+    font-size: $m-font-extraLarge;
+    line-height: $m-lineHeight-extraLarge;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-extraLarge;
+        line-height: $d-lineHeight-extraLarge;
+    }
 }
 
 @mixin font-size-2 {
-    font-size: $font-large;
-    line-height: $lineHeight-large;
+    font-size: $m-font-large;
+    line-height: $m-lineHeight-large;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-large;
+        line-height: $d-lineHeight-large;
+    }
 }
 
 @mixin font-size-3 {
-    font-size: $font-smallLarge;
-    line-height: $lineHeight-smallLarge;
+    font-size: $m-font-smallLarge;
+    line-height: $m-lineHeight-smallLarge;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-smallLarge;
+        line-height: $d-lineHeight-smallLarge;
+    }
 }
 
 @mixin font-size-4 {
-    font-size: $font-extraNormal;
-    line-height: $lineHeight-extraNormal;
+    font-size: $m-font-extraNormal;
+    line-height: $m-lineHeight-extraNormal;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-extraNormal;
+        line-height: $d-lineHeight-extraNormal;
+    }
 }
 
 @mixin font-size-xlarge {
-    font-size: $font-xlarge;
-    line-height: $lineHeight-xlarge;
+    font-size: $m-font-xlarge;
+    line-height: $m-lineHeight-xlarge;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-xlarge;
+        line-height: $d-lineHeight-xlarge;
+    }
 }
 
 @mixin font-size-normal {
-    font-size: $font-normal;
-    line-height: $lineHeight-normal;
+    font-size: $m-font-normal;
+    line-height: $m-lineHeight-normal;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-normal;
+        line-height: $d-lineHeight-normal;
+    }
 }
 
 @mixin font-size-footnote {
-    font-size: $font-extraSmall;
-    line-height: $lineHeight-extraSmall;
+    font-size: $m-font-extraSmall;
+    line-height: $m-lineHeight-extraSmall;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-extraSmall;
+        line-height: $d-lineHeight-extraSmall;
+    }
 }
 
 @mixin font-size-caption {
-    font-size: $font-small;
-    line-height: $lineHeight-small;
+    font-size: $m-font-small;
+    line-height: $m-lineHeight-small;
+    @media screen and (min-width: $breackpoint-tablette) {
+        font-size: $d-font-small;
+        line-height: $d-lineHeight-small;
+    }
 }
 
 @mixin font-bold {
@@ -123,6 +178,7 @@
 /*****************************************/
 
 @mixin hoverLink {
+    transition: all .5s;
     &:hover {
         color: $color-primary;
         cursor: pointer;
@@ -137,6 +193,7 @@
 }
 
 @mixin hover {
+    transition: all .5s;
     &:hover {
         color: $color-primary !important;
         cursor: pointer;
@@ -146,6 +203,7 @@
 }
 
 @mixin hoverFull {
+    transition: all .5s;
     &:hover {
         &,
         * {

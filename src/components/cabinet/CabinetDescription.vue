@@ -45,7 +45,7 @@
                                     </svg>
                                 </p>
                             </div>
-                            <transition appear name="scaleY">
+                            <transition appear name="collapse">
                                 <div v-show="isGoogleMapVisible">
                                     <GoogleMap :data="data.googleMap"/>
                                 </div>

@@ -1,12 +1,13 @@
 <template>
-        <div class="flex-doctor">
-            <doctor-card 
-                v-for="(doctor, index) in doctors" :key="index" 
-                :doctor-data="doctor"
-                :type="type"
-                @eventSelected="newSelected"
-            />
-        </div>
+    <div class="flex-doctor">
+        <doctor-card 
+            v-for="(doctor, index) in doctors" :key="index"
+            :doctor-data="doctor"
+            :selected="selectedSpeciality"
+            :type="type"
+            @eventSelected="newSelected"
+        />
+    </div>
 </template>
 
 <script>
@@ -19,7 +20,9 @@ export default {
     },
     props: {
         typeCard: String,
-        dataDoctors: Object
+        dataDoctors: Object,
+        selected: Number,
+        selectedSpeciality: Number
     },
     data() {
         return {
@@ -30,15 +33,14 @@ export default {
     methods: {
         newSelected (value) {
             this.$emit('event-selected', value)
-        }
-    }
+        },
+    },
 }
 </script>
 
 <style lang="scss">
     .flex-doctor{
-        display: flex;
-        flex-wrap: wrap;
+        @include flexContainer($align: stretch);
         margin: 0 -1.2rem;
         padding: 0 0 4.8rem 0;
 
@@ -52,6 +54,14 @@ export default {
             & > .card-doctor{
                 margin: 1.2rem;
                 width: calc(50% - 2.4rem);
+            }
+        }
+
+        @media screen and (max-width: $breackpoint-mobile){
+            flex-wrap: wrap;
+            & > .card-doctor{
+                margin: 0;
+                width: calc(50%);
             }
         }
     }

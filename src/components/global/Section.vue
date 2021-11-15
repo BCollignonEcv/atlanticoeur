@@ -1,5 +1,5 @@
 <template>
-        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight, 'full-width': fullWidth, 'landing': landing, 'sectionPadding': sectionPadding, 'sectionMarginTop': sectionMarginTop, 'bigTitle': bigTitle}" class="wrapper-content">
+        <section v-scrollanimation :class="{ 'dark-gradiant': dark, 'grey': grey, 'full-height': fullHeight && responsiveDisplay.tablette, 'full-width': fullWidth, 'landing': landing, 'sectionPadding': sectionPadding, 'sectionMarginTop': sectionMarginTop, 'bigTitle': bigTitle}" class="wrapper-content">
             <template v-if="splited">
                 <!-- Splited Section -->
                 <div  class="l_container">
@@ -24,11 +24,12 @@
             </template>
             <template v-else>
                 <!-- Simple Section -->
-                <template v-if="title">
+                <div v-if="title || dataSelect" class="section_header-container">
                     <h1 v-if="landing">{{title}}</h1>
                     <h2 v-else>{{title}}</h2>
-                </template>
-                <slot></slot>
+                    <Select v-if="dataSelect && breakpoints.bm" :data="dataSelect" :title="'spécialités'" @select="selectSpeciality"/>
+                </div>
+                <slot :selectedSpeciality="selectedValue"></slot>
             </template>
         </section>
 </template>
@@ -37,14 +38,16 @@
 
 import ScrollAnimation from '@/directives/scrollAnimation'
 import Button from '@/components/subcomponents/Button'
+import Select from '@/components/subcomponents/Select'
 
 export default {
     components: {
-        Button
+        Button, Select
     },
     props: {
         title: String,
         sectionSetting: Array,
+        dataSelect: Array,
     },
     directives: {
         scrollanimation: ScrollAnimation
@@ -60,7 +63,8 @@ export default {
             fullHeight: false,
             fullWidth: false,
             splited: false,
-            bigTitle: false
+            bigTitle: false,
+            selectedValue: null,
         }
     },
     created(){
@@ -91,11 +95,16 @@ export default {
         if(this.settings.includes('bigTitle')){
             this.bigTitle = true;
         }
-    }
+    },
+    methods: {
+        selectSpeciality: function(id){
+            this.selectedValue = id;
+        }
+    },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     section{
         display: inline-block;
 
@@ -109,29 +118,22 @@ export default {
             }
         }
 
-        @media screen and (max-width: $breackpoint-desktop)
-        {
-            &>div.l_container{
-                flex-direction: column;
-
-                &>div.l_col.l_leftSide, &>div.l_col.l_rightSide{
-                    width: 100%;
-                    margin-top: $margin-1;
-                }
-            }
+        .section_header-container{
+            @include flexContainer($justify: space-between);
+            margin-top: 15rem;
+            margin-bottom: 7.2rem;
         }
     }
 
     .dark-gradiant{
         background: linear-gradient(90deg, #232526 0%, #414345 100%);
-
         h2{
             color: $color-neutral;
         }
     }
 
     .grey{
-        background-color: rgba(239, 239, 239, .5);
+        background-color: $color-grey-6;
     }
 
     .full-height{
@@ -144,10 +146,13 @@ export default {
         h2{
             color: $color-neutral;
             @include font-bold;
-            margin-top: 15rem;
-            margin-bottom: 7.2rem;
             white-space: pre;
             @include font-size-1;
+        }
+        .section_header-container{
+            @include flexContainer($justify: space-between);
+            margin-top: 0;
+            margin-bottom: 7.2rem;
         }
     }
 
@@ -162,6 +167,33 @@ export default {
     .bigTitle{
         h2{
             @include font-size-1;
+        }
+    }
+
+    @media screen and (max-width: $breackpoint-tablette){
+        section{
+            &>div.l_container{
+                flex-direction: column;
+
+                &>div.l_col.l_leftSide, &>div.l_col.l_rightSide{
+                    width: 100%;
+                    margin-top: $margin-1;
+                }
+            }
+
+            .section_header-container{
+                @include flexContainer($justify: space-between);
+                margin-top: $margin-3;
+                margin-bottom: $margin-1;
+            }
+            
+            &.dark-gradiant{
+                border-radius: $borderRadius-0;
+            }
+
+            &.grey{
+                border-radius: $borderRadius-0;
+            }
         }
     }
 </style>

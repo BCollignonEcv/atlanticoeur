@@ -1,8 +1,8 @@
 <template>
     <div class="contact_iframe">
         <div class="contact_iframe-navigation">
-            <div class="navigation-item" @click="displayPhone()"><p>Phone</p></div>
-            <div class="navigation-item" @click="displayEmail()"><p>Mail</p></div>
+            <div class="navigation-item" @click="displayPhone()" :class="{'active': showPhone}"><p>Phone</p></div>
+            <div class="navigation-item" @click="displayEmail()" :class="{'active': showEmail}"><p>Mail</p></div>
         </div>
         <div class="contact_iframe-content">
             <transition name="flip">
@@ -57,16 +57,17 @@ export default {
         }
         div.navigation-item{
             position: relative;
+            color: $color-grey-4;
 
             &:first-of-type::before{
-                border-top: 1px solid $color-grey-1;
+                border-top: 1px solid $color-grey-4;
             }
             &::before{
                 content: "";
                 position: absolute;
                 width: $navigationMargin;
                 height: 100%;
-                border-bottom: 1px solid $color-grey-1;
+                border-bottom: 1px solid $color-grey-4;
             }
             
             p{
@@ -74,6 +75,14 @@ export default {
                 @include font-size-4;
                 @include hover;
                 padding: $margin-5*1.5 $navigationMargin;
+            }
+
+            &.active{
+                color: $color-grey-1;
+                
+                &::before{
+                    border-color: $color-grey-1;
+                }
             }
         }
 

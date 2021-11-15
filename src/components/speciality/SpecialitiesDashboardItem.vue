@@ -11,12 +11,12 @@
         <template v-if="settings.horizontal">
             <div class="specialities_dashboard-item horizontal">
                 <div class="l_container">
-                    <div class="fakeImg_container l_col s10">
+                    <div class="fakeImg_container l_col s11">
                         <div class="fakeImg" :style="customStyle">
                             <p class="fakeImg-overlay">{{data.name}}</p>
                         </div>
                     </div>
-                    <div class="l_col s2 graduation"></div>
+                    <div class="l_col s1 graduation"></div>
                 </div>
             </div>
         </template>

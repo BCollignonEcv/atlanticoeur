@@ -106,7 +106,7 @@ export default {
             grid-template-columns: repeat(12, 1fr);
             grid-gap: 10px;
             border-bottom: 1px solid $color-grey--50;
-            padding: $font-small 0;
+            padding: $d-font-small 0;
             transition: all .5s;
 
             p{
