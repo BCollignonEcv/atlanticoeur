@@ -14,7 +14,7 @@
 </template>
 <script>
 
-import DoctorDescription from '@/components/doctor/DoctorDescription'
+import { DoctorDescription } from '@/components/custom.components/doctor'
 
 export default {
     name: 'DoctorDescriptionList',

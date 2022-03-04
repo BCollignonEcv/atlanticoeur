@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="page">
     <section-component :title="'Les cardiologues du cabinet \nSCM Atlanticœur'" :sectionSetting="['landing']">
       <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'" @eventSelected="newSelected"/>
@@ -75,4 +75,4 @@ export default {
         color: $color-primary;
     }
   } 
-</style>
+</style> -->

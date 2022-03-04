@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="page">
     <div class="wrapper-content">
       <h1>Les différents liens utiles <br>recommandés</h1>
@@ -53,4 +53,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-</style>
+</style> -->

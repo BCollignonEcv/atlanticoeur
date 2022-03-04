@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import Collapse from '@/components/global/Collapse'
+import { Collapse } from '@/components/layer.components'
 
 export default {
     components: {

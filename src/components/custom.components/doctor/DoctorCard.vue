@@ -68,8 +68,8 @@
 
 <script>
 
-import Modal from "@/components/global/Modal"
-import Doctolib from "@/components/modal/doctolib"
+import { Modal } from "@/components/layer.components"
+import { Doctolib } from "@/components/custom.components/doctolib"
 
 export default {
     name: 'Doctor',

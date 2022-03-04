@@ -112,7 +112,8 @@
 
 <script>
 
-import Collapse from '@/components/global/Collapse'
+import { Collapse } from '@/components/layer.components'
+
 export default {
     name: 'DoctorDescription',
     components: {
@@ -178,7 +179,7 @@ export default {
 
                 .description-item{
                     border-top: 1px solid $color-grey-2;
-                    padding: $padding/2 0;
+                    padding: calc($padding/2) 0;
 
                     p{
                         @include font-size-4;
@@ -198,7 +199,7 @@ export default {
                             padding: 0;
 
                             .description-subitem {
-                                padding: $padding/2 0;
+                                padding: calc($padding/2) 0;
                                 border-bottom: 1px solid $color-grey-2;
 
                                 &:first-child{
@@ -317,7 +318,7 @@ export default {
                     .description-item{
                         display: flex;
                         border-top: 1px solid $color-grey-2;
-                        padding: $padding/2 0;
+                        padding: calc($padding/2) 0;
 
                         p{
                             @include font-size-4;
@@ -340,7 +341,7 @@ export default {
                                 padding: 0;
 
                                 .description-subitem {
-                                    padding: $padding/2 0;
+                                    padding: calc($padding/2) 0;
                                     border-bottom: 1px solid $color-grey-2;
 
                                     &:first-child{

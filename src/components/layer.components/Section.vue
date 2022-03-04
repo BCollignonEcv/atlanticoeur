@@ -37,8 +37,7 @@
 <script>
 
 import ScrollAnimation from '@/directives/scrollAnimation'
-import Button from '@/components/subcomponents/Button'
-import Select from '@/components/subcomponents/Select'
+import { Button, Select } from '@/components/form.components'
 
 export default {
     components: {

@@ -46,8 +46,8 @@
 </template>
 
 <script>
-import Collapse from '@/components/global/Collapse'
-import DoctorCards from "@/components/doctor/DoctorCards"
+import { Collapse } from '@/components/layer.components'
+import { DoctorCards } from '@/components/custom.components/doctor'
 
 export default {
   components: {

@@ -92,9 +92,7 @@ export const useDataStore = defineStore('data', {
             "name": "Angiologie",
             "pathImg": "specialities/angiologie-cabinet_de_cardiologie_atlanticoeur.png",
             "description": "A côté de la Cardiologie, dons le domaine d’exercice est bien connu de tous, s’est développé une discipline s’intéressant aux vaisseaux. Le domaine du médecin vasculaire, ou angiologue, est celui des artères (artérite, anévrysmes, accidents vasculaires…), des veines (insuffisance, varices, phlébites), des capillaires (microcirculation), des lymphatiques. Son diagnostic notamment écho-Doppler est déterminant pour la prise en charge de ces maladies. L’essor des ultrasons de ces décennies a solidifié le socle de le discipline. \nCardiologie et médecine vasculaires sont des spécialités synergiques, les facteurs de risques, les pathologies sont intriquées. Aujourd’hui la Médecine Vasculaire a parcouru un grand chemin qui lui a donné une reconnaissance universitaire, et bénéficie d’une formation impliquant un parcours en partie commun avec la cardiologie. \nEn pratique, le médecin vasculaire exerce au carrefour de la médecine générale, de la cardiologie, de la chirurgie vasculaire, de la neurologie, de la médecine interne.",
-        }
-
-        ],
+        }],
         cabinet: {
             "informations": {
                 "name": "Clinique de l'Atlanticoeur",
@@ -203,8 +201,9 @@ export const useDataStore = defineStore('data', {
                     "date": "2020"
                   }
                 ]
-          }],
+        }],
         activeDoctor: null,
+        activeSpeciality: null,
     }
   },
   getter: {
@@ -232,6 +231,9 @@ export const useDataStore = defineStore('data', {
   actions: {
     selectDoctor(id){
         this.activeDoctor = id;
+    },
+    selectSpeciality(id){
+        this.activeSpeciality = id;
     }
   },
 })

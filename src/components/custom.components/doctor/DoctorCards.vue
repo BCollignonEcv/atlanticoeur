@@ -1,6 +1,6 @@
 <template>
     <div class="flex-doctor">
-        <doctor-card 
+        <DoctorCard 
             v-for="(doctor, index) in doctors" :key="index"
             :doctor-data="doctor"
             :selected="selectedSpeciality"
@@ -12,11 +12,11 @@
 
 <script>
 
-import Doctorcard from '@/components/doctor/DoctorCard'
+import DoctorCard from './DoctorCard'
 
 export default {
     components: {
-        'doctor-card': Doctorcard
+        DoctorCard
     },
     props: {
         typeCard: String,
