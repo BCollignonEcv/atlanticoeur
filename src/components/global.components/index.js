@@ -1,12 +1,6 @@
-import { defineCustomElement } from 'vue'
-
-import header from "./Header.vue"
-import footer from "./Footer.vue"
-import footerOverlay from "./FooterOverlay.vue"
-
-const Header = defineCustomElement(header)
-const Footer = defineCustomElement(footer)
-const FooterOverlay = defineCustomElement(footerOverlay)
+import Header from "./Header.vue"
+import Footer from "./Footer.vue"
+import FooterOverlay from "./FooterOverlay.vue"
 
 export {
     Header, Footer, FooterOverlay

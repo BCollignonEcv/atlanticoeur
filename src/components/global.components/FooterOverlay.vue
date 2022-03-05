@@ -6,11 +6,11 @@
                 <div class="contact-container" @click="$emit('showContactModal')">
                     <div class="contact">
                         <p>Tel.</p> 
-                        <p class="link">{{data.phoneDisplay}}</p> 
+                        <p class="link">{{company.phoneDisplay}}</p> 
                     </div>
                     <div class="contact">
                         <p>Mail</p> 
-                        <p class="link">{{data.email}}</p> 
+                        <p class="link">{{company.email}}</p> 
                     </div>
                 </div>
             </div>
@@ -29,22 +29,22 @@
 </template>
 
 <script>
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
+
 export default {
-    components: {
+    components: {},
+    props: {},
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
     },
-    props: {
-        data: Object,
+    computed: {
+        company() { return this.dataStore.getCompany }
     },
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-
-    },
-    mounted () {
-    },
+    methods: {},
+    mounted () {},
 }
 </script>
 

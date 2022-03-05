@@ -1,15 +1,10 @@
-import { defineCustomElement } from 'vue'
-
-import collapse from "./Collapse.vue"
-import modal from "./Modal.vue"
-import section from "./Section.vue"
-import slider from "./Slider.vue"
-
-const Collapse = defineCustomElement(collapse)
-const Modal = defineCustomElement(modal)
-const Section = defineCustomElement(section)
-const Slider = defineCustomElement(slider)
+import Collapse from "./Collapse.vue"
+import Modal from "./Modal.vue"
+import Section from "./Section.vue"
+import Slider from "./Slider.vue"
+import Grid from "./grid/Grid.vue"
+import GridItem from "./grid/Grid-item.vue"
 
 export {
-    Collapse, Modal, Section, Slider
+    Collapse, Modal, Section, Slider, Grid, GridItem
 }

@@ -1,9 +1,9 @@
 <template>
     <div class="examens-container">
         <div class="examens-grid">
-            <examen-item 
+            <Examen 
                 v-for="examen in examens" :key="examen.id" 
-                :data-examen="examen" :animation-padding="getRandomSizeClass()"
+                :data="examen" :animation-padding="getRandomSizeClass()"
             />
         </div>
     </div>
@@ -11,21 +11,29 @@
 
 <script>
 
-import ExamenItem from '@/components/examen/Examen-item'
+import { Examen } from '@/components/custom.components'
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 
 export default {
     components: {
-        'examen-item': ExamenItem
+        Examen
     },
-    props: {
-        dataExamens: Object
-    },
+    props: {},
     data() {
         return {
-            examens: this.dataExamens,
             elementSize: []
         }
     },
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
+    },
+    computed:{
+        examens(){ return this.dataStore.getExamens }
+    },
+
     methods: {
         getRandomSizeClass() {
             if(this.responsiveDisplay.tablette){

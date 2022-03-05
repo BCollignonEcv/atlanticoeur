@@ -3,26 +3,26 @@
         <template v-if="typeDescription === 'full'">
             <div class="full">
                 <div class="l_container description_item-single">
-                    <p class="l_col s3 description_item-title">{{description.number}}</p>
-                    <p class="l_col s9 description_item-title">{{description.address}}</p>
+                    <p class="l_col s3 description_item-title">{{company.number}}</p>
+                    <p class="l_col s9 description_item-title">{{company.address}}</p>
                 </div>
                 <div class="l_container description_item-single">
-                    <p class="l_col s3 description_item-title">{{description.postalCode}}</p>
-                    <p class="l_col s9 description_item-title">{{description.city}}</p>
+                    <p class="l_col s3 description_item-title">{{company.postalCode}}</p>
+                    <p class="l_col s9 description_item-title">{{company.city}}</p>
                 </div>
                 <div class="description_item-singleList">
                     <div class="l_container description_item-single">
                         <p class="l_col s6">Numéro de téléphone</p>
-                        <p class="l_col s6"><a :href="getPhone()">{{description.phoneDisplay}}</a></p>
+                        <p class="l_col s6"><a :href="getPhone()">{{company.phoneDisplay}}</a></p>
                     </div>
                     <div class="l_container description_item-single">
                         <p class="l_col s6">Adresse mail</p>
-                        <p class="l_col s6"><a :href="getEmail()">{{description.email}}</a></p>
+                        <p class="l_col s6"><a :href="getEmail()">{{company.email}}</a></p>
                     </div>
                     <div class="l_container description_item-single">
                         <p class="l_col s3">Horaire</p>
-                        <p class="l_col s3">Du {{description.horaires.days[0]}} <br> De {{description.horaires.hours[0]}}</p>
-                        <p class="l_col s6">au {{description.horaires.days[1]}} <br> à {{description.horaires.hours[1]}}</p>
+                        <p class="l_col s3">Du {{company.horaires.days[0]}} <br> De {{company.horaires.hours[0]}}</p>
+                        <p class="l_col s6">au {{company.horaires.days[1]}} <br> à {{company.horaires.hours[1]}}</p>
                     </div>
                 </div>
                 <div class="l_container-bottom">
@@ -47,7 +47,7 @@
                             </div>
                             <transition appear name="collapse">
                                 <div v-show="isGoogleMapVisible">
-                                    <GoogleMap :data="data.googleMap"/>
+                                    <GoogleMap :data="company.googleMap"/>
                                 </div>
                             </transition>
                         </div>
@@ -57,11 +57,11 @@
         <template v-else>
             <div class="l_container">
                 <div class="l_col l_leftSide">
-                    <h3>{{description.city}}</h3>
+                    <h3>{{company.city}}</h3>
                 </div>
                 <div class="l_col l_rightSide">
-                    <h3>{{description.name}}</h3>
-                    <h3>{{description.number}} {{description.address}}</h3> 
+                    <h3>{{company.name}}</h3>
+                    <h3>{{company.number}} {{company.address}}</h3> 
                 </div>
             </div>
             <!-- <div class="cabinet-description-content">
@@ -72,31 +72,39 @@
 </template>
 
 <script>
-import GoogleMap from "@/components/modal/GoogleMap"
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
+import { GoogleMap } from "@/components/custom.components"
 
 export default {
     components: {
         GoogleMap
     },
     props: {
-        data: Object,
         typeDescription: String
     },
     data() {
         return {
-            description: this.data,
             displayCart: false,
             isModalVisible: false,
             isGoogleMapVisible: false,
             closeModal: false
         }
     },
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
+    },
+    computed: {
+        company(){ return this.dataStore.getCompany },
+    },
     methods: {
         getPhone(){
-            return 'tel:'+this.description.phone
+            return 'tel:'+this.company.phone
         },
         getEmail(){
-            return 'mailto:'+this.description.email
+            return 'mailto:'+this.company.email
         },
     },
     mounted () {

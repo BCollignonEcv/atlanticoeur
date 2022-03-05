@@ -11,7 +11,10 @@ export default {
     components: {
     },
     props: {
-        onTakeAppointment: { type: Boolean, default: false },
+        onTakeAppointment: { 
+            type: Boolean,
+            default: false 
+        },
     },
     data() {
         return {

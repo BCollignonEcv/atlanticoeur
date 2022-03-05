@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="page">
     <div class="wrapper-content">
       <h1>Les différents liens utiles <br>recommandés</h1>
@@ -6,10 +6,10 @@
     <div>
       <grid :data-links="links"/>
     </div>
-    <section-component v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
+    <Section v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
         <Cta />
-    </section-component>
-    <FooterOverlay :data="cabinet.informations" @showContactModal="toggleModalContacts"/>
+    </Section>
+    <FooterOverlay/>
     <Modal v-if="showContacts" @close="toggleModalContacts">
     <Contact :data="cabinet.informations" />
   </Modal>
@@ -17,29 +17,29 @@
 </template>
 
 <script>
-
-import Section from "@/components/global/Section"
-import Cta from "@/components/global/Cta"
-import Grid from "@/components/grid/Grid"
-import FooterOverlay from "@/components/global/footer/FooterOverlay"
-import Contact from "@/components/modal/contact"
-import Modal from "@/components/global/Modal"
-
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
+import { FooterOverlay } from "@/components/global.components"
+import { Contact } from "@/components/custom.components"
+import { Modal, Grid } from "@/components/layer.components"
+import { Cta } from "@/components/form.components"
 
 export default {
   name: 'links',
   components: {
-    'section-component': Section,
-    'grid': Grid,
-    Cta, FooterOverlay, Contact, Modal
+    Grid, Cta, FooterOverlay, Contact, Modal
   },
   data() {
-        return {
-            
-            takeAppointment: false,
-            showContacts: false,
-            open: 1
-        }
+    return {
+        takeAppointment: false,
+        showContacts: false,
+        open: 1
+    }
+  },
+  setup() {
+    const appStore = useAppStore();
+    const dataStore = useDataStore();
+    return { appStore, dataStore }
   },
   methods: {
     toggleModalAppointment(){

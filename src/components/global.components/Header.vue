@@ -33,7 +33,7 @@
                     <p class="header_link">Rendez-vous via doctolib</p>
                   </template>
                   <template v-slot:content>
-                    <DoctorCards :data-doctors="doctorsSpe" />
+                    <DoctorCards />
                   </template>
               </Collapse>
             </li>
@@ -46,8 +46,10 @@
 </template>
 
 <script>
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 import { Collapse } from '@/components/layer.components'
-import { DoctorCards } from '@/components/custom.components/doctor'
+import { DoctorCards } from '@/components/custom.components'
 
 export default {
   components: {
@@ -57,9 +59,11 @@ export default {
     return {
     }
   }, 
-  created(){
-    console.log(this)
-  }
+  setup() {
+    const appStore = useAppStore();
+    const dataStore = useDataStore();
+    return { appStore, dataStore }
+  },
 }
 </script>
 

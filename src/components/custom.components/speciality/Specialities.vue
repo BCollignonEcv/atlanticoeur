@@ -4,7 +4,7 @@
             <div class="l_col l_leftSide">
                 <h3>Spécialités exercées</h3>
                 <div class="specialities_dashboard-container">
-                    <SpecialitiesDashboardItem
+                    <Speciality
                         v-for="(subcategory, index) in splitedSpecialities('vertical')" :key="index" 
                         :data="subcategory"
                         :settings="{vertical: true}"
@@ -13,7 +13,7 @@
             </div>
             <div class="l_col l_rightSide">
                 <div class="l_container-horizontal specialities_dashboard-container">
-                    <SpecialitiesDashboardItem
+                    <Speciality
                         v-for="(subcategory, index) in splitedSpecialities('horizontal')" :key="index" 
                         :data="subcategory"
                         :settings="{horizontal: true}"
@@ -25,20 +25,23 @@
 </template>
 
 <script>
-import SpecialitiesDashboardItem from '@/components/speciality/SpecialitiesDashboardItem'
+import { Speciality } from '@/components/custom.components'
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 
 export default {
     components: {
-        SpecialitiesDashboardItem,
+        Speciality,
     },
-    props: {
-        specialities: Object
+    props: {},
+    data() { return {} },
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
     },
-    data() {
-        return {
-        }
-    },
-    computed: {
+    computed:{
+        specialities(){ return this.dataStore.getSpecialities}
     },
     methods: {
         splitedSpecialities: function(type){

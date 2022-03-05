@@ -18,9 +18,9 @@ export default class ApiService {
         that.request.url = feedRequestUrl(url, params);
         return axios(that.request).then((response) => {
             return response.data;
-        });
-    };
-};
+        })
+    }
+}
 
 function feedRequestUrl(url, params) {
     let paramsRequired = url.match(/{\d}/)

@@ -28,13 +28,6 @@
                 </div>
                 <button v-if="type === 'big'" @click="scrollToDoctor()" class="btn btn-rdv">Profil du praticien</button>
                 <button class="btn btn-rdv" @click="showModal()">Prendre rendez-vous</button>
-                <Modal                     
-                    v-show="isModalVisible"
-                    @close="closeModal">
-                    <Doctolib 
-                        :data-doctor="doctor"
-                    />
-                </Modal>
             </div>
         </div>
     </template>
@@ -54,13 +47,6 @@
                 </div>
                 <button class="btn btn-rdv" @click="scrollToDoctor()" >Profil du praticien</button>
                 <button class="btn btn-rdv" @click="showModal()">Prendre RDV</button>
-                <Modal
-                    v-show="isModalVisible"
-                    @close="closeModal">
-                    <Doctolib 
-                        :data-doctor="doctor"
-                    />
-                </Modal>
             </div>
         </div>
     </template>
@@ -68,14 +54,9 @@
 
 <script>
 
-import { Modal } from "@/components/layer.components"
-import { Doctolib } from "@/components/custom.components/doctolib"
-
 export default {
     name: 'Doctor',
-    components: {
-        Modal, Doctolib
-    },
+    components: {},
     props: {
         doctorData: Object, 
         type: String,
@@ -85,7 +66,6 @@ export default {
         return {
             doctor: this.doctorData,
             alphabet: ['A', 'B', 'C', 'D', 'E', 'F'],
-            isModalVisible: false,
         }
     },
     computed: {

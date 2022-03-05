@@ -24,7 +24,7 @@
 
 <script>
 
-import GridItem from '@/components/grid/Grid-item'
+import GridItem from './Grid-item'
 
 export default {
     components: {

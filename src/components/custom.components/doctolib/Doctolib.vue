@@ -9,11 +9,11 @@
 export default {
     components: {},
     props: {
-        dataDoctor: Object,
+        data: Object,
     },
     data() {
         return {
-            doctor: this.dataDoctor,
+            doctor: this.data,
         }
     },
     methods: {

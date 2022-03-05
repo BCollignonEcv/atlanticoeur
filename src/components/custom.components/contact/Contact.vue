@@ -6,16 +6,18 @@
         </div>
         <div class="contact_iframe-content">
             <transition name="flip">
-                <p v-show="showPhone">{{data.phoneDisplay}}</p>
+                <p v-show="showPhone">{{company.phoneDisplay}}</p>
             </transition>
             <transition name="flip">
-                <p v-show="showEmail">{{data.email}}</p>
+                <p v-show="showEmail">{{company.email}}</p>
             </transition>
         </div>
     </div>
 </template>
 
 <script>
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 
 export default {
     components: {},
@@ -27,6 +29,14 @@ export default {
             showPhone: true,
             showEmail: false
         }
+    },
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
+    },
+    computed:{
+        company(){ return this.dataStore.getCompany}
     },
     methods: {
         displayPhone(){

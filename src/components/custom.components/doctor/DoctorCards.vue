@@ -3,14 +3,14 @@
         <DoctorCard 
             v-for="(doctor, index) in doctors" :key="index"
             :doctor-data="doctor"
-            :selected="selectedSpeciality"
             :type="type"
-            @eventSelected="newSelected"
         />
     </div>
 </template>
 
 <script>
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 
 import DoctorCard from './DoctorCard'
 
@@ -20,15 +20,19 @@ export default {
     },
     props: {
         typeCard: String,
-        dataDoctors: Object,
-        selected: Number,
-        selectedSpeciality: Number
     },
     data() {
         return {
-            doctors: this.dataDoctors,
             type: this.typeCard,
         }
+    },
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
+    },
+    computed:{
+        doctors(){ return this.dataStore.getDoctorsWithSpecialities}
     },
     methods: {
         newSelected (value) {

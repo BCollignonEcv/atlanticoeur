@@ -10,12 +10,12 @@ export default {
     components: {
     },
     props: {
-        dataExamen: Object,
+        data: Object,
         animationPadding: Number
     },
     data() {
         return {
-            examen: this.dataExamen,
+            examen: this.data,
             opened: false
         }
     },

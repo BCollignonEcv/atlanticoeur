@@ -3,38 +3,41 @@
             <transition-group 
                 name="descriptionList"
                 tag="div" >
-                    <doctor-description 
+                    <DoctorDescription 
                         v-for="doctor in doctors" :key="doctor.id" 
                         :doctor="doctor"
                         :doctorSelected="doctorSelected"
-                        @eventSelected="newSelected"
                     />
             </transition-group>
         </div>
 </template>
 <script>
 
-import { DoctorDescription } from '@/components/custom.components/doctor'
+import { DoctorDescription } from '@/components/custom.components'
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 
 export default {
     name: 'DoctorDescriptionList',
     components: {
-        'doctor-description': DoctorDescription
+        DoctorDescription
     },
     props: {
-        dataDoctors: Object,
         doctorSelected: Number
     },
     data() {
-        return {
-            doctors: this.dataDoctors,
-        }
+        return {}
     },
-    methods: {
-        newSelected (value) {
-            this.$emit('event-selected', value)
-        }
-    }
+    
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
+    },
+    computed:{
+        doctors(){ return this.dataStore.getDoctorsWithSpecialities}
+    },
+    methods: {}
 }
 </script>
 

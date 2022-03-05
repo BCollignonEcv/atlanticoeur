@@ -1,11 +1,6 @@
-import { defineCustomElement } from 'vue'
-import button from "./Button.vue"
-import select from "./Select.vue"
-import cta from "./Cta.vue"
-
-const Button = defineCustomElement(button)
-const Select = defineCustomElement(select)
-const Cta = defineCustomElement(cta)
+import Button from "./Button.vue"
+import Select from "./Select.vue"
+import Cta from "./Cta.vue"
 
 export {
     Button, Select, Cta
