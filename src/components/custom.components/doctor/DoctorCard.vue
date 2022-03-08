@@ -77,7 +77,7 @@ export default {
     },
     computed: {
         isSelected: function(){
-            return this.dataStore.activeSpeciality;
+            return this.doctor.specialities.find(speciality => speciality.id === this.dataStore.activeSpeciality) ;
         }
     },
     methods: {

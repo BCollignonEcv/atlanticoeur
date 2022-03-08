@@ -9,9 +9,9 @@
                 <h3>{{company.number}} {{company.address}}</h3> 
             </div>
         </div>
-        <!-- <div class="cabinet-description-content">
-            <p>{{description.content}}</p>
-        </div> -->
+        <div class="cabinet-description-content">
+            <p v-for="(description, index) in company.description" :key="index">{{description}}</p>
+        </div>
     </div>
 </template>
 
@@ -52,13 +52,21 @@ export default {
     .cabinet-description{
         .cabinet-description-content {
             margin-top: $margin-1;
-            padding-right: $margin-1*5;
             text-align: justify;
             text-justify: inter-word;
 
             p{
                 @include font-size-3;
+                margin-bottom: $margin-4;
+            }
+        }
+
+        @media screen and (min-width: $breackpoint-desktop){
+            .cabinet-description-content{
+                padding-right: $margin-1*5;
             }
         }
     }
+
+
 </style>

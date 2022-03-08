@@ -27,7 +27,7 @@
                 <div v-if="title || dataSelect" class="section_header-container">
                     <h1 v-if="landing">{{title}}</h1>
                     <h2 v-else>{{title}}</h2>
-                    <Select v-if="dataSelect" :data="dataSelect" :title="'spécialités'" @select="selectSpeciality"/>
+                    <Select v-if="dataSelect && responsiveDisplay.tablette" :data="dataSelect" :title="'spécialités'" @select="selectSpeciality"/>
                 </div>
                 <slot :selectedSpeciality="selectedValue"></slot>
             </template>

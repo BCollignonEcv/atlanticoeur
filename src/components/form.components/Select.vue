@@ -9,14 +9,14 @@
                 </svg>
             </div>
             <div class="select-options" v-show="hover">
-                <p class="select-option" @click="selected=null; $emit('select', null)">Tous</p>
+                <p class="select-option" @click="dataStore.selectSpeciality(null)">Tous</p>
                 <p 
                 v-for="(option, index) in options" :key="index" 
                 :data="option" 
                 :value="option.id" 
                 :class="{'selected': selected === index}"
                 class="select-option"
-                @click="selected={id: option.id, value: option.name}; $emit('select', selected.id)"
+                @click="selected={id: option.id, value: option.name}; dataStore.selectSpeciality(option.id)"
                 >
                     {{option.name}}
                 </p>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { useDataStore } from '@/stores/Data.store'
+
 export default {
     components: {},
     props: {
@@ -38,6 +40,10 @@ export default {
             selected: null,
             hover: false,
         }
+    },
+    setup() {
+        const dataStore = useDataStore();
+        return { dataStore }
     },
     created() {},
     computed: {},

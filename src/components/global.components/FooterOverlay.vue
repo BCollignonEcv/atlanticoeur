@@ -1,16 +1,16 @@
 <template>
     <div class="footer_overlay">
         <div class="footer_overlay-item">
-            <div class="item_container">
+            <div class="item_container" @click="appStore.showModal('contact')">
                 <p class="item-title">Le cabinet</p>
-                <div class="contact-container" @click="appStore.showModal('contact')">
+                <div class="contact-container">
                     <div class="contact">
                         <p>Tel.</p> 
-                        <p class="link">{{company.phoneDisplay}}</p> 
+                        <p class="link"><a :href="'tel:+33'+company.phone">{{company.phoneDisplay}}</a></p> 
                     </div>
                     <div class="contact">
                         <p>Mail</p> 
-                        <p class="link">{{company.email}}</p> 
+                        <p class="link"><a :href="'mailto:'+company.email">{{company.email}}</a></p> 
                     </div>
                 </div>
             </div>
@@ -69,6 +69,7 @@ export default {
                 border-left: 1px solid $color-neutral;
                 padding: $margin-5 $margin-5;
                 height: 100%;
+                cursor: pointer;
                 @include flexContainer($justify: space-between, $align: center);
 
                 .item-title{

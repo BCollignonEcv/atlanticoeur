@@ -12,7 +12,7 @@ export default {
     components: {
     },
     props: {
-        data: String
+        url: String
     },
     data() {
         return {
@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         getMapScript() {
-            return this.data
+            return this.url
         },
     },
 }

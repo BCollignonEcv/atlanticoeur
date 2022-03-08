@@ -97,7 +97,7 @@ export const useDataStore = defineStore('data', {
             ],
             company: {
                 "name": "Clinique de l'Atlanticoeur",
-                "description": "Description cabinet",
+                "description": ["Nous sommes ravis de vous accueillir à notre cabinet de cardiologie Atlanticoeur situé à la Rochelle. Notre equipe regroupe cardiologues et angiologues pour assurer le dépistage ou le traitement d'éventuelles maladies cardiaques et vasculaires.", "Vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."],
                 "number": 26,
                 "address": "rue Moulin des justices",
                 "city": "Puilboreau",
@@ -116,7 +116,6 @@ export const useDataStore = defineStore('data', {
                         1: '19:00'
                     },
                 },
-                "content": "Nous sommes ravis de vous accueillir à notre cabinet, vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."
             },
             photos: [{
                     "id": 0,

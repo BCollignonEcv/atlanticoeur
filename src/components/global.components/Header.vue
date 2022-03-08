@@ -19,8 +19,8 @@
             <li>
               <a class="header_link">Le cabinet</a>
               <div class="header_item-subitem">
-                <p class="header_link">Tél.</p>
-                <p class="header_link">Mail.</p>
+                <a :href="'tel:+33'+dataStore.getCompany.phone"><p class="header_link">Tél.</p></a>
+                <a :href="'mailto:'+dataStore.getCompany.email"><p class="header_link">Mail.</p></a>
               </div>
             </li>
           </ul>

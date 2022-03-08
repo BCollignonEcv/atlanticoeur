@@ -155,7 +155,7 @@ export default {
 
                         .fakeImg{
                             &:hover{
-                                transform: scale(1.2);
+                                transform: none;
                             }
                         }
                     }
@@ -203,9 +203,12 @@ export default {
             display: none !important;
         }
         .specialities_dashboard{
-            padding: $margin-1 $margin-3 ;
+            padding: $margin-1 0 ;
             margin-right: 0;
 
+            h3{
+                padding: 0 $margin-3;
+            }
             .swiper{
                 margin-top: $margin-3;
             }

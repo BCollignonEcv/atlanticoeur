@@ -44,9 +44,7 @@ export default {
             this.$el.getElementsByClassName('c_icone')[0].classList.toggle("reverse");
         }
     },
-    mounted () {
-        console.log(this.links)
-    }
+    mounted () {}
 }
 </script>
 

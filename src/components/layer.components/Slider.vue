@@ -1,7 +1,7 @@
 <script>
   // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue";
-import { Navigation } from "swiper";
+import { Navigation, Mousewheel, Keyboard } from "swiper";
 
 import "swiper/swiper.scss";
 
@@ -30,12 +30,10 @@ import "swiper/swiper.scss";
     },
     setup() {
       return {
-        modules: [Navigation],
+        modules: [Navigation, Mousewheel, Keyboard],
       };
     },
-    mounted() {
-      console.log(this.normalizedOptions)
-    }
+    mounted() {}
   };
 </script>
 
@@ -52,6 +50,8 @@ import "swiper/swiper.scss";
         slidesPerView: normalizedOptions.slidesPerView,
       },
     }"
+    :mousewheel="true"
+    :keyboard="true"
     :modules="modules"
     :class="{ swiperOverlay: normalizedOptions.overlay}"
   >

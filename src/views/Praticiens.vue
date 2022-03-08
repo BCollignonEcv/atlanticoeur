@@ -7,7 +7,7 @@
       <DoctorDescriptions />
     </Section>
     <Section :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth', 'bigTitle']">
-      <Slider :options="{ slidesPerView: 1.5}">
+      <Slider :options="{ slidesPerView: 2}">
         <template #slides>
           <SwiperSlide v-for="speciality in dataStore.getSpecialities" :key="speciality.id" >
             <SpecialitySlide
@@ -68,11 +68,7 @@ export default {
           }, 200);
       }
   },
-  watch: {
-    activeDoctor(newVal){
-      console.log(newVal)
-    }
-  }
+  watch: {}
 }
 </script>
 

@@ -45,7 +45,7 @@
                 </div>
                 <transition appear name="collapse">
                     <div v-show="showGoogleMap">
-                        <GoogleMap :data="company.googleMap"/>
+                        <GoogleMap :url="company.googleMap"></GoogleMap>
                     </div>
                 </transition>
             </div>
@@ -56,7 +56,7 @@
 <script>
 import { useAppStore } from '@/stores/App.store'
 import { useDataStore } from '@/stores/Data.store'
-import { GoogleMap } from "@/components/custom.components"
+import GoogleMap from "@/components/custom.components/google/GoogleMap.vue"
 
 export default {
     components: {
