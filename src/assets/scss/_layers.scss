@@ -29,7 +29,7 @@
             width: calc(100% / 3);
         }
         &.s5 {
-            width: 100% / 12 * 5;
+            width: calc(100% / 12 * 5);
         }
         &.s6 {
             width: 50%;
@@ -50,31 +50,31 @@
             width: 100%;
         }
         &.s1-fixed {
-            width: 100vw / 12;
+            width: calc(100vw / 12);
         }
         &.s2-fixed {
-            width: 100vw / 6;
+            width: calc(100vw / 6);
         }
         &.s3-fixed {
             width: 25vw;
         }
         &.s4-fixed {
-            width: 100vw / 3;
+            width: calc(100vw / 3);
         }
         &.s5-fixed {
-            width: 100vw / 12 * 5;
+            width: calc(100vw / 12 * 5);
         }
         &.s6-fixed {
             width: 50vw;
         }
         &.s8-fixed {
-            width: 100vw / 3 * 2;
+            width: calc(100vw / 3 * 2);
         }
         &.s9-fixed {
             width: 75vw;
         }
         &.s10-fixed {
-            width: 100vw / 6 * 5;
+            width: calc(100vw / 6 * 5);
         }
         &.s12-fixed {
             width: 100vw;

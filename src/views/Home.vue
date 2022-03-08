@@ -1,82 +1,69 @@
 <template>
   <div class="home page">
-    <section-component 
-      :title="'Cabinet de cardiologie \nAtlanticoeur'"
-      :sectionSetting="['landing','splited']"
-    >
+    <Section :title="'Cabinet de cardiologie \nAtlanticoeur'" :sectionSetting="['landing','splited']">
       <template v-slot:leftSide>
-        <cabinet-description :data="cabinet.informations"/>
+        <CabinetDescription />
       </template>
       <template v-slot:rightSide>
-        <specialities-dashboard :specialities="specialities"/>
+        <Specialities />
       </template>
-    </section-component>
-    <section-component :title="'Les différents cardiologues du cabinet'" :sectionSetting="['grey', 'sectionPadding']" :dataSelect="specialities">
-      <template v-slot:default="selected">
-        <doctors-card-list :selectedSpeciality="selected.selectedSpeciality" :data-doctors="doctorsSpe" :type-card="'small'"/>
+    </Section>
+    <Section :title="'Les différents cardiologues du cabinet'" :sectionSetting="['grey', 'sectionPadding']" :dataSelect="dataStore.getSpecialities">
+      <template v-slot:default>
+        <DoctorCards :type-card="'small'"/>
       </template>
-    </section-component>
-    <section-component 
-      :title="'Les examens réalisés au cabinet'"
-      :sectionSetting="['dark','fullHeight']"
-    >
-        <examen :data-examens="examens"/>
-    </section-component>
-    <section-component :title="'La clinique atlanticoeur'" :sectionSetting="['fullWidth']">
-      <Slider :haveNavigation="true" :haveOverlayDescription="true" :limit="Object.keys(cabinet.photos).length">
-        <template v-slot:sliderDescription>
-          <cabinet-description :typeDescription="'full'" :data="cabinet.informations" @show="toggleModalContacts"/>
+    </Section>
+    <Section :title="'Les examens réalisés au cabinet'" :sectionSetting="['dark','fullHeight']">
+        <Examens />
+    </Section>
+    <Section :title="'La clinique atlanticoeur'" :sectionSetting="['fullWidth']">
+      <Slider :options="{ overlay: true}">
+        <template #overlay>
+          <CabinetOverlay :typeDescription="'full'" :data="dataStore.getCompany"/>
         </template>
-        <template v-slot:slide>
-          <CabinetSlide
-            v-for="photo in cabinet.photos" 
-            :key="photo.id" 
-            :data="photo"
-            class="slide"
-          />
+        <template #slides>
+          <SwiperSlide v-for="photo in dataStore.getPhotos" :key="photo.id" >
+            <CabinetSlide
+              :data="photo"
+            />
+          </SwiperSlide>
         </template>
       </Slider>
-    </section-component>
-    <section-component v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
-        <!-- <Cta @open="openAppointment"/> -->
+    </Section>
+    <Section v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
         <Cta/>
-    </section-component>
-    <FooterOverlay v-if="responsiveDisplay.tablette" :data="cabinet.informations" @showContactModal="toggleModalContacts"/>
-    <Modal v-if="showContacts" @close="toggleModalContacts">
-      <Contact :data="cabinet.informations" />
-    </Modal>
+    </Section>
+    <FooterOverlay v-if="responsiveDisplay.tablette" @showContactModal="toggleModalContacts"/>
   </div>
 </template>
 
 <script>
-
-import Section from "@/components/global/Section"
-import Slider from "@/components/global/Slider"
-import Cta from "@/components/global/Cta"
-import Modal from "@/components/global/Modal"
-import FooterOverlay from "@/components/global/footer/FooterOverlay"
-import DoctorCards from "@/components/doctor/DoctorCards"
-import Examen from "@/components/examen/Examen"
-import SpecialiesDashboard from "@/components/speciality/SpecialitiesDashboard"
-import CabinetDescription from "@/components/cabinet/CabinetDescription"
-import CabinetSlide from "@/components/cabinet/CabinetSlide"
-import Contact from "@/components/modal/contact"
+import { Slider } from "@/components/layer.components"
+import { Cta } from "@/components/form.components"
+import { FooterOverlay } from "@/components/global.components"
+import { CabinetDescription, CabinetSlide, CabinetOverlay, DoctorCards, Examens, Specialities } from "@/components/custom.components"
+import { SwiperSlide } from "swiper/vue/swiper-vue";
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 
 export default {
   name: 'Home',
   components: {
-        'section-component': Section,
-        'doctors-card-list': DoctorCards,
-        'examen': Examen,
-        'specialities-dashboard': SpecialiesDashboard,
-        'cabinet-description': CabinetDescription,
-        CabinetSlide, Slider, Cta, Modal, FooterOverlay,Contact
+    DoctorCards, Examens, Specialities, CabinetDescription, CabinetSlide, CabinetOverlay,
+    Cta,
+    FooterOverlay, 
+    Slider, SwiperSlide
   },
   data() {
     return {
         activeSpecialities: null,
         showContacts: false
     }
+  },
+  setup() {
+    const appStore = useAppStore();
+    const dataStore = useDataStore();
+    return { appStore, dataStore }
   },
   methods: {
         toggleModalContacts(){
@@ -96,11 +83,6 @@ export default {
       flex: 1;
     }
   }
-
-  h2{
-
-  }
-
   .full_page{
     min-height: 100vh;
   }

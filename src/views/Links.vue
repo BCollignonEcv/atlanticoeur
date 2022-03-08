@@ -3,52 +3,32 @@
     <div class="wrapper-content">
       <h1>Les différents liens utiles <br>recommandés</h1>
     </div>
-    <div>
-      <grid :data-links="links"/>
-    </div>
-    <section-component v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
-        <Cta />
-    </section-component>
-    <FooterOverlay :data="cabinet.informations" @showContactModal="toggleModalContacts"/>
-    <Modal v-if="showContacts" @close="toggleModalContacts">
-    <Contact :data="cabinet.informations" />
-  </Modal>
+    <Grid :data="dataStore.getLinks"/>
   </div>
 </template>
 
 <script>
-
-import Section from "@/components/global/Section"
-import Cta from "@/components/global/Cta"
-import Grid from "@/components/grid/Grid"
-import FooterOverlay from "@/components/global/footer/FooterOverlay"
-import Contact from "@/components/modal/contact"
-import Modal from "@/components/global/Modal"
-
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
+import { Grid } from "@/components/custom.components"
 
 export default {
   name: 'links',
   components: {
-    'section-component': Section,
-    'grid': Grid,
-    Cta, FooterOverlay, Contact, Modal
+    Grid
   },
   data() {
-        return {
-            
-            takeAppointment: false,
-            showContacts: false,
-            open: 1
-        }
-  },
-  methods: {
-    toggleModalAppointment(){
-      this.takeAppointment = false
-    },
-    toggleModalContacts(){
-      this.showContacts = !this.showContacts
+    return {
+        takeAppointment: false,
+        showContacts: false,
+        open: 1
     }
-  }
+  },
+  setup() {
+    const appStore = useAppStore();
+    const dataStore = useDataStore();
+    return { appStore, dataStore }
+  },
 }
 </script>
 

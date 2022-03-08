@@ -1,71 +1,78 @@
 <template>
   <div class="page">
-    <section-component :title="'Les cardiologues du cabinet \nSCM Atlanticœur'" :sectionSetting="['landing']">
-      <doctors-card-list :data-doctors="doctorsSpe" :type-card="'big'" @eventSelected="newSelected"/>
-    </section-component>
-    <section-component :sectionSetting="['grey']">
-      <doctors-description-list :doctor-selected="doctorSelected" :data-doctors="doctorsSpe" @eventSelected="newSelected"/>
-    </section-component>
-     <section-component :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth', 'bigTitle']">
-      <Slider :haveNavigation="true" :limit="Object.keys(specialities).length">
-        <template v-slot:slide>
-          <SpecialitiesSlide
-            v-for="speciality in specialities" 
-            :key="speciality.id" 
-            :data-speciality="speciality"
-            class="slide"
-          />
+    <Section :title="'Les cardiologues du cabinet \nSCM Atlanticœur'" :sectionSetting="['landing']">
+      <DoctorCards :type-card="'big'"/>
+    </Section>
+    <Section :sectionSetting="['grey']">
+      <DoctorDescriptions />
+    </Section>
+    <Section :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth', 'bigTitle']">
+      <Slider :options="{ slidesPerView: 1.5}">
+        <template #slides>
+          <SwiperSlide v-for="speciality in dataStore.getSpecialities" :key="speciality.id" >
+            <SpecialitySlide
+              :data-speciality="speciality"
+            />
+          </SwiperSlide>
         </template>
       </Slider>
-    </section-component>
-    <section-component v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
+    </Section>
+    <Section v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
         <Cta />
-    </section-component>
+    </Section>
   </div>
 </template>
 
 <script>
-
-import DoctorCards from "@/components/doctor/DoctorCards"
-import DoctorDescriptions from "@/components/doctor/DoctorDescriptions"
-import Slider from "@/components/global/Slider"
-import Section from "@/components/global/Section"
-import Cta from "@/components/global/Cta"
-import SpecialitiesSlide from "@/components/speciality/SpecialitiesSlide"
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
+import { DoctorCards, DoctorDescriptions, SpecialitySlide} from "@/components/custom.components"
+import { Section, Slider } from "@/components/layer.components"
+import { Cta } from "@/components/form.components"
+import { SwiperSlide } from "swiper/vue/swiper-vue";
 
 
 export default {
   name: 'Praticiens',
   components: {
-    'doctors-card-list': DoctorCards,
-    'doctors-description-list': DoctorDescriptions,
-    'section-component': Section,
-    Slider, SpecialitiesSlide, Cta
+    DoctorCards, DoctorDescriptions, SpecialitySlide,
+    Section, Slider,
+    Cta,
+    SwiperSlide
   },
   data() {
-        return {
-            doctorSelected: 1,
-            specialitySelected: null,
-        }
-    },
-     methods: {
-        newSelected (value) {
-            this.doctorSelected = value;
-        }
-    },
-    created () {
-    },
-    mounted (){
-    },
-    watch: {
-      doctorSelected: function(id){
-        if(id != null){
-          setTimeout(function(){ 
+      return {
+          doctorSelected: 1,
+          specialitySelected: null,
+      }
+  },
+  setup() {
+    const appStore = useAppStore();
+    const dataStore = useDataStore();
+    let activeDoctor = null;
+    dataStore.$subscribe((e) => {
+      if(e.events.key === 'activeDoctor'){
+        activeDoctor = e.events.newValue;
+      }
+    }, { detached: true })
+    
+    return { appStore, dataStore, activeDoctor }
+  },
+    methods: {
+      newSelected (value) {
+          this.doctorSelected = value;
+      },
+      scrollToDoctor(id){
+        setTimeout(function(){ 
             document.getElementById('doctorDescription'+id).scrollIntoView({behavior: "smooth", block: "center"})
           }, 200);
-        }
       }
+  },
+  watch: {
+    activeDoctor(newVal){
+      console.log(newVal)
     }
+  }
 }
 </script>
 
@@ -75,4 +82,4 @@ export default {
         color: $color-primary;
     }
   } 
-</style>
+</style> -->
