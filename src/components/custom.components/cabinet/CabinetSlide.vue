@@ -1,15 +1,13 @@
 <template>
-    <div :id="'slide-'+photo.id">
-        <figure>
-            <figcaption class="photo_description">
-                <div class="l_container">
-                    <p class="l_col s2">{{photo.id}}</p>
-                    <p class="l_col s10 align-right">{{photo.name}}</p>
-                </div>
-            </figcaption>
-            <img class="slide_img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
-        </figure>
-    </div>
+    <figure>
+        <figcaption class="photo_description">
+            <div class="l_container">
+                <p class="l_col s2">{{photo.id + 1}}</p>
+                <p class="l_col s10 align-right">{{photo.name}}</p>
+            </div>
+        </figcaption>
+        <img class="slide_img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
+    </figure>
 </template>
 
 <script>
@@ -43,6 +41,7 @@ export default {
         bottom: 0;
         padding: $margin-4;
         width: 100%;
+        color: $color-neutral;
         
         &>div{
             border-top: 1px solid $color-grey-6;
@@ -50,4 +49,16 @@ export default {
             padding: $margin-6 0;
         }
     }
+
+    img.slide_img{
+        height: 66vh;
+        border-radius: $borderRadius-1;
+
+        @media screen and (max-width: $breackpoint-mobile){
+            height: auto;
+            width: 100%;
+        }
+    }
+
+
 </style>

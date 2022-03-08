@@ -7,7 +7,7 @@ export const useDataStore = defineStore('data', {
     state: () => {
         return {
             doctors: [{
-                    "id": 1,
+                    "id": 0,
                     "firstName": "Paul",
                     "lastName": "Jaillais",
                     "pathImg": "doctors/cardiologue_paul_jaillais-cabinet_de_cardiologie-atlanticoeur.jpg",
@@ -22,7 +22,7 @@ export const useDataStore = defineStore('data', {
                     "RPPS": 10003840369
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "firstName": "Michel",
                     "lastName": "Fesolowicz",
                     "pathImg": "doctors/cardiologue_michel_fesolowicz-cabinet_de_cardiologie-atlanticoeur.jpg",
@@ -37,7 +37,7 @@ export const useDataStore = defineStore('data', {
                     "RPPS": 10003840435
                 },
                 {
-                    "id": 3,
+                    "id": 2,
                     "firstName": "Cyril",
                     "lastName": "Huet",
                     "pathImg": "doctors/cardiologue_cyril_huet-cabinet_de_cardiologie-atlanticoeur.jpg",
@@ -51,7 +51,7 @@ export const useDataStore = defineStore('data', {
                     "RPPS": 10002700218
                 },
                 {
-                    "id": 4,
+                    "id": 3,
                     "firstName": "Edouard",
                     "lastName": "Majou",
                     "pathImg": "doctors/cardiologue_edouard_majou-cabinet_de_cardiologie-atlanticoeur.jpg",
@@ -122,18 +122,14 @@ export const useDataStore = defineStore('data', {
                     "id": 0,
                     "name": "Acceuil",
                     "pathImg": "cabinets/acceuil_cabinet_de_cardiologie_atlanticoeur.jpg",
-                }, {
-                    "id": 1,
-                    "name": "Acceuil",
-                    "pathImg": "cabinets/acceuil_cabinet_de_cardiologie_atlanticoeur.jpg",
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "name": "Salle d'attente",
                     "pathImg": "cabinets/salle_attente_2_cabinet_de_cardiologie_atlanticoeur.jpg",
                 },
                 {
-                    "id": 3,
+                    "id": 2,
                     "name": "Cabinet Jaillais",
                     "pathImg": "cabinets/docteur_jaillais_2_cabinet_de_cardiologie_atlanticoeur.jpg",
                 }
@@ -141,29 +137,29 @@ export const useDataStore = defineStore('data', {
             examens: [{
                 "id": 1,
                 "name": "Electrocardiogramme",
-                "description": "Description electrocardiogramme"
+                "description": "Autrement appelé ECG, est un test qui étudie le fonctionnement du cœur en mesurant son activité électrique."
             }, {
                 "id": 2,
                 "name": "Test effort",
-                "description": "Description demo"
+                "description": "Aussi appelé épreuve d’effort, est un examen permettant de détecter de possibles anomalies du coeur au cours d'un exercice physique soutenu."
             }, {
                 "id": 3,
                 "name": "Echocardiographie",
-                "description": "Description demo"
+                "description": "Est un examen permettant en outre d’acquérir aisément des images tridimensionnelles du cœur et des valves."
             }, {
                 "id": 4,
                 "name": "Holter Rythmique",
-                "description": "Description demo"
+                "description": "Le 'Holter Rythmique' consiste à réaliser un enregistrement électrocardiogramme de manière continue sur une période de 24 heures."
             }, {
                 "id": 5,
                 "name": "Holter Tensionnel",
-                "description": "Description demo"
+                "description": "A la différence du 'Holter Rythmique', le 'Holter Tensionnel' consiste à réaliser un enregistrement précis de la tension artérielle de manière continue sur une période de 24 heures."
             }, {
                 "id": 6,
                 "name": "Controle pacemaker",
-                "description": "Description demo"
+                "description": "Cela consiste à contrôler le bon fonctionnement la durée de vie de la pile, la bonne intégrité des sondes, la bonne programmation du pacemaker."
             }],
-            links: [{
+            links: {
                 "header": {
                     "title": "Source de contenu",
                     "link": "Typologie"
@@ -199,12 +195,24 @@ export const useDataStore = defineStore('data', {
                         "date": "2020"
                     }
                 ]
-            }],
+            },
             activeDoctor: null,
             activeSpeciality: null,
         }
     },
     getters: {
+        hasActiveDoctor: (state) => {
+            return state.activeDoctor != null ? true : false;
+        },
+        hasActiveSpeciality: (state) => {
+            return state.activeSpeciality != null ? true : false;
+        },
+        getActiveDoctor: (state) => {
+            return state.doctors[state.activeDoctor];
+        },
+        getActiveSpeciality: (state) => {
+            return state.specialities[state.activeSpeciality];
+        },
         getDoctors: (state) => {
             return state.doctors;
         },
@@ -229,6 +237,9 @@ export const useDataStore = defineStore('data', {
         },
         getExamens: (state) => {
             return state.examens;
+        },
+        getLinks: (state) => {
+            return state.links;
         }
     },
     actions: {
@@ -237,6 +248,12 @@ export const useDataStore = defineStore('data', {
         },
         selectSpeciality(id) {
             this.activeSpeciality = id;
+        },
+        resetActiveDoctor() {
+            this.activeDoctor = null;
+        },
+        resetActiveSpeciality() {
+            this.activeSpeciality = null;
         }
     },
 })

@@ -26,8 +26,8 @@
                         <p>_</p>
                     </div>
                 </div>
-                <button v-if="type === 'big'" @click="scrollToDoctor()" class="btn btn-rdv">Profil du praticien</button>
-                <button class="btn btn-rdv" @click="showModal()">Prendre rendez-vous</button>
+                <button v-if="type === 'big'" @click="moreAbout()" class="btn btn-rdv">Profil du praticien</button>
+                <button class="btn btn-rdv" @click="takeAppointment()">Prendre rendez-vous</button>
             </div>
         </div>
     </template>
@@ -45,14 +45,16 @@
                         <h4>Dr <span>{{doctor.lastName}}</span></h4>
                     </div>
                 </div>
-                <button class="btn btn-rdv" @click="scrollToDoctor()" >Profil du praticien</button>
-                <button class="btn btn-rdv" @click="showModal()">Prendre RDV</button>
+                <button class="btn btn-rdv" @click="moreAbout()" >Profil du praticien</button>
+                <button class="btn btn-rdv" @click="takeAppointment()">Prendre RDV</button>
             </div>
         </div>
     </template>
 </template>
 
 <script>
+import { useAppStore } from '@/stores/App.store'
+import { useDataStore } from '@/stores/Data.store'
 
 export default {
     name: 'Doctor',
@@ -68,32 +70,26 @@ export default {
             alphabet: ['A', 'B', 'C', 'D', 'E', 'F'],
         }
     },
+    setup() {
+        const appStore = useAppStore();
+        const dataStore = useDataStore();
+        return { appStore, dataStore }
+    },
     computed: {
         isSelected: function(){
-            return this.checkIfSpecialitySelected()
+            return this.dataStore.activeSpeciality;
         }
     },
     methods: {
         getImgUrl(pathImg) {
             return require('@/assets/img/'+pathImg)
         },
-        showModal() {
-            this.isModalVisible = true;
+        moreAbout() {
+            this.dataStore.selectDoctor(this.doctor.id);
         },
-        closeModal() {
-            this.isModalVisible = false;
-        },
-        scrollToDoctor(){
-            this.$emit('event-selected', this.doctor.id)
-        },
-        checkIfSpecialitySelected(){
-            let tmp = false;
-            Object.keys(this.doctor.specialities).forEach((key) => {
-                if(this.doctor.specialities[key].id === this.selected){
-                    tmp = true
-                }
-            });
-            return tmp;
+        takeAppointment(){
+            this.dataStore.selectDoctor(this.doctor.id);
+            this.appStore.showModal('doctolib')
         }
     },
     mounted(){
@@ -168,6 +164,7 @@ export default {
                 width: 100%;
 
                 h4{
+                    text-align: left;
                     color: $color-grey-1;
                     span{
                         @include font-bold;
@@ -208,33 +205,24 @@ export default {
             }
 
             &.selected{
-                .btn.btn-rdv{
-
-                }
+                .btn.btn-rdv{}
             }
             
             .card-speciality-title{
-                p{
-                }
+                p{}
             }
 
             .card-figure{
                 border-radius: 100%;
 
-                &:before{
-
-                }
-
-                .card-img{
-
-                }
+                &:before{}
+                .card-img{}
             }
 
             .card-doctor-info{
                 .card-element{
                     h4{
-                        span{
-                        }
+                        span{}
                     }
 
                     .card-doctor-subtitle{
@@ -257,6 +245,13 @@ export default {
             }
         }
     }
+
+    header{
+        .btn.btn-rdv{
+            border-color: $color-grey-5;
+        }
+    }
+
     @media screen and (min-width: $breackpoint-tablette){
         .card-doctor{
             &:hover{

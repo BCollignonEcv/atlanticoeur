@@ -3,7 +3,7 @@
         <div class="footer_overlay-item">
             <div class="item_container">
                 <p class="item-title">Le cabinet</p>
-                <div class="contact-container" @click="$emit('showContactModal')">
+                <div class="contact-container" @click="appStore.showModal('contact')">
                     <div class="contact">
                         <p>Tel.</p> 
                         <p class="link">{{company.phoneDisplay}}</p> 

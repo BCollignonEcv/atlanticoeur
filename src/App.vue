@@ -9,17 +9,31 @@
         <component :is="Component" />
       </transition>
     </router-view>
+    <Modal v-if="appStore.hasModal">
+      <Doctolib v-if="appStore.isModal('doctolib')"></Doctolib>
+      <Contact v-if="appStore.isModal('contact')"></Contact>
+    </Modal>
+    
     </main>
     <Footer />
 </template>
 
 <script>
 import { Header, Footer } from '@/components/global.components'
+import { Contact, Doctolib } from "@/components/custom.components"
+import { Modal } from "@/components/layer.components"
+import { useAppStore } from '@/stores/App.store'
 
 export default {
   name: 'App',
   components: {
-    Header, Footer
+    Header, Footer,
+    Contact, Doctolib,
+    Modal
+  },
+  setup() {
+    const appStore = useAppStore();
+    return { appStore }
   },
 }
 </script>

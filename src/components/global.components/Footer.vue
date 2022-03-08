@@ -5,7 +5,7 @@
                 <div class="footer-item">
                     <nav>
                         <ul>
-                            <li class="item-title"><h5>Architecture du site</h5></li>
+                            <li class="item-title"><h5>Menu</h5></li>
                             <li class="link"><router-link to="/" @click="scrollToTop">Accueil</router-link></li>
                             <li class="link"><router-link to="/praticiens" @click="scrollToTop">Les praticiens</router-link></li>
                             <li class="link"><router-link to="/links" @click="scrollToTop">Les liens utiles</router-link></li>
@@ -50,7 +50,7 @@
                         <ul>
                             <Collapse>
                                 <template v-slot:header>
-                                    <li class="item-title"><h5>Architecture du site</h5><span>+</span></li>
+                                    <li class="item-title"><h5>Menu</h5><span>+</span></li>
                                 </template>
                                 <template v-slot:content>
                                     <li class="link"><router-link to="/" @click="scrollToTop">Accueil</router-link></li>

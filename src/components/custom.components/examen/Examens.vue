@@ -1,10 +1,7 @@
 <template>
     <div class="examens-container">
         <div class="examens-grid">
-            <Examen 
-                v-for="examen in examens" :key="examen.id" 
-                :data="examen" :animation-padding="getRandomSizeClass()"
-            />
+            <Examen v-for="examen in examens" :key="examen.id" :data="examen" />
         </div>
     </div>
 </template>
@@ -35,13 +32,6 @@ export default {
     },
 
     methods: {
-        getRandomSizeClass() {
-            if(this.responsiveDisplay.tablette){
-                return Math.random() * 5 + 1;
-            }else{
-                return null;
-            }
-        },
     },
     mounted () {
     }
@@ -57,7 +47,6 @@ export default {
             height: 100%;
             
             .examen_item{
-                width: 100%;
                 position: relative;
                 padding: $margin-4 0;
                 border-top: 1px solid grey;
@@ -74,9 +63,15 @@ export default {
                     @include font-size-4;
                 }
 
+                .examen_item-description{
+                    padding-top: $margin-3;
+                }
+
                 &.active{
+                    padding-right: 1rem;
                     .examen_item-title{
                         transition: all .5s;
+                        text-align: left;
                     }
                 }
             }
@@ -84,18 +79,25 @@ export default {
     }
     @media screen and (max-width: $breackpoint-tablette) {
         .examens-container{
+            height: 100%;
 
             .examens-grid{
                 
                 .examen_item{
+                    width: 100%;
                     margin-bottom: $margin-6;
                     border-top: 10px solid;
                     border-image-slice: 1;
                     border-width: 1px;
+                    border-bottom: none;
                     border-image-source: linear-gradient(to left, #232526, #414345);
 
                     .examen_item-title{
-                       
+                       font-size: $m-lineHeight-extraLarge;
+                    }
+
+                    .examen_item-description{
+                        padding-top: $margin-5;
                     }
 
                     &.active{
@@ -117,7 +119,7 @@ export default {
                     .examen_item{
                         flex: 1;
                         position: relative;
-                        padding: 2.4rem 0;
+                        padding: 2.4rem 1rem;
                         border-top: 1px solid grey;
                         border-bottom: 1px solid grey;
                         transition: all .5s ease-in-out;

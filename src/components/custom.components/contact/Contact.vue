@@ -6,10 +6,10 @@
         </div>
         <div class="contact_iframe-content">
             <transition name="flip">
-                <p v-show="showPhone">{{company.phoneDisplay}}</p>
+                <a v-show="showPhone" :href="'tel:+33'+company.phoneDisplay">{{company.phoneDisplay}}</a>
             </transition>
             <transition name="flip">
-                <p v-show="showEmail">{{company.email}}</p>
+                <a v-show="showEmail" :href="'mailto:'+company.email">{{company.email}}</a>
             </transition>
         </div>
     </div>
@@ -57,6 +57,7 @@ export default {
 <style lang="scss">
     $navigationMargin: 2.5vw;
     $navigationSize: 10vw;
+
     .contact_iframe{
         @include flexContainer($align: center);
         height: 80vh;
@@ -98,7 +99,8 @@ export default {
 
         .contact_iframe-content{
             flex-grow: 10;
-            p{
+            a{
+                display: block;
                 @include font-size-xlarge;
                 @include font-bold;
                 margin-right: $navigationSize;

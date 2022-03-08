@@ -9,10 +9,10 @@
     </header>
   </template>
   <template v-else>
-    <header id="nav">
+    <header id="nav" :class="{activeMenu: isShowMenu}">
       <nav class="header_mobile">
         <ul class="header_item">
-          <li class="header_link">Menu</li>
+          <li class="header_link" @click="toggleMenu">Menu</li>
         </ul>
         <div class="header_item-container bordered wrapper-oversize" @click="scrollTo">
           <ul class="header_item inline whiteBlur wrapper-oversize">
@@ -39,6 +39,19 @@
             </li>
           </ul>
         </div>
+        <div v-if="isShowMenu">
+          <ul class="menu_container" @click="toggleMenu">
+            <li>
+              <router-link to="/" class="header_link menu_link">Accueil</router-link>
+            </li>
+            <li>
+              <router-link to="/praticiens" class="header_link menu_link">Les praticiens</router-link>
+            </li>
+            <li>
+              <router-link to="/links" class="header_link menu_link">Les liens utiles</router-link>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
     
@@ -57,6 +70,7 @@ export default {
   },
   data(){
     return {
+      isShowMenu: false
     }
   }, 
   setup() {
@@ -64,6 +78,11 @@ export default {
     const dataStore = useDataStore();
     return { appStore, dataStore }
   },
+  methods: {
+    toggleMenu(){
+      this.isShowMenu = !this.isShowMenu;
+    }
+  }
 }
 </script>
 
@@ -101,6 +120,10 @@ header{
 }
 @media screen and (max-width: $breackpoint-tablette) {
   header{
+    &.activeMenu{
+      height: 100vh;
+      background-color: $color-neutral;
+    }
     .header_mobile{
       .header_item-container{
         margin: $margin-5 0;
@@ -150,6 +173,14 @@ header{
         padding: $margin-6*2 0;
         @include font-size-1;
         width: 100%;
+      }
+
+      .menu_container{
+        pointer-events: auto;
+        .menu_link{
+          color: $color-grey-3;
+          text-transform: none;
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper-content">
         <div class="grid">
-            <div class="grid_line grid_header">
+            <div v-if="links.header" class="grid_line grid_header">
                 <p class="gl-8">{{links.header.title}}</p>
                 <p class="gl-3">{{links.header.link}}</p>
                 <p class="align-right gl-1" @click="reverseDateOrder()">
@@ -11,7 +11,7 @@
                 </p>
             </div>
             <transition-group appear class="grid_content" name="grid-animation" tag="div" >
-                <grid-item
+                <GridItem
                     v-for="(link, index) in links.content" :key="index" 
                     :data-link="link"
                     :selected="false"
@@ -28,14 +28,14 @@ import GridItem from './Grid-item'
 
 export default {
     components: {
-        'grid-item': GridItem
+        GridItem
     },
     props: {
-        dataLinks: Object
+        data: Object
     },
     data() {
         return {
-            links: this.dataLinks,
+            links: this.data,
         }
     },
     methods: {
@@ -45,6 +45,7 @@ export default {
         }
     },
     mounted () {
+        console.log(this.links)
     }
 }
 </script>

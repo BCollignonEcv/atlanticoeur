@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { useAppStore } from '@/stores/App.store'
 
 export default {
     components: {},
@@ -23,10 +24,14 @@ export default {
             load: true
         }
     },
+    setup() {
+        const appStore = useAppStore();
+        return { appStore }
+    },
     methods: {
         closeIframe(){
-            this.$emit('close');
-        },
+            this.appStore.resetModal();
+        }
     },
     mounted() {
 

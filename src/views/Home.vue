@@ -17,42 +17,42 @@
         <Examens />
     </Section>
     <Section :title="'La clinique atlanticoeur'" :sectionSetting="['fullWidth']">
-      <!-- <Slider :haveNavigation="true" :haveOverlayDescription="true" :limit="Object.keys(cabinet.photos).length">
-        <template v-slot:sliderDescription>
-          <CabinetDescription :typeDescription="'full'" :data="dataStore.getCompany" @show="toggleModalContacts"/>
+      <Slider :options="{ overlay: true}">
+        <template #overlay>
+          <CabinetOverlay :typeDescription="'full'" :data="dataStore.getCompany"/>
         </template>
-        <template v-slot:slide>
-          <CabinetSlide
-            v-for="photo in dataStore.getPhotos" 
-            :key="photo.id" 
-            :data="photo"
-            class="slide"
-          />
+        <template #slides>
+          <SwiperSlide v-for="photo in dataStore.getPhotos" :key="photo.id" >
+            <CabinetSlide
+              :data="photo"
+            />
+          </SwiperSlide>
         </template>
-      </Slider> -->
+      </Slider>
     </Section>
     <Section v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
         <Cta/>
     </Section>
     <FooterOverlay v-if="responsiveDisplay.tablette" @showContactModal="toggleModalContacts"/>
-    <Modal v-if="showContacts" @close="toggleModalContacts">
-      <Contact />
-    </Modal>
   </div>
 </template>
 
 <script>
-import { Modal} from "@/components/layer.components"
+import { Slider } from "@/components/layer.components"
 import { Cta } from "@/components/form.components"
 import { FooterOverlay } from "@/components/global.components"
-import { CabinetDescription, DoctorCards, Examens, Specialities, Contact } from "@/components/custom.components"
+import { CabinetDescription, CabinetSlide, CabinetOverlay, DoctorCards, Examens, Specialities } from "@/components/custom.components"
+import { SwiperSlide } from "swiper/vue/swiper-vue";
 import { useAppStore } from '@/stores/App.store'
 import { useDataStore } from '@/stores/Data.store'
 
 export default {
   name: 'Home',
   components: {
-    DoctorCards, Examens, Specialities, CabinetDescription, Cta, Modal, FooterOverlay, Contact
+    DoctorCards, Examens, Specialities, CabinetDescription, CabinetSlide, CabinetOverlay,
+    Cta,
+    FooterOverlay, 
+    Slider, SwiperSlide
   },
   data() {
     return {
@@ -82,8 +82,6 @@ export default {
     &>*{
       flex: 1;
     }
-  }
-  h2{
   }
   .full_page{
     min-height: 100vh;

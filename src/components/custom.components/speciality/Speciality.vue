@@ -65,5 +65,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    @media screen and (max-width: $breackpoint-mobile) {
+        .specialities_dashboard-item{
+            &.horizontal{
+                .l_container{
+                    min-height: 50vh;
 
+                    
+                    .fakeImg_container{
+                        min-height: 50vh;
+                        border: 1px solid $color-grey-6; 
+                        background-color: $color-neutral;
+                        border-radius: $borderRadius-1;
+
+                        .fakeImg{
+                            min-height: 50vh;
+                            padding: $margin-1;
+
+                            p{
+                                color: $color-grey-1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 </style>

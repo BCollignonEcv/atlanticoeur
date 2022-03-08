@@ -6,17 +6,16 @@
     <Section :sectionSetting="['grey']">
       <DoctorDescriptions />
     </Section>
-     <Section :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth', 'bigTitle']">
-      <!-- <Slider :haveNavigation="true" :limit="Object.keys(specialities).length">
-        <template v-slot:slide>
-          <SpecialitiesSlide
-            v-for="speciality in specialities" 
-            :key="speciality.id" 
-            :data-speciality="speciality"
-            class="slide"
-          />
+    <Section :title="'Les spécialités du cabinet \nSCM Atlanticœur'" :sectionSetting="['fullWidth', 'bigTitle']">
+      <Slider :options="{ slidesPerView: 1.5}">
+        <template #slides>
+          <SwiperSlide v-for="speciality in dataStore.getSpecialities" :key="speciality.id" >
+            <SpecialitySlide
+              :data-speciality="speciality"
+            />
+          </SwiperSlide>
         </template>
-      </Slider> -->
+      </Slider>
     </Section>
     <Section v-if="responsiveDisplay.tablette" :sectionSetting="['dark', 'sectionMarginTop']">
         <Cta />
@@ -27,17 +26,19 @@
 <script>
 import { useAppStore } from '@/stores/App.store'
 import { useDataStore } from '@/stores/Data.store'
-import { DoctorCards, DoctorDescriptions} from "@/components/custom.components"
-import { Section } from "@/components/layer.components"
+import { DoctorCards, DoctorDescriptions, SpecialitySlide} from "@/components/custom.components"
+import { Section, Slider } from "@/components/layer.components"
 import { Cta } from "@/components/form.components"
+import { SwiperSlide } from "swiper/vue/swiper-vue";
 
 
 export default {
   name: 'Praticiens',
   components: {
-    DoctorCards, DoctorDescriptions,
-    Section,
-    Cta
+    DoctorCards, DoctorDescriptions, SpecialitySlide,
+    Section, Slider,
+    Cta,
+    SwiperSlide
   },
   data() {
       return {
@@ -48,24 +49,28 @@ export default {
   setup() {
     const appStore = useAppStore();
     const dataStore = useDataStore();
-    return { appStore, dataStore }
+    let activeDoctor = null;
+    dataStore.$subscribe((e) => {
+      if(e.events.key === 'activeDoctor'){
+        activeDoctor = e.events.newValue;
+      }
+    }, { detached: true })
+    
+    return { appStore, dataStore, activeDoctor }
   },
     methods: {
       newSelected (value) {
           this.doctorSelected = value;
+      },
+      scrollToDoctor(id){
+        setTimeout(function(){ 
+            document.getElementById('doctorDescription'+id).scrollIntoView({behavior: "smooth", block: "center"})
+          }, 200);
       }
-  },
-  created () {
-  },
-  mounted (){
   },
   watch: {
-    doctorSelected: function(id){
-      if(id != null){
-        setTimeout(function(){ 
-          document.getElementById('doctorDescription'+id).scrollIntoView({behavior: "smooth", block: "center"})
-        }, 200);
-      }
+    activeDoctor(newVal){
+      console.log(newVal)
     }
   }
 }

@@ -6,7 +6,7 @@ export default {
                 "tablette": false,
                 "desktop": false,
             },
-            breakpoints: {
+            customBreakpoints: {
                 "mobile": 768,
                 "tablette": 992,
                 "desktop": 1440
@@ -16,15 +16,18 @@ export default {
     methods: {
         isDisplay: function() {
             let userViewPort = document.documentElement.clientWidth;
-            if (userViewPort > this.breakpoints.mobile) {
-                this.responsiveDisplay.tablette = true;
-            } else {
+            if (userViewPort < this.customBreakpoints.mobile) {
+                this.responsiveDisplay.mobile = true;
                 this.responsiveDisplay.tablette = false;
-            }
-            if (userViewPort < this.breakpoints.tablette) {
-                this.responsiveDisplay.desktop = true;
-            } else {
                 this.responsiveDisplay.desktop = false;
+            } else if (userViewPort > this.customBreakpoints.mobile && userViewPort < this.customBreakpoints.tablette) {
+                    this.responsiveDisplay.mobile = true;
+                    this.responsiveDisplay.tablette = true;
+                    this.responsiveDisplay.desktop = false;
+            } else {
+                this.responsiveDisplay.mobile = true;
+                this.responsiveDisplay.tablette = true;
+                this.responsiveDisplay.desktop = true;
             }
         }
     },

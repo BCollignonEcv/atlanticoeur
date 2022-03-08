@@ -1,44 +1,67 @@
 <template>
     <div class="specialities_dashboard">
-        <div class="l_container">
-            <div class="l_col l_leftSide">
-                <h3>Spécialités exercées</h3>
-                <div class="specialities_dashboard-container">
-                    <Speciality
-                        v-for="(subcategory, index) in splitedSpecialities('vertical')" :key="index" 
-                        :data="subcategory"
-                        :settings="{vertical: true}"
-                    />
+        <template v-if="responsiveDisplay.tablette">
+            <div class="l_container">
+                <div class="l_col l_leftSide">
+                    <h3>Spécialités exercées</h3>
+                    <div class="specialities_dashboard-container">
+                        <Speciality
+                            v-for="(subcategory, index) in splitedSpecialities('vertical')" :key="index" 
+                            :data="subcategory"
+                            :settings="{vertical: true}"
+                        />
+                    </div>
+                </div>
+                <div class="l_col l_rightSide">
+                    <div class="l_container-horizontal specialities_dashboard-container">
+                        <Speciality
+                            v-for="(subcategory, index) in splitedSpecialities('horizontal')" :key="index" 
+                            :data="subcategory"
+                            :settings="{horizontal: true}"
+                        />
+                    </div>
                 </div>
             </div>
-            <div class="l_col l_rightSide">
-                <div class="l_container-horizontal specialities_dashboard-container">
-                    <Speciality
-                        v-for="(subcategory, index) in splitedSpecialities('horizontal')" :key="index" 
-                        :data="subcategory"
-                        :settings="{horizontal: true}"
-                    />
-                </div>
-            </div>
-        </div>
+        </template>
+        <template v-if="!responsiveDisplay.tablette">
+            <h3 class="title">Spécialités exercées</h3>
+            <Swiper
+                :effect="'cards'"
+                :grabCursor="true"
+                :modules="modules"
+                class="mySwiper">
+                    <SwiperSlide v-for="(speciality, index) in specialities" :key="index">
+                        <Speciality
+                            :data="speciality"
+                            :settings="{horizontal: true}"
+                            />
+                    </SwiperSlide>
+            </Swiper>
+        </template>
     </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue";
+import { EffectCards } from "swiper";
+
+import "swiper/swiper.scss";
+
 import { Speciality } from '@/components/custom.components'
 import { useAppStore } from '@/stores/App.store'
 import { useDataStore } from '@/stores/Data.store'
 
 export default {
     components: {
-        Speciality,
+        Speciality, Swiper, SwiperSlide
     },
     props: {},
     data() { return {} },
     setup() {
         const appStore = useAppStore();
         const dataStore = useDataStore();
-        return { appStore, dataStore }
+        const modules = [EffectCards];
+        return { appStore, dataStore, modules }
     },
     computed:{
         specialities(){ return this.dataStore.getSpecialities}
@@ -173,5 +196,20 @@ export default {
             }
 
         }
+    }
+
+    @media screen and (max-width: $breackpoint-mobile) {
+        .swiper-slide-shadow{
+            display: none !important;
+        }
+        .specialities_dashboard{
+            padding: $margin-1 $margin-3 ;
+            margin-right: 0;
+
+            .swiper{
+                margin-top: $margin-3;
+            }
+        }
+
     }
 </style>
