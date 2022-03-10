@@ -1,7 +1,7 @@
 <template>
     <div class="description-doctor" :id="'doctorDescription'+doctor.id">
         <template v-if="responsiveDisplay.tablette">
-                <Collapse :selected="isSelected" @collapse="newSelected">
+                <Collapse :selected="isSelected">
                     <template v-slot:header>
                         <div class="description-collapse description-collapse--title">
                             <div class="description-aside">
@@ -57,7 +57,7 @@
                 </Collapse>
         </template>
         <template v-else>
-            <Collapse :selected="isSelected" @collapse="newSelected">
+            <Collapse :selected="isSelected">
                 <template v-slot:header>
                     <div class="description-collapse description-collapse--title">
                         <h3>Dr {{doctor.firstName + ' ' + doctor.lastName}}</h3>
@@ -166,7 +166,7 @@ export default {
             width: 100%;
 
             &.description-collapse--title{
-                padding: $margin-4 $margin-5;
+                padding: $margin-5 $margin-5;
                 cursor: pointer;
             }
 
@@ -298,7 +298,7 @@ export default {
                 width: 100%;
 
                 &.description-collapse--title{
-                    padding: $margin-2;
+                    padding: $margin-1;
                     cursor: pointer;
                 }
 

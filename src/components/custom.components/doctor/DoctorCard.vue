@@ -119,7 +119,7 @@ export default {
             border-left: 1px solid $color-grey-6;
             border-right: 1px solid $color-grey-6;
             margin-bottom: 1.6rem;
-            color: $color-grey-5;
+            color: $color-grey-4;
             transition: 0.5s ease-in-out;
 
             p{
@@ -182,7 +182,7 @@ export default {
 
                     &.card-doctor-speciality{
                         padding: .8rem 0;
-                        border-bottom: 1px solid $color-grey-6;
+                        border-bottom: 1px solid $color-grey-5;
                         *{
                             @include font-bold;
                         }
@@ -312,7 +312,7 @@ export default {
                 @include flexContainer($orientation: column, $justify: space-between);
                 background-color: $color-neutral;
                 padding: 48px 24px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0, 0.04);
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0, 0.1);
                 height: 100%;
                 border-radius: $borderRadius-2;
 
@@ -341,7 +341,6 @@ export default {
 
                         &.card-doctor-speciality{
                             padding: .8rem 0;
-                            border-bottom: 1px solid $color-grey-6;
                             *{
                                 @include font-bold;
                             }

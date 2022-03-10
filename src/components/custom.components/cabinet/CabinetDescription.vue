@@ -50,6 +50,7 @@ export default {
 
 <style lang="scss" scoped>
     .cabinet-description{
+
         .cabinet-description-content {
             margin-top: $margin-1;
             text-align: justify;
@@ -58,6 +59,7 @@ export default {
             p{
                 @include font-size-3;
                 margin-bottom: $margin-4;
+                color: $color-grey-4;
             }
         }
 

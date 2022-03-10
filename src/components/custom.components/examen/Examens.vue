@@ -48,7 +48,6 @@ export default {
             
             .examen_item{
                 position: relative;
-                padding: $margin-4 0;
                 border-top: 1px solid grey;
                 border-bottom: 1px solid grey;
                 transition: all .5s ease-in-out;

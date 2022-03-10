@@ -43,7 +43,7 @@ export default {
         button{
             @include hover;
             @include font-bold;
-            @include font-size-3;
+            @include font-size-1;
             padding: 3.2rem 23rem; 
             cursor: pointer;
             border: 1px solid $color-grey-5;

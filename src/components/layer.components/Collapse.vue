@@ -35,13 +35,14 @@ export default {
     methods:{
         toggleCollapse(){
             let content = this.$refs.content;
+            let icon = 'collapseIcon' in this.$parent.$refs ? this.$parent.$refs.collapseIcon : null
             content.classList.toggle("active");
             if (content.style.maxHeight){
+                icon.innerHTML = this.state.close;
                 content.style.maxHeight = null; 
-                this.$emit('collapse', false)
             } else {
+                icon.innerHTML = this.state.open;
                 content.style.maxHeight = content.scrollHeight + "px";
-                this.$emit('collapse', true)
             }
             this.active = !this.active
         }

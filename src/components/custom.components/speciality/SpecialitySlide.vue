@@ -1,11 +1,13 @@
 <template>
     <div :id="'slide-'+speciality.id" @click="descriptionShow = !descriptionShow" class="slide">
         <figure>
-            <figcaption class="slide_overlay-title">
-                <h3>{{discover}}</h3>
-                <transition appear name="fade">
-                    <p v-show="descriptionShow" >{{speciality.description}}</p>
-                </transition>
+            <figcaption class="slide_overlay">
+                <div class="slide_overlay-content">
+                    <h3>{{discover}}</h3>
+                    <transition appear name="fade">
+                        <p v-show="descriptionShow" >{{speciality.description}}</p>
+                    </transition>
+                </div>
             </figcaption>
             <img class="slide_img" :src="getImgUrl()" :alt="getImgAlt()" srcset="">
         </figure>
@@ -61,19 +63,27 @@ export default {
                 cursor: pointer;
             }
 
-            .slide_overlay-title{
+            .slide_overlay{
                 position: absolute;
                 top: 0;
                 left: 0;
                 padding: $margin-3;
+                width: 100%;
+                
+                &-content{
+                    @include blur($white: true);
+                    padding: $margin-3;
+                    border-radius: $borderRadius-1;
 
-                h3{
-                    padding-bottom: $margin-5;
+                    h3{
+                    }
+
+                    p{
+                        padding-top: $margin-5;
+                    }
                 }
 
-                h3, p{
 
-                }
             }
         }
     }

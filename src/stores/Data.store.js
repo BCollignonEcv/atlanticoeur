@@ -64,7 +64,7 @@ export const useDataStore = defineStore('data', {
                     "tiersPayant": "Sécurité Sociale",
                     "diplomes": ["DES de pathologie cardio vasculaire - CHU de tours", ],
                     "RPPS": 10002084035
-                }
+                },
             ],
             specialities: [{
                     "id": 0,

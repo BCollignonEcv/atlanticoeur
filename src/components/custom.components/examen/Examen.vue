@@ -19,14 +19,14 @@ export default {
         return {
             examen: this.data,
             isActive: false,
-            defaultPadding: 30,
+            defaultPadding: 20,
         }
     },
     computed: {
         styleObject() {
             return {
-                paddingTop: this.defaultPadding +'px',
-                paddingBottom: this.defaultPadding +'px',
+                paddingTop: ((this.examen.id % 2) === 0 ? this.defaultPadding + 10 : this.defaultPadding) + 'px',
+                paddingBottom: ((this.examen.id % 2) === 0 ? this.defaultPadding + 10 : this.defaultPadding) + 'px',
             }
         },
         classObject() {

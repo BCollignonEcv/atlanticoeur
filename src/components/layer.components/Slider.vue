@@ -50,7 +50,9 @@ import "swiper/swiper.scss";
         slidesPerView: normalizedOptions.slidesPerView,
       },
     }"
-    :mousewheel="true"
+    :mousewheel="{
+      forceToAxis: true,
+    }"
     :keyboard="true"
     :modules="modules"
     :class="{ swiperOverlay: normalizedOptions.overlay}"
@@ -158,10 +160,10 @@ import "swiper/swiper.scss";
         height: 100%;
         left: $wrapper-global-margin;
         z-index: 25;
-        width: 40vw;
+        width: 30vw;
       }
       .swiper-slide-empty{
-        width: 40vw;
+        width: 30vw;
       }
     }
   }

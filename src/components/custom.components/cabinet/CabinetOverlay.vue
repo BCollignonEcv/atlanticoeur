@@ -120,10 +120,6 @@ export default {
                     border-bottom: 1px solid $color-grey-6;
                 }
 
-                p{
-                    @include font-bold;
-                }
-
                 a{
                     @include hoverLink;
                 }
@@ -158,7 +154,7 @@ export default {
         }
 
         @media screen and (min-width: $breackpoint-desktop){
-            width: 40vw;
+            width: 30vw;
         }
     }
 </style>

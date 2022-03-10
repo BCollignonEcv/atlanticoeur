@@ -145,11 +145,9 @@ export default {
             &:last-of-type{}
 
             p{
-                @include font-bold;
             }
 
             a{
-                @include font-bold;
                 transition: .5s ease;
             }
 
@@ -162,7 +160,6 @@ export default {
             border-top: none;
             h5{
                 @include font-size-4;
-                @include font-bold;
                 margin-block-start: 0;
                 margin-block-end: 0;
             }
@@ -170,7 +167,6 @@ export default {
 
         p, a{
             @include font-size-4;
-            @include font-bold;
         }
 
         @media screen and (max-width: $breackpoint-tablette) {

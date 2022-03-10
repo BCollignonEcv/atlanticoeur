@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
     .btn {
-        border: 1px solid $color-grey-6;
+        border: 1px solid $color-grey-5;
         height: fit-content;
         cursor: pointer;
         display: inline-flex;
