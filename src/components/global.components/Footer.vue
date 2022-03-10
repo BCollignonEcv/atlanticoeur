@@ -50,7 +50,7 @@
                         <ul>
                             <Collapse>
                                 <template v-slot:header>
-                                    <li class="item-title"><h5>Menu</h5><span>+</span></li>
+                                    <li class="item-title"><h5>Menu</h5><span ref="collapseIcon">+</span></li>
                                 </template>
                                 <template v-slot:content>
                                     <li class="link"><router-link to="/" @click="scrollToTop">Accueil</router-link></li>
@@ -66,7 +66,7 @@
                     <ul>
                         <Collapse>
                             <template v-slot:header>
-                                <li class="item-title"><h5>Le cabinet</h5><span>+</span></li>
+                                <li class="item-title"><h5>Le cabinet</h5><span ref="collapseIcon">+</span></li>
                             </template>
                             <template v-slot:content>
                                 <li><p>SCM Atlanticoeur</p></li>
@@ -83,7 +83,7 @@
                     <ul>
                         <Collapse>
                             <template v-slot:header>
-                                <li class="item-title"><h5>Nous contacter</h5><span>+</span></li>
+                                <li class="item-title"><h5>Nous contacter</h5><span ref="collapseIcon">+</span></li>
                             </template>
                             <template v-slot:content>
                                 <li class="link"><a href="tel:+33546410753">Tél : +33 5 46 41 07 53</a></li>
@@ -96,7 +96,7 @@
                     <ul>
                         <Collapse>
                             <template v-slot:header>
-                                <li class="item-title"><h5>Crédits</h5><span>+</span></li>
+                                <li class="item-title"><h5>Crédits</h5><span ref="collapseIcon">+</span></li>
                             </template>
                             <template v-slot:content>
                                 <li class="link"><a target="_blank" rel="noopener" href="https://www.collignonbaptiste.com">Dev. : Collignon Baptiste</a></li>
