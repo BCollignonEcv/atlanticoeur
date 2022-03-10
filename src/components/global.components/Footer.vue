@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     footer{
         width: 100%;
         background-color: $color-grey-3;
@@ -143,9 +143,7 @@ export default {
 
         li{
             &:last-of-type{}
-
-            p{
-            }
+            p{}
 
             a{
                 transition: .5s ease;

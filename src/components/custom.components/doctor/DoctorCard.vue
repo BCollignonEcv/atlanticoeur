@@ -89,8 +89,7 @@ export default {
             let target = document.getElementById('doctorDescription-'+this.doctor.id);
             if(target){
                 setTimeout(function(){ 
-                    target.scrollIntoView({behavior: "smooth", block: "center"})
-                    target.classList.add('active')
+                    target.scrollIntoView({behavior: "smooth", block: "end"})
                 }, 200);
             }
         },

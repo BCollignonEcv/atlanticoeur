@@ -244,7 +244,11 @@ export default {
         .description-doctor{
             .description-collapse{
 
-                &.description-collapse--title{}
+                &.description-collapse--title{
+                    padding: $margin-3;
+                    justify-content: space-between;
+                    align-items: center;
+                }
 
                 &.description-collapse--content{}
                 
