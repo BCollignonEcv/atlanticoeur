@@ -24,10 +24,18 @@ export default {
                 "close": "+", 
                 "open": "−"
             },
-            active: this.selected,
         }
     },
+    computed: {
+        active() {return this.selected},
+    },
     mounted(){
+        if(this.active){
+            this.toggleCollapse();
+        }
+    },
+    updated(){
+        console.log(this.active)
         if(this.active){
             this.toggleCollapse();
         }

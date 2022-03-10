@@ -1,7 +1,7 @@
 <template>
-    <div class="description-doctor" :id="'doctorDescription'+doctor.id">
+    <div class="description-doctor" :id="'doctorDescription-'+doctor.id">
         <template v-if="responsiveDisplay.tablette">
-                <Collapse :selected="isSelected">
+                <Collapse :selected="active">
                     <template v-slot:header>
                         <div class="description-collapse description-collapse--title">
                             <div class="description-aside">
@@ -57,7 +57,7 @@
                 </Collapse>
         </template>
         <template v-else>
-            <Collapse :selected="isSelected">
+            <Collapse :selected="active">
                 <template v-slot:header>
                     <div class="description-collapse description-collapse--title">
                         <h3>Dr {{doctor.firstName + ' ' + doctor.lastName}}</h3>
@@ -113,6 +113,7 @@
 <script>
 
 import { Collapse } from '@/components/layer.components'
+import { useDataStore } from '@/stores/Data.store'
 
 export default {
     name: 'DoctorDescription',
@@ -124,19 +125,16 @@ export default {
         doctorSelected: Number
     },
     data() {},
+    setup() {
+        const dataStore = useDataStore();
+        return { dataStore }
+    },
     computed: {
-        isSelected: function(){
-            return this.doctor.id === this.doctorSelected
+        active: function(){
+            return this.doctor.id === this.dataStore.activeDoctor
         }
     },
     methods: {
-        newSelected(value){
-            if (this.doctor.id != this.doctorSelected && value) {
-                this.$emit('event-selected', this.doctor.id)
-            } else {
-                this.$emit('event-selected', null)
-            }
-        },
     },
     mounted() {
         let ldJSONScript = document.createElement('script')

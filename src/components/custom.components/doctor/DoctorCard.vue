@@ -86,6 +86,13 @@ export default {
         },
         moreAbout() {
             this.dataStore.selectDoctor(this.doctor.id);
+            let target = document.getElementById('doctorDescription-'+this.doctor.id);
+            if(target){
+                setTimeout(function(){ 
+                    target.scrollIntoView({behavior: "smooth", block: "center"})
+                    target.classList.add('active')
+                }, 200);
+            }
         },
         takeAppointment(){
             this.dataStore.selectDoctor(this.doctor.id);
