@@ -19,7 +19,8 @@
         "sass": "^1.49.9",
         "swiper": "^8.0.7",
         "vue": "^3.2.31",
-        "vue-router": "^4.0.13"
+        "vue-router": "^4.0.13",
+        "vue-router-sitemap": "0.0.4"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.5.15",
