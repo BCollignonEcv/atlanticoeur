@@ -78,14 +78,14 @@ export const useDataStore = defineStore('data', {
                     "category": 0,
                     "name": "Cardiologie pédiatrique",
                     "pathImg": "specialities/cardiologie_pediatrique-cabinet_de_cardiologie_atlanticoeur.png",
-                    "description": "La cardiologie adulte s’intéresse à l’appareil cardiovasculaire, c’est-à-dire au cœur et aux vaisseaux (artères et veines), à la prévention ainsi qu’au traitement des anomalies et des maladies qui l’affectent : hypertension artérielle, insuffisance cardiaque, troubles du rythme cardiaque, angine de poitrine, athérosclérose …",
+                    "description": "La cardiologie pédiatrique est la discipline médicale qui s'intéresse à l'étude des malformations cardiaques congénitales, des cardiopathies acquises et des anomalies de la circulation systémique ( générale)  et de la circulation pulmonaire, de même qu'à la prévention, au diagnostic et à la prise en charge de ces situations chez le nouveau né et l'enfant. \nEn pratique de ville les enfants adressés en consultation sont porteurs d'un souffle cardiaque à explorer ( rechercher d'anomalie de valve par exemple ou de malformation cardiaque) , d'un retard de croissance qui doit faire rechercher une malformation cardiaque, d'infections bronchiques ou ORL à répétitions. On effectue également le suivi des enfants opérés d'une malformation cardiaque. ",
                 },
                 {
                     "id": 2,
                     "category": 0,
                     "name": "Cardiologie du sport",
                     "pathImg": "specialities/cardiologie_du_sport-cabinet_de_cardiologie_atlanticoeur.png",
-                    "description": "La cardiologie adulte s’intéresse à l’appareil cardiovasculaire, c’est-à-dire au cœur et aux vaisseaux (artères et veines), à la prévention ainsi qu’au traitement des anomalies et des maladies qui l’affectent : hypertension artérielle, insuffisance cardiaque, troubles du rythme cardiaque, angine de poitrine, athérosclérose …",
+                    "description": "La cardiologie du sport à travers l'examen du pratiquant et la réalisation d'examens orientés permet d'apprécier: \n- Les spécificités physiologiques de l’adaptation du système cardiovasculaire lié à la pratique sportive \n- Dépister des maladies cardiovasculaires chez le pratiquant d’activité physique et sportive amateur et de Haut niveau \n- Statuer sur l’aptitude à la pratique sportive des patients atteints ou suspects d’une maladie cardiovasculaire.",
                 },
                 {
                     "id": 3,
@@ -97,7 +97,7 @@ export const useDataStore = defineStore('data', {
             ],
             company: {
                 "name": "Clinique de l'Atlanticoeur",
-                "description": ["Nous sommes ravis de vous accueillir à notre cabinet de cardiologie Atlanticoeur situé à la Rochelle. Notre equipe regroupe cardiologues et angiologues pour assurer le dépistage ou le traitement d'éventuelles maladies cardiaques et vasculaires.", "Vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."],
+                "description": ["Nous sommes ravis de vous accueillir dans notre cabinet de cardiologie Atlanticoeur situé à la Rochelle. Notre equipe regroupe cardiologues et angiologues pour assurer le dépistage ou le traitement d'éventuelles maladies cardiaques et vasculaires.", "Vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."],
                 "number": 26,
                 "address": "rue Moulin des justices",
                 "city": "Puilboreau",
@@ -136,7 +136,7 @@ export const useDataStore = defineStore('data', {
             examens: [{
                 "id": 1,
                 "name": "Electrocardiogramme",
-                "description": "Autrement appelé ECG, est un test qui étudie le fonctionnement du cœur en mesurant son activité électrique."
+                "description": "Autrement appelé ECG, est un examen qui étudie le fonctionnement du cœur en mesurant son activité électrique."
             }, {
                 "id": 2,
                 "name": "Test effort",

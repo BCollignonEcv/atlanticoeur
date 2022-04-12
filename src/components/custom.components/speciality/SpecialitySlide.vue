@@ -80,6 +80,7 @@ export default {
 
                     p{
                         padding-top: $margin-5;
+                        white-space: pre-line;
                     }
                 }
 

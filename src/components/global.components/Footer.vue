@@ -137,7 +137,7 @@ export default {
 <style lang="scss" scoped>
     footer{
         width: 100%;
-        background-color: $color-grey-3;
+        background-color: $color-grey-2;
         padding-top: 7.2rem;
         padding-bottom: 7.2rem;
 
