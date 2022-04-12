@@ -96,8 +96,8 @@ export const useDataStore = defineStore('data', {
                 }
             ],
             company: {
-                "name": "Clinique de l'Atlanticoeur",
-                "description": ["Nous sommes ravis de vous accueillir dans notre cabinet de cardiologie Atlanticoeur situé à la Rochelle. Notre equipe regroupe cardiologues et angiologues pour assurer le dépistage ou le traitement d'éventuelles maladies cardiaques et vasculaires.", "Vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."],
+                "name": "Clinique de l'Atlantique",
+                "description": ["Nous sommes ravis de vous accueillir dans notre cabinet de cardiologie et d'angiologie Atlanticoeur situé à la Rochelle. Notre equipe regroupe cardiologues et angiologues pour assurer le dépistage ou le traitement d'éventuelles maladies cardiaques et vasculaires.", "Vous trouverez une brève présentation de nos cardiologues, les modalités de prises de rendez-vous, des images et des plans pour localiser plus facilement nos cabinets. \n Enfin, vous trouverez des liens et des adresses vers d’autres organismes de santé qui pourront vous être utiles dans votre prise en charge."],
                 "number": 26,
                 "address": "rue Moulin des justices",
                 "city": "Puilboreau",
@@ -166,32 +166,14 @@ export const useDataStore = defineStore('data', {
                 "content": [{
                         "title": "macirculation.com",
                         "link": "https://www.macirculation.com/",
-                        "category": "Cardiologie",
-                        "date": "2021"
+                        "category": "Angiologie",
+                        "date": "2022"
                     },
                     {
                         "title": "Fédération francaise de Cardiologie",
-                        "link": "Lien 1",
+                        "link": "https://www.fedecardio.org/",
                         "category": "Cardiologie",
-                        "date": "2020"
-                    },
-                    {
-                        "title": "Fédération francaise de Cardiologie",
-                        "link": "Lien 1",
-                        "category": "Cardiologie",
-                        "date": "2020"
-                    },
-                    {
-                        "title": "Fédération francaise de Cardiologie",
-                        "link": "Lien 1",
-                        "category": "Cardiologie",
-                        "date": "2020"
-                    },
-                    {
-                        "title": "Fédération francaise de Cardiologie",
-                        "link": "Lien 1",
-                        "category": "Cardiologie",
-                        "date": "2020"
+                        "date": "2022"
                     }
                 ]
             },

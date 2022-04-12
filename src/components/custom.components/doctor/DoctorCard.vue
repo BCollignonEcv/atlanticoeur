@@ -3,7 +3,7 @@
         <div class="card-doctor" :class="{'big': type === 'big', 'selected': isSelected}">
             <div v-if="type === 'big'">
                 <div class="card-speciality-title">
-                    <p>{{doctor.specialities[0].name}}</p>
+                    <p>{{doctor.doctorName}}</p>
                 </div>
                 <figure class="card-figure">
                     <img class="card-img" :src="getImgUrl(doctor.pathImg)" alt="" srcset="">
@@ -15,11 +15,9 @@
                         <h4>Docteur <span>{{ doctor.firstName + ' ' + doctor.lastName}}</span></h4>
                         <p class="card-doctor-subtitle">Secteur 1</p>
                     </div>
-                    <p class="card-doctor-subtitle">Spécilités</p>
                 </div>
                 <div class="card-element">
                     <div class="card-flex card-doctor-speciality" v-for="(speciality, index) in doctor.specialities" :key="index">
-                        <p>{{alphabet[index]}}</p>
                         <p>{{speciality.name}}</p>
                     </div>
                     <div v-if="Object.keys(doctor.specialities).length === 1" class="card-flex card-doctor-speciality">

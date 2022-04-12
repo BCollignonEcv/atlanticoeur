@@ -1,14 +1,18 @@
 <template>
     <div class="cta_container">
-        <!-- <button @click="$emit('takeAppointment', true)">Prendre rendez-vous</button> -->
-        <router-link to="/Praticiens"><button>Prendre rendez-vous</button></router-link>
+        <button @click="appStore.showModal('doctors')">Prendre rendez-vous</button>
     </div>
 </template>
 
 <script>
+import { useAppStore } from '@/stores/App.store'
 
 export default {
     components: {
+    },
+    setup() {
+        const appStore = useAppStore();
+        return { appStore }
     },
     props: {
         onTakeAppointment: { 

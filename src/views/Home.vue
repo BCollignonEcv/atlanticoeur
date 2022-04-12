@@ -1,6 +1,6 @@
 <template>
   <div class="home page">
-    <Section :title="'Cabinet de cardiologie \nAtlanticoeur'" :sectionSetting="['landing','splited']">
+    <Section :title="'Cabinet de cardiologie \net d\'angiologie Atlanticoeur'" :sectionSetting="['landing','splited']">
       <template v-slot:leftSide>
         <CabinetDescription />
       </template>
@@ -8,7 +8,7 @@
         <Specialities />
       </template>
     </Section>
-    <Section :title="'Les différents cardiologues du cabinet'" :sectionSetting="['grey', 'sectionPadding']" :dataSelect="dataStore.getSpecialities">
+    <Section :title="'Les différents praticiens du cabinet'" :sectionSetting="['grey', 'sectionPadding']" :dataSelect="dataStore.getSpecialities">
       <template v-slot:default>
         <DoctorCards :type-card="'small'"/>
       </template>
@@ -16,8 +16,8 @@
     <Section :title="'Les examens réalisés au cabinet'" :sectionSetting="['dark','fullHeight']">
         <Examens />
     </Section>
-    <Section :title="'La clinique atlanticoeur'" :sectionSetting="['fullWidth']">
-      <Slider :options="{ overlay: true}">
+    <Section :title="'La clinique de l\'atlantique'" :sectionSetting="['fullWidth']">
+      <Slider :options="{ overlay: true }">
         <template #overlay>
           <CabinetOverlay :typeDescription="'full'" :data="dataStore.getCompany"/>
         </template>

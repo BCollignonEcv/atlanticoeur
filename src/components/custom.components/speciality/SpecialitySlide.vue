@@ -75,8 +75,7 @@ export default {
                     padding: $margin-3;
                     border-radius: $borderRadius-1;
 
-                    h3{
-                    }
+                    // h3{}
 
                     p{
                         padding-top: $margin-5;

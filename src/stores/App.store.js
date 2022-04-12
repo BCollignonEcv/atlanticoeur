@@ -4,7 +4,8 @@ export const useAppStore = defineStore('app', {
     state: () => ({ 
         modals: {
             contact: false,
-            doctolib: false
+            doctolib: false,
+            doctors: false
         },
     }),
     getters: {

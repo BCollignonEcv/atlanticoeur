@@ -10,6 +10,9 @@
       </transition>
     </router-view>
     <Modal v-if="appStore.hasModal">
+      <div class="wrapper-section" v-if="appStore.isModal('doctors')">
+          <DoctorCards :type-card="'small'" ></DoctorCards>
+      </div>
       <Doctolib v-if="appStore.isModal('doctolib')"></Doctolib>
       <Contact v-if="appStore.isModal('contact')"></Contact>
     </Modal>
@@ -23,13 +26,16 @@ import { Header, Footer } from '@/components/global.components'
 import { Contact, Doctolib } from "@/components/custom.components"
 import { Modal } from "@/components/layer.components"
 import { useAppStore } from '@/stores/App.store'
+import { DoctorCards } from '@/components/custom.components'
+
 
 export default {
   name: 'App',
   components: {
     Header, Footer,
     Contact, Doctolib,
-    Modal
+    Modal,
+    DoctorCards
   },
   setup() {
     const appStore = useAppStore();

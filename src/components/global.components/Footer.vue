@@ -142,8 +142,8 @@ export default {
         padding-bottom: 7.2rem;
 
         li{
-            &:last-of-type{}
-            p{}
+            // &:last-of-type{}
+            // p{}
 
             a{
                 transition: .5s ease;
@@ -185,18 +185,18 @@ export default {
                     padding-top: $margin-5;
                 }
 
-                &:last-of-type{
-                }
+                // &:last-of-type{
+                // }
 
-                p{}
+                // p{}
 
                 p+p{
                     padding-top: $margin-6;
                 }
 
-                a{}
+                // a{}
 
-                &.link:hover{}
+                // &.link:hover{}
             }
 
             li.item-title{
@@ -204,8 +204,7 @@ export default {
                 border: none;
                 @include flexContainer($justify: space-between);
 
-                h5{
-                }
+                // h5{}
             }
         }
 
@@ -226,17 +225,17 @@ export default {
                     border-bottom: 1px solid $color-grey-1;
                 }
 
-                p{}
+                // p{}
 
-                a{}
+                // a{}
 
-                &.link:hover{}
+                // &.link:hover{}
             }
 
             li.item-title{
                 margin-bottom: 4.8rem;
 
-                h5{}
+                // h5{}
             }
         }
     }
