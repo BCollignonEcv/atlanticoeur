@@ -38,17 +38,25 @@ export const useDataStore = defineStore('data', {
                 },
                 {
                     "id": 2,
-                    "firstName": "Cyril",
-                    "lastName": "Huet",
-                    "pathImg": "doctors/cardiologue_cyril_huet-cabinet_de_cardiologie-atlanticoeur.jpg",
+                    "firstName": "Pauline",
+                    "lastName": "Roy",
+                    "pathImg": "doctors/cardiologue_pauline_roy-cabinet_de_cardiologie-atlanticoeur.jpg",
                     "doctorName": "Cardiologue",
-                    "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/cyril-huet?locale=fr",
-                    "specialities": [1],
-                    "conventionType": 1,
-                    "presentation": "Le docteur Cyril HUET vous accueille dans son cabinet à Puilboreau. Le praticien réalise des consultations de cardiologie adulte et pédiatrique.",
+                    "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/pauline-roy-puilboreau?locale=fr",
+                    "specialities": [0, 1],
+                    "conventionType": "2 avec Optam",
+                    "presentation": "Le cardiologue est spécialiste du cœur et de ses pathologies ainsi que des problèmes vasculaires. Vous pouvez le consulter en cas d'insuffisance cardiaque, de péricardite ou plus généralement d'ssoufflements anormaux, de palpitations ou encore de douleurs thoraciques",
                     "vitalCard": "Acceptée",
                     "tiersPayant": "Sécurité Sociale",
-                    "RPPS": 10002700218
+                    "diplomes": [
+                        "D.U. Cardiologie pédiatrique - Université René Descartes - Paris 5", 
+                        "D.E.S. Cardiologie et maladies vasculaires - Faculté de médecine de Poitiers",
+                        "D.I.U. Imagerie cardiaque en coupes - Faculté de médecine de Poitiers",
+                        "D.I.U. Échocardiographie - Faculté de médecine de Poitiers",
+                        "D.I.U. Système cardiovasculaire et sport - Faculté de médecine de Poitiers",
+                        "Parcours sommeil: syndrome d'apnée hypopnées obstructives du sommeil"
+                    ],
+                    "RPPS": 10100386696
                 },
                 {
                     "id": 3,
@@ -65,6 +73,21 @@ export const useDataStore = defineStore('data', {
                     "diplomes": ["DES de pathologie cardio vasculaire - CHU de tours", ],
                     "RPPS": 10002084035
                 },
+                // {
+                //     "id": 4,
+                //     "firstName": "Sophie",
+                //     "lastName": "Taillandier",
+                //     "pathImg": "doctors/cardiologue_sophie_taillandier-cabinet_de_cardiologie-atlanticoeur.jpg",
+                //     "doctorName": "Cardiologue",
+                //     "doctolib": "https://partners.doctolib.fr/cardiologue/puilboreau/sophie-taillandier?locale=fr",
+                //     "specialities": [0],
+                //     "conventionType": "2 avec Optam",
+                //     "presentation": "",
+                //     "vitalCard": "Acceptée",
+                //     "tiersPayant": "Sécurité Sociale",
+                //     "diplomes": ["Diplôme d'État de docteur en médecine - Faculté de médecine de Tours", ],
+                //     "RPPS": 10100349561
+                // },
             ],
             specialities: [{
                     "id": 0,
