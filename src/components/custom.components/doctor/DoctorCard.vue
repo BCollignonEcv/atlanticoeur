@@ -13,7 +13,7 @@
                 <div class="card-element">
                     <div class="card-flex">
                         <h4>Docteur <span>{{ doctor.firstName + ' ' + doctor.lastName}}</span></h4>
-                        <p class="card-doctor-subtitle">Secteur 1</p>
+                        <p class="card-doctor-subtitle">Secteur {{ doctor.conventionType }}</p>
                     </div>
                 </div>
                 <div class="card-element">

@@ -47,10 +47,11 @@ export default {
         @include flexContainer($align: stretch);
         margin: 0 -1.2rem;
         padding: 0 0 4.8rem 0;
+        flex-wrap: wrap;
 
         & > .card-doctor{
             margin: 1.2rem;
-            width: calc(25% - 2.4rem);
+            width: calc(33% - 2.4rem);
         }
 
         @media screen and (max-width: $breackpoint-desktop){

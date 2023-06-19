@@ -34,7 +34,7 @@
                     <ul>
                         <li class="item-title"><h5>Crédits <span style="float: right">2021</span></h5></li>
                         <li class="link"><a target="_blank" rel="noopener" href="https://www.collignonbaptiste.com">Dev. : Collignon Baptiste</a></li>
-                        <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Nicolas Enzo</a></li>
+                        <!-- <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Nicolas Enzo</a></li> -->
                         <li><br></li>
                         <li><p>@ 2021, SCM Atlanticoeur</p></li>
                     </ul>
@@ -100,7 +100,7 @@
                             </template>
                             <template v-slot:content>
                                 <li class="link"><a target="_blank" rel="noopener" href="https://www.collignonbaptiste.com">Dev. : Collignon Baptiste</a></li>
-                                <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Nicolas Enzo</a></li>
+                                <!-- <li class="link"><a target="_blank" rel="noopener" href="https://www.enzonicolas.eu">Design : Nicolas Enzo</a></li> -->
                             </template>
                         </Collapse>
                     </ul>
